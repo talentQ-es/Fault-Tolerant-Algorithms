@@ -730,8 +730,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <span id="sec-fta-grover-imple-trivial-oracle"></span><h2><a class="toc-backref" href="#id98">Oráculo “trivial”.</a><a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
 <p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está echo “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a esta caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
 <p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <code class="docutils literal notranslate"><span class="pre">M_list_bin_qiskit</span></code>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b308f6d-29fb-44a3-ae25-cf64b4d3c952">
-<span class="eqno">(75)<a class="headerlink" href="#equation-6b308f6d-29fb-44a3-ae25-cf64b4d3c952" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e68337b9-f806-4a40-89a9-fd7571919eb1">
+<span class="eqno">(75)<a class="headerlink" href="#equation-e68337b9-f806-4a40-89a9-fd7571919eb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{M_list_bin_qiskit} = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
 \end{equation}\]</div>
 <div class="note admonition">
@@ -884,8 +884,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="el-sudoku">
 <h4>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h4>
 <p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85848da8-a051-48a3-82c7-93e59d85ae0c">
-<span class="eqno">(76)<a class="headerlink" href="#equation-85848da8-a051-48a3-82c7-93e59d85ae0c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac615296-e913-4960-a3ab-80139cd33d17">
+<span class="eqno">(76)<a class="headerlink" href="#equation-ac615296-e913-4960-a3ab-80139cd33d17" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\lc
 	\begin{matrix}
 	V_0 &amp; V_1 \\
@@ -897,8 +897,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="condiciones-y-puerta-xor">
 <h4>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h4>
 <p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3df1020b-edbf-428d-8b30-a500e268c80d">
-<span class="eqno">(77)<a class="headerlink" href="#equation-3df1020b-edbf-428d-8b30-a500e268c80d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d8e24001-a870-41ea-a11b-c614fd6d81e0">
+<span class="eqno">(77)<a class="headerlink" href="#equation-d8e24001-a870-41ea-a11b-c614fd6d81e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_0 \neq V_1, \qquad 
 V_0 \neq V_2, \qquad
 V_2 \neq V_3, \qquad

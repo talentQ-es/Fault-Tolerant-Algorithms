@@ -1,32 +1,8 @@
 # Fault-Tolerant Algoritms
 
-<figure><center>
-<img   src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" align=center  width="2000px"/>
-</center></figure>
+En estos notebooks veremos una serie de algoritmos conocidos como "Fault-Tolerant". Este nombre hace referencia a que para que estos algortimos funcionen, necesitariamos ejecutarlos en un ordenador cuántico tolerante a fallos. Los algoritmos más conocidos de este estilo son el de Shor y el de Grover.
 
-En estos notebooks veremos una serie de algortimos conocidos como "Fault-Tolerant". Este nombre hace referencia a que para que estos algortimos funcionen, necesitariamos ejecutarlos en un ordenador cuántico tolerante a fallos. Los algoritmos más conocidos de este estilo son el de Shor y el de Grover.
 
-Autores:
-- David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/))
-::::{figure} images/Logo_UMA.jpeg
-:width: 200px
-:align: center
-::::
-- Raul Fuentes ([BSC-CNS](https://www.bsc.es/es))
-::::{figure} images/BSC-blue-medium.png
-:width: 200px
-:align: center
-::::
-- Daniel Talaván  ([cenits](https://www.cenits.es/))
-::::{figure} images/xaniversario_rectangle.jpg
-:width: 200px
-:align: center
-::::
-- Francisco Matanza ([UNICAN](https://web.unican.es/))
-::::{figure} images/Logo_UNICAM.jpg
-:width: 200px
-:align: center
-::::
 
 
 
@@ -40,7 +16,21 @@ Autores:
 %*
 %```
 
+Autores:
+- David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-CNS](https://www.bsc.es/es)), Daniel Talaván  ([Cenits](https://www.cenits.es/)), Francisco Matanza ([UNICAN](https://web.unican.es/))
+
+
+<img src="images/Logo_UMA.jpeg"  width="180px">
+<img src="images/BSC-blue-medium.png" width="180px">
+<img src="images/xaniversario_rectangle.jpg" width="180px">
+<img src="images/Logo_UNICAM.jpg" width="180px">
+
+
 ---
+<figure><center>
+<img   src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" align=center  width="2000px"/>
+</center></figure>
+
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

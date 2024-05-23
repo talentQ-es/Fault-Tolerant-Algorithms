@@ -5,17 +5,20 @@ En estos notebooks veremos una serie de algortimos conocidos como "Fault-Toleran
 
 Autores:
 - David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/))
-<figure><center>
-<img src="images/Logo_UMA.jpeg" align=center width='200px'/>
-</center></figure>
+::::{figure} images/Logo_UMA.jpeg
+:width: 200px
+:align: center
+::::
 - Raul Fuentes ([BSC-CNS](https://www.bsc.es/es))
-<figure><center>
-<img src="images/BSC-blue-medium.png" align=center width='200px'/>
-</center></figure>
+::::{figure} images/BSC-blue-medium.png
+:width: 200px
+:align: center
+::::
 - Daniel Talaván  ([cenits](https://www.cenits.es/))
-<figure><center>
-<img src="images/xaniversario_rectangle.jpg" align=center width='200px'/>
-</center></figure>
+::::{figure} images/xaniversario_rectangle.jpg
+:width: 200px
+:align: center
+::::
 - Francisco Matanza 
 
 

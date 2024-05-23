@@ -504,8 +504,8 @@ document.write(`
 </ul>
 </div>
 <p>Vamos a empezar el análisis formal tratando el caso en el que <strong>conocemos el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones</strong> que hay en nuestro dataset. Es decir, tenemos <span class="math notranslate nohighlight">\(M\)</span> valores diferentes <span class="math notranslate nohighlight">\(i\)</span> que cumplen <span class="math notranslate nohighlight">\(L_i=x\)</span>. Denominemos <span class="math notranslate nohighlight">\(\omega\)</span> al conjunto de los <span class="math notranslate nohighlight">\(M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que son solución, y denominemos <span class="math notranslate nohighlight">\(\omega^\perp\)</span> al conjunto de los <span class="math notranslate nohighlight">\(N-M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que no son solución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1442957a-48c8-4669-a0c9-58d35eae6586">
-<span class="eqno">(22)<a class="headerlink" href="#equation-1442957a-48c8-4669-a0c9-58d35eae6586" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1578f0a4-3d41-4ec9-acbf-434a09d18e98">
+<span class="eqno">(22)<a class="headerlink" href="#equation-1578f0a4-3d41-4ec9-acbf-434a09d18e98" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \boxed{\omega = \lch i | L_{i} = x \rch }
 &amp; \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
 \end{align}\]</div>
@@ -550,8 +550,8 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Nuevamente, los factores <span class="math notranslate nohighlight">\(\sqrt{N-M}\)</span> y <span class="math notranslate nohighlight">\(\sqrt{M}\)</span> en las definiciones de <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega \rangle\)</span> son para hacerlos vectores unitarios</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56fd357d-1157-42ca-99ae-a89cef3ff91b">
-<span class="eqno">(28)<a class="headerlink" href="#equation-56fd357d-1157-42ca-99ae-a89cef3ff91b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-74d8bef6-a5e7-4e16-addd-fa9762306c2b">
+<span class="eqno">(28)<a class="headerlink" href="#equation-74d8bef6-a5e7-4e16-addd-fa9762306c2b" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \langle \omega^{\perp} | \omega^{\perp} \rangle = 1 
 &amp; \langle \omega | \omega \rangle = 1 .
 \end{align}\]</div>
@@ -590,18 +590,18 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 <section id="numero-de-iteraciones">
 <span id="sec-fta-grover-t-conocido-iteraciones"></span><h2><a class="toc-backref" href="#id97">Número de iteraciones.</a><a class="headerlink" href="#numero-de-iteraciones" title="Permalink to this heading">#</a></h2>
 <p>Denominemos <span class="math notranslate nohighlight">\(T\)</span> al <strong>número de iteraciones para el cual la probabilidad de medir la solución correcta se maximiza</strong>. Es decir, <span class="math notranslate nohighlight">\(l(T) \approx 0\)</span> y <span class="math notranslate nohighlight">\(k(T) \approx 1\)</span>. Sabemos que <span class="math notranslate nohighlight">\(l(\tilde{T}) =0\)</span> cuando el coseno es igual cero, es decir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ccfca33-592c-4177-838f-8c29ce9234b1">
-<span class="eqno">(33)<a class="headerlink" href="#equation-3ccfca33-592c-4177-838f-8c29ce9234b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1680d36-8da4-4381-93f7-6be93241ae3a">
+<span class="eqno">(33)<a class="headerlink" href="#equation-a1680d36-8da4-4381-93f7-6be93241ae3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 l(\tilde{T}) = 0 \rqa (2\tilde{T}+1) \theta = \frac{\pi}{2} \rqa \tilde{T} = \frac{\pi}{4 \theta} - \frac{1}{2}.
 \end{equation}\]</div>
 <p>Por regla general, este valor <span class="math notranslate nohighlight">\(\tilde{T}\)</span> no será un entero. Tomemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-68f04e97-c3c0-4d37-bb5e-f6913e4e61ba">
-<span class="eqno">(34)<a class="headerlink" href="#equation-68f04e97-c3c0-4d37-bb5e-f6913e4e61ba" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-ae519857-be05-4118-8870-61ecf4cb1a71">
+<span class="eqno">(34)<a class="headerlink" href="#equation-ae519857-be05-4118-8870-61ecf4cb1a71" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 T = \lfloor \pi / 4 \theta \rfloor
 \end{equation}\]</div>
 <p>donde la notación <span class="math notranslate nohighlight">\(\lfloor \alpha \rfloor\)</span> quiere decir que <strong>redondeamos a un entero por truncamiento</strong>. Véase que <span class="math notranslate nohighlight">\(|m-\tilde{m}| \leq 1/2\)</span>. Se sigue que <span class="math notranslate nohighlight">\(|(2T+1)\theta - (2\tilde{T}+1)\theta | \leq \theta \)</span>. Pero <span class="math notranslate nohighlight">\((2 \tilde{T}+1) \theta = \pi/2\)</span> por definición de <span class="math notranslate nohighlight">\(\tilde{T}\)</span>. Con lo cual <span class="math notranslate nohighlight">\(\left| \cos \Lp (2T+1) \theta \Rp \right| \leq | \sin \theta |\)</span>. Concluimos entonces que la probabilidad de fallo después de <span class="math notranslate nohighlight">\(T = \lfloor \pi / 4 \theta \rfloor\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b19d53ae-2734-48a3-a1ee-0b1f6d60d532">
-<span class="eqno">(35)<a class="headerlink" href="#equation-b19d53ae-2734-48a3-a1ee-0b1f6d60d532" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6f213a5c-01af-4e70-8f11-cb44330aefee">
+<span class="eqno">(35)<a class="headerlink" href="#equation-6f213a5c-01af-4e70-8f11-cb44330aefee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (N-M)l^2(T) = \cos^2 \Lp (2T+1) \theta \Rp \leq \sin^2 \theta = \frac{M}{N}
 \end{equation}\]</div>
 <p>que es despreciable si <span class="math notranslate nohighlight">\(M \ll N\)</span>. Véase que el <span class="math notranslate nohighlight">\((N-M)\)</span> de la expresión anterior es porque hay <span class="math notranslate nohighlight">\((N-M)\)</span> estados incorrectos que podemos medir, cada uno de ellos con probabilidad <span class="math notranslate nohighlight">\(l^2(T)\)</span>.</p>

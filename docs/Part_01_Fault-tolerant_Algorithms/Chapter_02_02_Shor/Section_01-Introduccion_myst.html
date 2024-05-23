@@ -554,8 +554,8 @@ document.write(`
 <span id="sec-fta-shor-explicacion-cualitativa"></span><h2><a class="toc-backref" href="#id106">1.3 - Explicación cualitativa.</a><a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
 <p>Vamos a intentar entender de forma cualitativa porqué calculando el periodo de una función se pueden hallar los factores de un número. En la sección <a class="reference internal" href="#sec-fta-shor-formalismo"><span class="std std-ref">1.5 - Formalismo matemático.</span></a> veremos un poco más en detalle las afirmaciones que se hacen en esta sección.</p>
 <p>La función que nos interesa es la siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46429f68-7ac2-45c3-b997-8a58928954e8">
-<span class="eqno">(1)<a class="headerlink" href="#equation-46429f68-7ac2-45c3-b997-8a58928954e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21532d3c-2a7b-4000-8c46-79f313ebe315">
+<span class="eqno">(1)<a class="headerlink" href="#equation-21532d3c-2a7b-4000-8c46-79f313ebe315" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{ mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes (es decir, cumpliéndose gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>). La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. Esta función se denomina  <strong>exponenciales moduladas</strong>, se encaja dentro de la <strong>aritmética modular</strong> y si se cumplen las condiciones anteriores esta función es periódica. Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al valor del periodo de la función <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
@@ -614,8 +614,8 @@ a^0 =1 \rightarrow f(0) = a^0 \text{ mod} N = 1 = f(r).
 a^r = \alpha N + 1
 \]</div>
 <p class="sd-card-text">con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-009c5c33-5cb3-430a-876a-84939a034fe0">
-<span class="eqno">(2)<a class="headerlink" href="#equation-009c5c33-5cb3-430a-876a-84939a034fe0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-702873bf-e3fd-400d-b06d-6febee801ea5">
+<span class="eqno">(2)<a class="headerlink" href="#equation-702873bf-e3fd-400d-b06d-6febee801ea5" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\ 
 &amp; = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
 \end{align}\]</div>

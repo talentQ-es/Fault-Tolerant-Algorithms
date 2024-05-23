@@ -1,4 +1,3 @@
-<!-- #region -->
 # Fault-Tolerant Algoritms
 
 En estos notebooks veremos una serie de algortimos conocidos como "Fault-Tolerant". Este nombre hace referencia a que para que estos algortimos funcionen, necesitariamos ejecutarlos en un ordenador cuántico tolerante a fallos. Los algoritmos más conocidos de este estilo son el de Shor y el de Grover.
@@ -19,7 +18,11 @@ Autores:
 :width: 200px
 :align: center
 ::::
-- Francisco Matanza 
+- Francisco Matanza ([UNICAN](https://web.unican.es/))
+::::{figure} images/Logo_UNICAM.jpg
+:width: 200px
+:align: center
+::::
 
 
 
@@ -32,4 +35,3 @@ Autores:
 %:glob:
 %*
 %```
-<!-- #endregion -->

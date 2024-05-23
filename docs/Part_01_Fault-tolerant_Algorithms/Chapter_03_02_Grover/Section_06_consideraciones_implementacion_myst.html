@@ -518,8 +518,8 @@ document.write(`
 	\right.}
 \end{equation} \end{split}\]</div>
 <p>Es fácil ver que podemos escribir tanto el oráculo como el difusor en función de los operadores <span class="math notranslate nohighlight">\(S_A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-06b5df0a-a0e5-4db7-9fd0-1437552a5b98">
-<span class="eqno">(64)<a class="headerlink" href="#equation-06b5df0a-a0e5-4db7-9fd0-1437552a5b98" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8b823bb9-b847-4e23-9fcd-40cb5dd1d0f2">
+<span class="eqno">(64)<a class="headerlink" href="#equation-8b823bb9-b847-4e23-9fcd-40cb5dd1d0f2" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; U_\omega = S_\omega
 &amp; \boxed{U_{\Psi_0} = - S_{\Psi_0}}
 \end{align}\]</div>
@@ -527,19 +527,19 @@ document.write(`
 <section id="caso-con-n-2-n">
 <span id="sec-fta-grover-sub-caso-n-eq-2n"></span><h3>Caso con <span class="math notranslate nohighlight">\(N = 2^n\)</span>.<a class="headerlink" href="#caso-con-n-2-n" title="Permalink to this heading">#</a></h3>
 <p>En el caso en el que el estado inicial es una superposición uniforme de la forma la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-h">(8)</a> podemos construir el difusor teniendo en cuenta que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dc0e01f2-020c-423a-8d03-905a6b03c212">
-<span class="eqno">(65)<a class="headerlink" href="#equation-dc0e01f2-020c-423a-8d03-905a6b03c212" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1115472-8a89-4a13-827b-2bf9817e59fd">
+<span class="eqno">(65)<a class="headerlink" href="#equation-a1115472-8a89-4a13-827b-2bf9817e59fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\Psi_0 \rangle = H^{\otimes n} |0 \rangle \rqa H^{\otimes n} |\Psi_0 \rangle = |0 \rangle.
 \end{equation}\]</div>
 <p>Viendo esta propiedad, podemos darnos cuenta de que si aplicamos el operador de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span> a la salida del oráculo lo que obtenemos es el estado <span class="math notranslate nohighlight">\(| 0 \rangle\)</span> más una serie de estado que corresponderán a los cambios respecto al estado inicial que ha realizado el oráculo. Lo que tenemos que hacer para aplicar el difusor es cambiarle el signo al estado <span class="math notranslate nohighlight">\(| 0 \rangle\)</span> (aplicar <span class="math notranslate nohighlight">\(S_0\)</span>) y volver a aplicar <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span> para deshacer los cambios introducidos por la última aplicación el mismo.</p>
 <p>Es decir, el difusor será de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f04d019-4579-404f-b180-35e7fb21b1cf">
-<span class="eqno">(66)<a class="headerlink" href="#equation-8f04d019-4579-404f-b180-35e7fb21b1cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efcdcd0b-1b90-4f7c-b4a4-0efdbc523c86">
+<span class="eqno">(66)<a class="headerlink" href="#equation-efcdcd0b-1b90-4f7c-b4a4-0efdbc523c86" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_{\Psi_0} = - S_{\Psi_0}= - H^{\otimes n} S_0 H^{\otimes n}
 \end{equation}\]</div>
 <p>Podemos construir <span class="math notranslate nohighlight">\(S_0\)</span> a partir de la <strong>puerta multicontrolada Z</strong> (<span class="math notranslate nohighlight">\(MCZ\)</span>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a54ca9d-ad86-4980-b4fb-5deb3bef01c0">
-<span class="eqno">(67)<a class="headerlink" href="#equation-2a54ca9d-ad86-4980-b4fb-5deb3bef01c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-553463dd-21c5-4c53-95a2-34ceea25c082">
+<span class="eqno">(67)<a class="headerlink" href="#equation-553463dd-21c5-4c53-95a2-34ceea25c082" title="Permalink to this equation">#</a></span>\[\begin{equation}
 MCZ = 
 	\lp
 		\begin{matrix}
@@ -553,8 +553,8 @@ MCZ =
 \end{equation}\]</div>
 <p>que lo que hace es cambiarle el signo al estado <span class="math notranslate nohighlight">\(|2^n-1\rangle= | 11 \dots 1\rangle\)</span>.</p>
 <p>Tenemos pues</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23216f7a-6556-4000-811e-fca8db7b9403">
-<span class="eqno">(68)<a class="headerlink" href="#equation-23216f7a-6556-4000-811e-fca8db7b9403" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2cedbe6a-a9dd-4f8c-b87d-6de37bf91c70">
+<span class="eqno">(68)<a class="headerlink" href="#equation-2cedbe6a-a9dd-4f8c-b87d-6de37bf91c70" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_0 = X^{\otimes n} (MCZ) X^{\otimes n}
 \end{equation}\]</div>
 <p>La puerta <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> (que consiste en aplicar puertas <span class="math notranslate nohighlight">\(X\)</span> a todos los qubits) lo que hace es</p>
@@ -584,8 +584,8 @@ Sin embargo, como es su propia inversa (<span class="math notranslate nohighligh
 <section id="caso-con-n-neq-2-n">
 <span id="sec-fta-grover-subsec-n-neq-2n"></span><span id="sec-fta-grover-sub-n-no-2-n"></span><h3>Caso con <span class="math notranslate nohighlight">\(N \neq 2^n\)</span>.<a class="headerlink" href="#caso-con-n-neq-2-n" title="Permalink to this heading">#</a></h3>
 <p>Las limitación que hemos impuesto hasta ahora diciendo que <span class="math notranslate nohighlight">\(N\)</span> debía ser una potencia de <span class="math notranslate nohighlight">\(2\)</span> viene de la transformación de Walsh-Hadammard</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f5e9444-ba8f-47a2-824c-ccd289d463ce">
-<span class="eqno">(70)<a class="headerlink" href="#equation-7f5e9444-ba8f-47a2-824c-ccd289d463ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-face0f66-ef53-4c13-af0e-b2acbae1d830">
+<span class="eqno">(70)<a class="headerlink" href="#equation-face0f66-ef53-4c13-af0e-b2acbae1d830" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H^{\otimes n} |j \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} (-1)^{i \cdot j} | i \rangle, \qquad \text{ (donde } i \cdot j \text{ denota el producto escalar binario)}
 \end{equation}\]</div>
 <p>Esta transformación, que se usa para generar el estado inicial y se en el difusor, no está bien definida si no se cumple que <span class="math notranslate nohighlight">\(N=2^n\)</span>.</p>
@@ -595,8 +595,8 @@ H^{\otimes n} |j \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} (-1)^{i \cdot j} 
 \boxed{F |0 \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} | i \rangle}
 \end{equation} \]</div>
 <p>y seguiremos teniendo interaciones de Grover válidas aplicando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be7b20ee-d427-41f7-a1a6-574585de9ef2">
-<span class="eqno">(72)<a class="headerlink" href="#equation-be7b20ee-d427-41f7-a1a6-574585de9ef2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5af5e4df-2a18-459a-a414-cb97a69ce1fd">
+<span class="eqno">(72)<a class="headerlink" href="#equation-5af5e4df-2a18-459a-a414-cb97a69ce1fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F S_0 F^{-1} U_\omega
 \end{equation}\]</div>
 <p>De hecho, cuando estamos en el caso <span class="math notranslate nohighlight">\(N = 2^n\)</span>, la Walsh-Hadammard es simplemente la elección más sencilla de <span class="math notranslate nohighlight">\(F\)</span>. Para el caso en el que <span class="math notranslate nohighlight">\(N\)</span> no es una potencia de dos, podemos usar la transformación de Fourier de Kitaev <span id="id1">[<a class="reference internal" href="#id91" title="A. Yu. Kitaev. Quantum measurements and the abelian stabilizer problem. 1995. arXiv:quant-ph/9511026.">2</a>]</span>. Puede verse también <span id="id2">[<a class="reference internal" href="#id92" title="Lov K. Grover. Quantum computers can search rapidly by using almost any transformation. Phys. Rev. Lett., 80:4329–4332, May 1998. URL: https://link.aps.org/doi/10.1103/PhysRevLett.80.4329, doi:10.1103/PhysRevLett.80.4329.">1</a>]</span></p>

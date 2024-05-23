@@ -517,8 +517,8 @@ Esto implica que podemos tener los siguientes casos:</p>
 <section id="algoritmo-para-el-caso-de-m-desconocido">
 <span id="sec-fta-grover-t-no-conocido-algoritmo"></span><h2><a class="toc-backref" href="#id96">Algoritmo para el caso de <span class="math notranslate nohighlight">\(M\)</span> desconocido.</a><a class="headerlink" href="#algoritmo-para-el-caso-de-m-desconocido" title="Permalink to this heading">#</a></h2>
 <p>Al igual que comentamos en la sección anterior, tenemos <span class="math notranslate nohighlight">\(M\)</span> valores diferentes <span class="math notranslate nohighlight">\(i\)</span> que cumplen <span class="math notranslate nohighlight">\(L_i=x\)</span>, solo que en este caso no conocemos <span class="math notranslate nohighlight">\(M\)</span>. Denominemos <span class="math notranslate nohighlight">\(\omega\)</span> al conjunto de los <span class="math notranslate nohighlight">\(M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que son solución, y denominemos <span class="math notranslate nohighlight">\(\omega^\perp\)</span> al conjunto de los <span class="math notranslate nohighlight">\(N-M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que no son solución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffa1486f-39eb-462b-a61f-6d2a1076f48d">
-<span class="eqno">(43)<a class="headerlink" href="#equation-ffa1486f-39eb-462b-a61f-6d2a1076f48d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ff5b5bc5-1852-4318-b1db-723ca0fa225b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-ff5b5bc5-1852-4318-b1db-723ca0fa225b" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \boxed{\omega = \lch i | L_{i} = x \rch }
 &amp; \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
 \end{align}\]</div>
@@ -558,13 +558,13 @@ Conocimientos previos<div class="sd-summary-down docutils">
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Para cualquier par de números <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>, y cualquier posible entero <span class="math notranslate nohighlight">\(r\)</span> tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-27ba8312-d1aa-41c9-9db1-45b6bf215f96">
-<span class="eqno">(44)<a class="headerlink" href="#equation-27ba8312-d1aa-41c9-9db1-45b6bf215f96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-794a84eb-bd5c-49a1-98a6-65e7e2911b81">
+<span class="eqno">(44)<a class="headerlink" href="#equation-794a84eb-bd5c-49a1-98a6-65e7e2911b81" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{j=0}^{r-1} \cos \lp \alpha + 2 \beta j \rp = \frac{\sin \lp r \beta \rp \cos (\alpha + (r-1) \beta)}{\sin \beta}.
 \end{equation}\]</div>
 <p class="sd-card-text">En particular, si <span class="math notranslate nohighlight">\(\alpha = \beta\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4bf075b9-35a7-4ba8-ac57-ba3dc1863944">
-<span class="eqno">(45)<a class="headerlink" href="#equation-4bf075b9-35a7-4ba8-ac57-ba3dc1863944" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1f0470c-f76a-4dd7-b98f-ea52d7fb7568">
+<span class="eqno">(45)<a class="headerlink" href="#equation-d1f0470c-f76a-4dd7-b98f-ea52d7fb7568" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum^{r-1}_{j=0} \cos \lp \lp 2 j + 1 \rp \alpha \rp = \frac{\sin \lp 2 r \alpha \rp}{2 \sin \alpha}.
 \end{equation}\]</div>
 </div>
@@ -636,8 +636,8 @@ Demostración<div class="sd-summary-down docutils">
 r_s = \lambda^{s-1}, \qquad \text{con } s = 1,2,\dots \quad \text{ y } \lambda = \frac{4}{3}.
 \end{equation} \]</div>
 <p class="sd-card-text">(No confundir las \textbf{iteraciones del bucle principal} con las \textbf{iteraciones de Grover}: en cada iteración <span class="math notranslate nohighlight">\(s\)</span> del bucle principal hacemos <span class="math notranslate nohighlight">\(t\)</span> iteraciones de Grover.) Sea <span class="math notranslate nohighlight">\(r_0\)</span> tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2250245-ca57-4c15-bca9-ddb81fbf9705">
-<span class="eqno">(49)<a class="headerlink" href="#equation-d2250245-ca57-4c15-bca9-ddb81fbf9705" title="Permalink to this equation">#</a></span>\[\begin{equation}  
+<div class="amsmath math notranslate nohighlight" id="equation-a3c80288-95d5-4a68-85d7-3da3f130fe81">
+<span class="eqno">(49)<a class="headerlink" href="#equation-a3c80288-95d5-4a68-85d7-3da3f130fe81" title="Permalink to this equation">#</a></span>\[\begin{equation}  
 r_0 = \frac{1}{\sin (2 \theta)}.
 \end{equation}\]</div>
 <p class="sd-card-text">(Véase que <span class="math notranslate nohighlight">\(r_0\)</span> no es valor inicial de <span class="math notranslate nohighlight">\(r_s\)</span>).</p>
@@ -667,8 +667,8 @@ r_0 = \frac{1}{\sin (2 \theta)} = \frac{N}{2 \sqrt{(N-M)M}} &lt; \sqrt{\frac{N}{
 \bar{t}_s &lt; \frac{r_s}{2} = \frac{\lambda^{s-1}}{2} \qquad \text{ donde la barra significa promedio}.
 \end{equation} \]</div>
 <p class="sd-card-text">Esto es debido a que en cada iteración del bucle principal hacemos un número aleatorio de iteraciones <span class="math notranslate nohighlight">\(t_s\)</span> de Grover con <span class="math notranslate nohighlight">\(0 \leq t_s &lt; r_s\)</span>.  Denominamos <strong>fase crítica</strong> al momento en el que hemos realizado suficientes iteraciones del bucle principal como para tener <span class="math notranslate nohighlight">\(r_s \geq r_0\)</span>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bc55538-7da8-45f7-9517-005f4b69343e">
-<span class="eqno">(52)<a class="headerlink" href="#equation-8bc55538-7da8-45f7-9517-005f4b69343e" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-941a6e3a-0e65-4bb9-b2f0-8166240e2826">
+<span class="eqno">(52)<a class="headerlink" href="#equation-941a6e3a-0e65-4bb9-b2f0-8166240e2826" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rqa s &gt; \lceil \log_\lambda r_0 \rceil.
 \end{equation}\]</div>
 <p class="sd-card-text">con lo cual, <strong>estamos en la fase crítica cuando el número de iteraciones del bucle principal es mayor que</strong> <span class="math notranslate nohighlight">\({\lceil \log_{\lambda} r_0 \rceil}\)</span> (donde esta notación significa <em>redondear hacia el siguiente entero</em>).  Si nos fijamos en el <a class="reference internal" href="#ref_FTA_grover_lemma_Pm"><span class="xref myst">Lemma anterior</span></a>, esta fase corresponde a aquella donde <span class="math notranslate nohighlight">\(P_r &gt; 1/4\)</span>.</p>
@@ -690,8 +690,8 @@ r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rq
 \end{equation} \]</div>
 <p class="sd-card-text">Vemos pues que el algoritmo llega a la fase crítica en un tiempo <span class="math notranslate nohighlight">\(\mathcal{O} (r_0) &lt; \mathcal{O}(\sqrt{N/M})\)</span>.</p>
 <p class="sd-card-text">Como ya comentamos, una vez alcanzado el estado crítico, por el <a class="reference internal" href="#ref_FTA_grover_lemma_Pm"><span class="xref myst">Lemma anterior</span></a>, sabemos que en cada nueva iteración del bucle principal la <strong>probabilidad de éxito</strong> <span class="math notranslate nohighlight">\({P_r \geq 1/4}\)</span> ya que <span class="math notranslate nohighlight">\(r_s &gt; 1/\sin (2 \theta)\)</span>. De ello se deduce que el número esperado de iteraciones de Grover necesarias para tener éxito una vez alcanzada la fase crítica está acotado superiormente por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7c62986-02fa-4ca9-8918-7987cb851b77">
-<span class="eqno">(55)<a class="headerlink" href="#equation-b7c62986-02fa-4ca9-8918-7987cb851b77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-10a737f4-ce99-48d4-af3e-33b255972063">
+<span class="eqno">(55)<a class="headerlink" href="#equation-10a737f4-ce99-48d4-af3e-33b255972063" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{\tilde{u}=1}^\infty (1-P_r)^{\tilde{u}-1} P_r \, \bar{t}_{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil} &lt; \frac{1}{2} \sum_{\tilde{u}=1}^\infty \frac{3^{\tilde{u}-1}}{4^{\tilde{u}-1}} \frac{1}{4} \lambda^{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil},
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1}\)</span> es la probabilidad de fallar <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span>, con lo que <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1} P_r\)</span> es la probabilidad de haber fallado <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span> veces y acertar en la <span class="math notranslate nohighlight">\(\tilde{u}\)</span>-esima. <span class="math notranslate nohighlight">\(\bar{t}_s\)</span> viene dada por Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-proof-j-hat">(51)</a>. Véase que para acotar las iteraciones nos hemos puesto en el peor caso, en el que la probabilidad de exito es la mínima y no aumenta (<span class="math notranslate nohighlight">\(P_r = 1/4\)</span>). Podemos hacer al cambio de variable <span class="math notranslate nohighlight">\(u = \tilde{u} -1\)</span> para poner la expresión anterior más acorde para realizar la suma de la serie geométrica (ver Ec. <a class="reference internal" href="#equation-ec-fta-grover-no-t-suma-geometrica">(54)</a>)</p>
@@ -705,8 +705,8 @@ r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rq
 = \frac{\lambda}{8-6 \lambda}r_0 = \boxed{ \frac{3}{2} r_0}.
 \end{equation} \]</div>
 <p class="sd-card-text">El número total esperado de iteraciones de Grover, en caso de que se alcance la fase crítica, está, por tanto, limitado por la suma de Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-3r0">(53)</a> más Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-3r0-2">(56)</a>, es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5da4ef40-ad0e-4d8d-a5ec-932745dd7319">
-<span class="eqno">(57)<a class="headerlink" href="#equation-5da4ef40-ad0e-4d8d-a5ec-932745dd7319" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4843a98f-1525-41c7-8c41-286f1ddf53a2">
+<span class="eqno">(57)<a class="headerlink" href="#equation-4843a98f-1525-41c7-8c41-286f1ddf53a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T = r_0 + \frac{3}{2} r_0 = \frac{9}{2} r_0 &lt; \frac{9}{2} \sqrt{\frac{M}{N}},
 \end{equation}\]</div>
 <p class="sd-card-text">con lo que el tiempo esperado total es <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> siempre que <span class="math notranslate nohighlight">\(0 &lt; M \leq 3N/4\)</span>. Véase que <span class="math notranslate nohighlight">\(\frac{9}{2} r_0 \approx \frac{9}{2} \sqrt{N/M}\)</span> cuando <span class="math notranslate nohighlight">\(M \ll N\)</span>, que es menos de 4 veces el tiempo esperado en el caso de conocer <span class="math notranslate nohighlight">\(M\)</span> de antemano (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-m">(36)</a>). El caso <span class="math notranslate nohighlight">\(M &gt; 3N/4\)</span> puede resolverse en tiempo esperado constante mediante muestreo clásico. El caso <span class="math notranslate nohighlight">\(M = 0\)</span> se maneja mediante un tiempo de espera apropiado en el algoritmo anterior, que permite afirmar en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{N})\)</span> que no hay soluciones cuando este es el caso, con una probabilidad de fallo arbitrariamente pequeña cuando de hecho hay una solución.</p>

@@ -1,9 +1,5 @@
 # Fault-Tolerant Algoritms
 
-<figure><center>
-<img   src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" align=center  width="2000px"/>
-</center></figure>
-
 En estos notebooks veremos una serie de algortimos conocidos como "Fault-Tolerant". Este nombre hace referencia a que para que estos algortimos funcionen, necesitariamos ejecutarlos en un ordenador cuántico tolerante a fallos. Los algoritmos más conocidos de este estilo son el de Shor y el de Grover.
 
 Autores:
@@ -41,6 +37,10 @@ Autores:
 %```
 
 ---
+<figure><center>
+<img   src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" align=center  width="2000px"/>
+</center></figure>
+
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

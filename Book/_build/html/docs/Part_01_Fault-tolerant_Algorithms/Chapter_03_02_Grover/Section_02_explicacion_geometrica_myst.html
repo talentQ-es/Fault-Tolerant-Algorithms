@@ -549,13 +549,13 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 <p>Es importante darse cuenta de donde sale el factor <span class="math notranslate nohighlight">\(\sqrt{N-1}\)</span> en la definición de
 <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>. Este es debido a que estamos definiendo <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>
 como un vector unitario, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2aff8e90-3cd0-4ccf-8916-1985c307464e">
-<span class="eqno">(12)<a class="headerlink" href="#equation-2aff8e90-3cd0-4ccf-8916-1985c307464e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c82d0e34-d3ab-4ebe-a322-a820c5857f96">
+<span class="eqno">(12)<a class="headerlink" href="#equation-c82d0e34-d3ab-4ebe-a322-a820c5857f96" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle \omega^{\perp}| \omega^{\perp} \rangle = 1.
 \end{equation}\]</div>
 <p>Por otro lado, <span class="math notranslate nohighlight">\(|\Psi_0\rangle\)</span> también es unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e99300d-53d6-432b-8140-23a95254fe36">
-<span class="eqno">(13)<a class="headerlink" href="#equation-4e99300d-53d6-432b-8140-23a95254fe36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbe90edd-5870-4920-855c-24f41c1685aa">
+<span class="eqno">(13)<a class="headerlink" href="#equation-cbe90edd-5870-4920-855c-24f41c1685aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \parallel |\Psi(t) \rangle \parallel^2 = \langle \Psi(t) | \Psi(t) \rangle = 
 k(t)^2 + \sum_{i \neq \omega_0}^N l(t)^2 = k(t)^2 + l(t)^2 (N-1) = 1 .
 \end{equation}\]</div>
@@ -614,8 +614,8 @@ plano <span class="math notranslate nohighlight">\(XY\)</span>.</p>
 \boxed{U_{\omega_0} |i \rangle = (-1)^{f(i)} |i \rangle}.
 \end{equation} \]</div>
 <p>De esta forma, a matriz es ahora una matriz diagonal con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d9a2fad-17d1-4504-a55c-eacc2fabaadf">
-<span class="eqno">(17)<a class="headerlink" href="#equation-1d9a2fad-17d1-4504-a55c-eacc2fabaadf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a3801b9-a026-4158-9aa9-a5690df5a531">
+<span class="eqno">(17)<a class="headerlink" href="#equation-3a3801b9-a026-4158-9aa9-a5690df5a531" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Diag(U_{\omega_0})=\lc (-1)^{f(0)}, \, (-1)^{f(1)}, \dots , \, (-1)^{f(2^n-1)}    \rc .
 \end{equation}\]</div>
 <div class="note admonition">
@@ -671,8 +671,8 @@ forma</p>
 \boxed{|\Psi(t) \rangle = \lp U_{\Psi_0} U_{\omega_0} \rp^t | \Psi_0 \rangle} = \sin \lp (2t+1) \theta_0 \rp \, |\omega_0 \rangle + \cos \lp (2t+1) \theta_0 \rp \, | \omega^{\perp} \rangle.
 \end{equation} \]</div>
 <p>Podemos ahora definir el <strong>operador de Grover</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce2de6b9-0cdd-4f06-a39e-c06571ce2058">
-<span class="eqno">(20)<a class="headerlink" href="#equation-ce2de6b9-0cdd-4f06-a39e-c06571ce2058" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7f58b989-7af2-4241-9fd2-42911162eabc">
+<span class="eqno">(20)<a class="headerlink" href="#equation-7f58b989-7af2-4241-9fd2-42911162eabc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G = U_{\Psi_0} U_{\omega_0}} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation}\]</div>
 <p>Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado <span class="math notranslate nohighlight">\(2 \theta_0\)</span> en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje <span class="math notranslate nohighlight">\(|\omega\rangle \)</span>. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es “pasarnos de largo” del eje. Discutiremos el número exacto de iteraciones en la sección <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#sec-fta-grover-t-sols"><span class="std std-ref">3. Número conocido de soluciones</span></a>, pero ya comentamos que es del orden de <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>

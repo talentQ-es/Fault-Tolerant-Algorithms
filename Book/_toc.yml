@@ -1,7 +1,7 @@
 format: jb-book
 root: docs/index
 parts:
-- caption:  Fault-tolerant Algorithms
+- caption:  Algoritmos "Fault-tolerant"
   chapters:
   - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada_myst.ipynb
     sections:

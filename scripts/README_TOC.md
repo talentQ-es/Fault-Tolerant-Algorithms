@@ -1,6 +1,6 @@
 ## Índice
 
-- **[Fault-tolerant Algorithms](./Notebooks/Part_01_Fault-tolerant_Algorithms)**
+- **[Algoritmos "Fault-tolerant"](./Notebooks/Part_01_Fault-tolerant_Algorithms)**
 
     - **[Algoritmo de Estimación Iterativa de Fase (IPE)](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada.ipynb)**
         - **[1. Teoría](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_02_IPE/Section_01_Teoria.ipynb)**

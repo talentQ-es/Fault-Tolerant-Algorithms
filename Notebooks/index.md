@@ -1,8 +1,6 @@
-# Fault-Tolerant Algoritms
+# Algoritmos "Fault-Tolerant"
 
 En estos notebooks veremos una serie de algoritmos conocidos como "Fault-Tolerant". Este nombre hace referencia a que para que estos algoritmos funcionen, necesitariamos ejecutarlos en un ordenador cuántico tolerante a fallos. Los algoritmos más conocidos de este estilo son el de Shor y el de Grover.
-
-
 
 
 

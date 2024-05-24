@@ -1,10 +1,10 @@
-title : PT3-Support
+title : Algoritmos "Fault-Tolerant"
 author: <a href="https://quantumspain-project.es">QuantumSpain</a> & <a href="https://www.talentq.es/es_es/">TalentQ</a>
 logo: 'TalentQ_LogoNegNegro.png'
 
 # Short description about the book
 description: >-
-  A brief introduction to Python programming for scientific applications.
+  Explicaciones de algunos algoritmos famosos Fault-Tolerant (aquellos que necesitan un ordenador cuántico tolerante a fallos para ser ejecutados). Entre estos algoritmos destacan el de Shor y el de Grover
 
 
 only_build_toc_files          : true  # Only build files in _toc
@@ -35,14 +35,14 @@ html:
   use_edit_page_button        : true
   comments:
     utterances:
-      repo: "jamasole/Curso-TalentQ-Book"
+      repo: "talentQ-es/Fault-Tolerant-Algorithms"
 
 # Interact link settings
 notebook_interface            : "notebook"
 
 # Launch button settings
 repository:
-  url                         : https://github.com/davidcb98/JupyterBook_plantilla
+  url                         : https://github.com/talentQ-es/Fault-Tolerant-Algorithms
   path_to_book                : "Book"    # Optional path to your book, relative to the repository root
   branch                      : master  # Which branch of the repository should be used when creating links (optional)
 

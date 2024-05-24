@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5. Conteo de soluciones (Quantum counting) &#8212; PT3-Support</title>
+    <title>5. Conteo de soluciones (Quantum counting) &#8212; Algoritmos &#34;Fault-Tolerant&#34;</title>
   
   
   
@@ -78,7 +78,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("repo", "talentQ-es/Fault-Tolerant-Algorithms");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -196,8 +196,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="PT3-Support - Home"/>
-    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="PT3-Support - Home"/>`);</script>
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Algoritmos "Fault-Tolerant" - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Algoritmos "Fault-Tolerant" - Home"/>`);</script>
   
   
 </a></div>
@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fault-tolerant Algorithms</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de IPE</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
 </ul>
@@ -291,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.ipynb" target="_blank"
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms/edit/master/Book/docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -522,13 +522,13 @@ En la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="s
 <section id="estimacion-de-fase-con-el-operador-de-grover">
 <span id="sec-fta-grover-qc-qpe-grover"></span><h2><a class="toc-backref" href="#id100">Estimación de fase con el operador de Grover.</a><a class="headerlink" href="#estimacion-de-fase-con-el-operador-de-grover" title="Permalink to this heading">#</a></h2>
 <p>Como ya comentamos anteriormente, el operador de Grover <span class="math notranslate nohighlight">\(G\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-g">(32)</a>) rota el vector de estado en un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span>, donde <span class="math notranslate nohighlight">\(\theta\)</span> está dado por la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e925ed8-5c47-4a56-a13c-56c2ad517b9f">
-<span class="eqno">(58)<a class="headerlink" href="#equation-8e925ed8-5c47-4a56-a13c-56c2ad517b9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba47d2e3-9025-4bc6-ae72-64995f512200">
+<span class="eqno">(58)<a class="headerlink" href="#equation-ba47d2e3-9025-4bc6-ae72-64995f512200" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\Psi(t+1) \rangle = G | \Psi(t) \rangle = e^{i 2 \theta} | \Psi(t) \rangle.
 \end{equation}\]</div>
 <p>En concreto, se puede aplicar sobre el estado inicial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d99c7f6b-98ab-46d2-8fd3-773bb34697b5">
-<span class="eqno">(59)<a class="headerlink" href="#equation-d99c7f6b-98ab-46d2-8fd3-773bb34697b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-66135b31-e5ee-409b-99a2-1f6715405517">
+<span class="eqno">(59)<a class="headerlink" href="#equation-66135b31-e5ee-409b-99a2-1f6715405517" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G | \Psi_0 \rangle = e^{i 2 \theta} | \Psi_0 \rangle}, 
 \qquad \text{ donde } \qquad
 | \Psi_0 \rangle = H^{\otimes n} |0\rangle = \frac{1}{2^n}  \sum_{i=0}^{2^n} | i \rangle
@@ -589,8 +589,8 @@ positivos podemos escribir</p>
 cantidad <span class="math notranslate nohighlight">\(\alpha\)</span>, así que es siempre cierto que la suma de uno de los números más
 <span class="math notranslate nohighlight">\(\alpha\)</span> es mayor que el otro. Podemos usar la primera de estas desigualdades para
 seguir con el cálculo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb2d4af3-c096-4d06-8df4-a05831e96877">
-<span class="eqno">(62)<a class="headerlink" href="#equation-fb2d4af3-c096-4d06-8df4-a05831e96877" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9781f5ec-e835-4e6f-abda-6dd105f60efd">
+<span class="eqno">(62)<a class="headerlink" href="#equation-9781f5ec-e835-4e6f-abda-6dd105f60efd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |M - \tilde{M}|  \lt N \frac{\pi}{2^p} \lp \sin \theta + \sin \tilde{\theta}  \rp \lt
 N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 \end{equation}\]</div>

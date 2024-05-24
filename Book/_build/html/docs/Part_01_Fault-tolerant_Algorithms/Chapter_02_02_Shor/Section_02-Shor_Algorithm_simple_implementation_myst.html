@@ -477,13 +477,6 @@ document.write(`
   <blockquote>
 <div><p>Feb 07, 2024 | 8 min read</p>
 </div></blockquote>
-<figure class="align-center">
-<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
-</figure>
-<p>Authors:</p>
-<ul class="simple">
-<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
-</ul>
 <p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
@@ -531,8 +524,8 @@ document.write(`
 </div>
 <p>El algoritmo de Shor se basa en el algoritmo de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id1">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id2">[<a class="reference internal" href="#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id3">[<a class="reference internal" href="#id89" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">2</a>]</span> y <span id="id4">[<a class="reference internal" href="#id91" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">3</a>]</span>). El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de <strong>encontrar el periodo de una función</strong>, el cual puede ser implementado en un tiempo polinómico.</p>
 <p>Para factorizar un número <span class="math notranslate nohighlight">\(N\)</span> básicamente el algoritmo de Shor lo que hace calcular el periodo de una función (periódica) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3706e21a-c7dc-4a4f-b214-f57f9684b24f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-3706e21a-c7dc-4a4f-b214-f57f9684b24f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d4f270b5-3cd3-4faf-ac7e-402b639cd1e5">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d4f270b5-3cd3-4faf-ac7e-402b639cd1e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes. La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. El periodo <span class="math notranslate nohighlight">\(r\)</span> de esta función se calcula mediante el algoritmo de estimación de fase cuántica. Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span> ya que existe una alta probabilidad de que el máximo común divisor de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -600,8 +593,8 @@ U |y \rangle \equiv | ay \, \text{mod} N \rangle
 U^x |1 \rangle = | f(x) \rangle
 \]</div>
 <p>Por ejemplo, para el caso que vimos en la gráfica anterior (<span class="math notranslate nohighlight">\(a=3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>) tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89514184-703d-4d01-9f10-8b3139e0c556">
-<span class="eqno">(4)<a class="headerlink" href="#equation-89514184-703d-4d01-9f10-8b3139e0c556" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec91c807-6d8a-4c05-9663-b3cb6314b882">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ec91c807-6d8a-4c05-9663-b3cb6314b882" title="Permalink to this equation">#</a></span>\[\begin{align}
 U^0 |1\rangle &amp; = |1\rangle \\
 U |1\rangle &amp; = |3\rangle \\
 U^2 |1\rangle &amp; = |9\rangle \\
@@ -611,8 +604,8 @@ U^r |1\rangle &amp; = |1\rangle
 \end{align}\]</div>
 <p>(Recordemos que dado un estado de <span class="math notranslate nohighlight">\(n\)</span> qubits <span class="math notranslate nohighlight">\(\left| x \right\rangle\)</span> tenemos que <span class="math notranslate nohighlight">\(\left| x \right\rangle = \left| x_1 x_2 \dots x_n \right\rangle\)</span> donde <span class="math notranslate nohighlight">\(x_1\)</span> es el bit más significativo.)</p>
 <p>Como podemos ver, aplicar una vez más el operador <span class="math notranslate nohighlight">\(U\)</span> significa pasar de un número al siguiente de la lista periódica. Veámoslo explícitamente:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-407d88fa-5260-49b5-975c-f5296015f78d">
-<span class="eqno">(5)<a class="headerlink" href="#equation-407d88fa-5260-49b5-975c-f5296015f78d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b66301b2-c22a-422f-9813-09f0b66d1a01">
+<span class="eqno">(5)<a class="headerlink" href="#equation-b66301b2-c22a-422f-9813-09f0b66d1a01" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(U^0 |1\rangle) &amp; = U(|1\rangle) = |3\rangle \\
 U(U |1\rangle) &amp; = U(|3\rangle) = |9\rangle \\
 U(U^2 |1\rangle) &amp; = U(|9\rangle) = |27\rangle\\
@@ -635,8 +628,8 @@ Ejemplo<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2299d63c-9bd2-4729-9d46-1301a74b49d0">
-<span class="eqno">(6)<a class="headerlink" href="#equation-2299d63c-9bd2-4729-9d46-1301a74b49d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d29aac9-0cb3-4fe6-9a65-1f20d0d07c16">
+<span class="eqno">(6)<a class="headerlink" href="#equation-5d29aac9-0cb3-4fe6-9a65-1f20d0d07c16" title="Permalink to this equation">#</a></span>\[\begin{align}
 U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangle + |9 \rangle + \dots |4 \rangle + |12 \rangle \right) \right] = \\
 &amp; = \frac{1}{\sqrt{12}} \left( U|1 \rangle + U|3\rangle + U|9 \rangle + \dots U|4 \rangle + U|12 \rangle \right) = \\
 &amp; =\frac{1}{\sqrt{12}} \left( |3 \rangle + |9\rangle + |27 \rangle + \dots |12 \rangle + |1 \rangle \right) = \\
@@ -1067,6 +1060,16 @@ Guessed Factors: 3 and 1
 </dl>
 </div>
 <hr class="docutils" />
+<p>Autores:</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<a class="reference internal image-reference" href="../../../_images/Logo_UMA2.jpeg"><img alt="../../../_images/Logo_UMA2.jpeg" src="../../../_images/Logo_UMA2.jpeg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/BSC-blue-medium2.png"><img alt="../../../_images/BSC-blue-medium2.png" src="../../../_images/BSC-blue-medium2.png" style="width: 195px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle2.jpg"><img alt="../../../_images/xaniversario_rectangle2.jpg" src="../../../_images/xaniversario_rectangle2.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Logo_UNICAM2.jpg"><img alt="../../../_images/Logo_UNICAM2.jpg" src="../../../_images/Logo_UNICAM2.jpg" style="width: 210px;" /></a>
+<hr class="docutils" />
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

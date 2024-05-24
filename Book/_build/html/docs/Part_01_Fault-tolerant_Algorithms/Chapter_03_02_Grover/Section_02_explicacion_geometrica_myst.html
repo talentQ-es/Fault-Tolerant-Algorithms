@@ -470,13 +470,6 @@ document.write(`
   <blockquote>
 <div><p>Feb 07, 2024 | 9 min read</p>
 </div></blockquote>
-<figure class="align-center">
-<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
-</figure>
-<p>Authors:</p>
-<ul class="simple">
-<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
-</ul>
 <p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
@@ -556,13 +549,13 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 <p>Es importante darse cuenta de donde sale el factor <span class="math notranslate nohighlight">\(\sqrt{N-1}\)</span> en la definición de
 <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>. Este es debido a que estamos definiendo <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>
 como un vector unitario, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-623deaa4-60db-4322-9bb6-584aa58acf59">
-<span class="eqno">(12)<a class="headerlink" href="#equation-623deaa4-60db-4322-9bb6-584aa58acf59" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16dc06e2-d7ae-4db2-9cf4-543c8dd597a4">
+<span class="eqno">(12)<a class="headerlink" href="#equation-16dc06e2-d7ae-4db2-9cf4-543c8dd597a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle \omega^{\perp}| \omega^{\perp} \rangle = 1.
 \end{equation}\]</div>
 <p>Por otro lado, <span class="math notranslate nohighlight">\(|\Psi_0\rangle\)</span> también es unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5607bf7c-7067-4cee-8583-1aa3dcd7e93e">
-<span class="eqno">(13)<a class="headerlink" href="#equation-5607bf7c-7067-4cee-8583-1aa3dcd7e93e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8eb1aeec-5c12-4eb3-bce1-7aa270659191">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8eb1aeec-5c12-4eb3-bce1-7aa270659191" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \parallel |\Psi(t) \rangle \parallel^2 = \langle \Psi(t) | \Psi(t) \rangle = 
 k(t)^2 + \sum_{i \neq \omega_0}^N l(t)^2 = k(t)^2 + l(t)^2 (N-1) = 1 .
 \end{equation}\]</div>
@@ -621,8 +614,8 @@ plano <span class="math notranslate nohighlight">\(XY\)</span>.</p>
 \boxed{U_{\omega_0} |i \rangle = (-1)^{f(i)} |i \rangle}.
 \end{equation} \]</div>
 <p>De esta forma, a matriz es ahora una matriz diagonal con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cb63cc2-e7ca-4979-9f65-4d423a893fea">
-<span class="eqno">(17)<a class="headerlink" href="#equation-2cb63cc2-e7ca-4979-9f65-4d423a893fea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efe578d0-684f-497b-aac2-9c5ee7bf5f62">
+<span class="eqno">(17)<a class="headerlink" href="#equation-efe578d0-684f-497b-aac2-9c5ee7bf5f62" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Diag(U_{\omega_0})=\lc (-1)^{f(0)}, \, (-1)^{f(1)}, \dots , \, (-1)^{f(2^n-1)}    \rc .
 \end{equation}\]</div>
 <div class="note admonition">
@@ -678,8 +671,8 @@ forma</p>
 \boxed{|\Psi(t) \rangle = \lp U_{\Psi_0} U_{\omega_0} \rp^t | \Psi_0 \rangle} = \sin \lp (2t+1) \theta_0 \rp \, |\omega_0 \rangle + \cos \lp (2t+1) \theta_0 \rp \, | \omega^{\perp} \rangle.
 \end{equation} \]</div>
 <p>Podemos ahora definir el <strong>operador de Grover</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b6c6127-e2f7-4cc6-b676-eea83b540ff1">
-<span class="eqno">(20)<a class="headerlink" href="#equation-1b6c6127-e2f7-4cc6-b676-eea83b540ff1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21b024ab-bb67-4154-bde3-de7a0db8f8ad">
+<span class="eqno">(20)<a class="headerlink" href="#equation-21b024ab-bb67-4154-bde3-de7a0db8f8ad" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G = U_{\Psi_0} U_{\omega_0}} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation}\]</div>
 <p>Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado <span class="math notranslate nohighlight">\(2 \theta_0\)</span> en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje <span class="math notranslate nohighlight">\(|\omega\rangle \)</span>. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es “pasarnos de largo” del eje. Discutiremos el número exacto de iteraciones en la sección <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#sec-fta-grover-t-sols"><span class="std std-ref">3. Número conocido de soluciones</span></a>, pero ya comentamos que es del orden de <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
@@ -702,6 +695,16 @@ forma</p>
 </dl>
 </div>
 <hr class="docutils" />
+<p>Autores:</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
+<hr class="docutils" />
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
@@ -710,8 +713,7 @@ forma</p>
 <p>This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.</p>
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
-</center>
-</section>
+</center></section>
 </section>
 
     <script type="text/x-thebe-config">

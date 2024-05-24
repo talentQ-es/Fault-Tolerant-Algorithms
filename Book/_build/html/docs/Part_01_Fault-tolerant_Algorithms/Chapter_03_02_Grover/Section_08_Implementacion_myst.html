@@ -475,14 +475,7 @@ document.write(`
   <blockquote>
 <div><p>Apr 12, 2024 | 4 min read</p>
 </div></blockquote>
-<figure class="align-center">
-<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
-</figure>
-<p>Authors:</p>
-<ul class="simple">
-<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
-<li><p>Daniel Talaván (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>)
-<span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
@@ -500,8 +493,7 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\RC}{\Bigr]} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
-<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span></p></li>
-</ul>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="implementacion">
 <h1>8. Implementación<a class="headerlink" href="#implementacion" title="Permalink to this heading">#</a></h1>
 <div class="contents local topic" id="contents">
@@ -730,8 +722,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <span id="sec-fta-grover-imple-trivial-oracle"></span><h2><a class="toc-backref" href="#id98">Oráculo “trivial”.</a><a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
 <p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está echo “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a esta caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
 <p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <code class="docutils literal notranslate"><span class="pre">M_list_bin_qiskit</span></code>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-58575a4a-b52a-48c9-a1c9-ca3ff076f437">
-<span class="eqno">(75)<a class="headerlink" href="#equation-58575a4a-b52a-48c9-a1c9-ca3ff076f437" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ba2a3c7-6279-48b8-bf27-9e3e60612591">
+<span class="eqno">(75)<a class="headerlink" href="#equation-9ba2a3c7-6279-48b8-bf27-9e3e60612591" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{M_list_bin_qiskit} = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
 \end{equation}\]</div>
 <div class="note admonition">
@@ -884,8 +876,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="el-sudoku">
 <h4>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h4>
 <p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2689085-1ac4-4287-8eaf-0bfa62baba39">
-<span class="eqno">(76)<a class="headerlink" href="#equation-b2689085-1ac4-4287-8eaf-0bfa62baba39" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f6e9b49b-83e7-4d0d-9802-717c42a6adeb">
+<span class="eqno">(76)<a class="headerlink" href="#equation-f6e9b49b-83e7-4d0d-9802-717c42a6adeb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\lc
 	\begin{matrix}
 	V_0 &amp; V_1 \\
@@ -897,8 +889,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="condiciones-y-puerta-xor">
 <h4>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h4>
 <p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58e2957e-eb82-4201-8603-3232b1ace1c0">
-<span class="eqno">(77)<a class="headerlink" href="#equation-58e2957e-eb82-4201-8603-3232b1ace1c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b2eecca2-ba58-43d2-8979-3dfb19cdd689">
+<span class="eqno">(77)<a class="headerlink" href="#equation-b2eecca2-ba58-43d2-8979-3dfb19cdd689" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_0 \neq V_1, \qquad 
 V_0 \neq V_2, \qquad
 V_2 \neq V_3, \qquad
@@ -1280,6 +1272,16 @@ Qibo</label><div class="sd-tab-content docutils">
 </dl>
 </div>
 <hr class="docutils" />
+<p>Autores:</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
+<hr class="docutils" />
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

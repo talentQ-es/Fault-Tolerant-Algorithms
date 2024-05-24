@@ -454,13 +454,6 @@ document.write(`
   <blockquote>
 <div><p>Apr 12, 2024 | 4 min read</p>
 </div></blockquote>
-<figure class="align-center">
-<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
-</figure>
-<p>Authors:</p>
-<ul class="simple">
-<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
-</ul>
 <p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
@@ -490,6 +483,16 @@ document.write(`
 <p>En estas notas vamos a ver todo lo necesario para entender el algoritmo de Grover, hablando tanto de matemática como de implementaciones. La estructura de las notas es la siguiente. En la sección <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#sec-fta-grover-geo"><span class="std std-ref">2. Explicación geométrica</span></a> veremos una explicación geométrica del algoritmo, donde se usará como ejemplo el caso más simple (una solución, <span class="math notranslate nohighlight">\(N=2^n\)</span> y distribución uniforme) y se verán las diferentes partes del algoritmo. En las siguientes secciones iremos generalizando el algoritmo a medida que relajamos las condiciones del ejemplo anterior. En la sección <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#sec-fta-grover-t-sols"><span class="std std-ref">3. Número conocido de soluciones</span></a> veremos que pasa cuando tenemos un número <span class="math notranslate nohighlight">\(M\)</span> de soluciones (conocido <span class="math notranslate nohighlight">\(M\)</span>).</p>
 <p>En la sección <a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html#sec-fta-grover-t-no-conocido"><span class="std std-ref">4. Número desconocido de soluciones</span></a> relajaremos la condición de conocer el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones y veremos que el algoritmo sigue siendo eficiente. Como continuación lógica de la sección anterior, en la sección <a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html#sec-fta-grover-quantum-counting"><span class="std std-ref">5. Conteo de soluciones (Quantum counting)</span></a> veremos un algoritmo inspirado en el algoritmo de Shor que usa el operador de Grover para contar el número de soluciones (obtener <span class="math notranslate nohighlight">\(M\)</span>). En la sección <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-cons-imple"><span class="std std-ref">6. Consideraciones sobre la implementación</span></a> hablaremos sobre la implementación del difusor y como la formulación más habitual del mismo es la responsable de imponer la condición <span class="math notranslate nohighlight">\(N=2^n\)</span>. Veremos en la subseción <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-subsec-n-neq-2n"><span class="std std-ref">Caso con N \neq 2^n.</span></a> como podemos eliminar también esta condición. Por último, en la sección <a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html#sec-fta-grover-arbitrary-distribition"><span class="std std-ref">7. Distribución de probababilidad inicial aleatoria</span></a> veremos que también es posible relajar la condición de partir de una distribución de probabilidad uniforme.</p>
 <hr class="docutils" />
+<p>Autores:</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
+<hr class="docutils" />
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
 <center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
@@ -498,8 +501,7 @@ document.write(`
 <p>This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.</p>
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
-</center>
-</section>
+</center></section>
 
     <script type="text/x-thebe-config">
     {

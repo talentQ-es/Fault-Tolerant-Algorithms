@@ -106,8 +106,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="4. Número desconocido de soluciones" href="Section_04_Numero_desconocido_sols_myst.html" />
-    <link rel="prev" title="2. Explicación geométrica" href="Section_02_explicacion_geometrica_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,6 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -215,28 +215,10 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Section_01_Introduccion_myst.html">1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3. Número conocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
-</ul>
-</li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
 </ul>
 
     </div>
@@ -497,12 +479,12 @@ document.write(`
 </ul>
 </div>
 <p>Vamos a empezar el análisis formal tratando el caso en el que <strong>conocemos el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones</strong> que hay en nuestro dataset. Es decir, tenemos <span class="math notranslate nohighlight">\(M\)</span> valores diferentes <span class="math notranslate nohighlight">\(i\)</span> que cumplen <span class="math notranslate nohighlight">\(L_i=x\)</span>. Denominemos <span class="math notranslate nohighlight">\(\omega\)</span> al conjunto de los <span class="math notranslate nohighlight">\(M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que son solución, y denominemos <span class="math notranslate nohighlight">\(\omega^\perp\)</span> al conjunto de los <span class="math notranslate nohighlight">\(N-M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que no son solución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32e944ce-2430-4ef2-a743-84977ceddbc1">
-<span class="eqno">(22)<a class="headerlink" href="#equation-32e944ce-2430-4ef2-a743-84977ceddbc1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a0cd0367-158b-40ba-b020-4cfb32147a19">
+<span class="eqno">()<a class="headerlink" href="#equation-a0cd0367-158b-40ba-b020-4cfb32147a19" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \boxed{\omega = \lch i | L_{i} = x \rch }
 &amp; \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
 \end{align}\]</div>
-<p>Supondremos también que <strong>estamos en el caso en el que</strong> <span class="math notranslate nohighlight">\(N = 2^n\)</span> y que además partimos del estado de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-1">(7)</a>, es decir, de una <strong>superposición uniforme</strong>.</p>
+<p>Supondremos también que <strong>estamos en el caso en el que</strong> <span class="math notranslate nohighlight">\(N = 2^n\)</span> y que además partimos del estado de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-1">()</a>, es decir, de una <strong>superposición uniforme</strong>.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota (Importante)</p>
 <p>Uno de los pasos del algoritmo de Grover es una reflexión de las amplitudes respecto a la media. Esto implica que podemos tener los siguientes casos:</p>
@@ -515,55 +497,55 @@ document.write(`
 <p>En esta sección vamos a seguir el artículo <span id="id1">[<a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html#id95" title="Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4-5):493–505, jun 1998. URL: https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p, doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p.">1</a>]</span>.</p>
 <section id="generalizacion-de-las-expresiones-de-la-seccion-anterior-para-m-soluciones">
 <span id="sec-fta-grover-t-conocido-expresiones"></span><h2><a class="toc-backref" href="#id96">Generalización de las expresiones de la sección anterior para <span class="math notranslate nohighlight">\(M\)</span> soluciones.</a><a class="headerlink" href="#generalizacion-de-las-expresiones-de-la-seccion-anterior-para-m-soluciones" title="Permalink to this heading">#</a></h2>
-<p>Vemos a reescribir las ecuaciones enmarcadas de la sección <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#sec-fta-grover-geo"><span class="std std-ref">2. Explicación geométrica</span></a> para el caso de <span class="math notranslate nohighlight">\(M\)</span> soluciones. Empecemos reescribiendo las expresiones del estado inicial de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-2">(9)</a> y del estado <span class="math notranslate nohighlight">\(|\Psi_j \rangle \)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-j">(19)</a></p>
+<p>Vemos a reescribir las ecuaciones enmarcadas de la sección <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#sec-fta-grover-geo"><span class="std std-ref">2. Explicación geométrica</span></a> para el caso de <span class="math notranslate nohighlight">\(M\)</span> soluciones. Empecemos reescribiendo las expresiones del estado inicial de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-2">()</a> y del estado <span class="math notranslate nohighlight">\(|\Psi_j \rangle \)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-j">()</a></p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-phi-0">
-<span class="eqno">(23)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi_0 \rangle = | \Psi (k(0),l(0)) \rangle = \sum_{i \in \omega} k(0) |i \rangle + \sum_{i  \in \omega^{\perp}}  l(0)  |i \rangle}, \quad \text{donde} \quad \boxed{k(0) = l(0) = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-phi-j">
-<span class="eqno">(24)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = \sum_{i \in \omega} k(t) |i \rangle + \sum_{i  \in \omega^{\perp}} l(t) |i \rangle }.
 \end{equation} \]</div>
 <p>Vemos que ahora el primer sumatorio tiene <span class="math notranslate nohighlight">\(M\)</span> elementos, mientras que el segundo tiene <span class="math notranslate nohighlight">\(N-M\)</span>. Por supuesto, se cumple que <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> tiene módulo 1, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-mod-1">
-<span class="eqno">(25)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-mod-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-mod-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \langle \Psi(t) |\Psi(t) \rangle = \boxed{ M k(t)^2 + (N-M) l(t)^2 = 1 \, \, \forall t}.
 \end{equation} \]</div>
-<p>Podemos ahora también redefinir el estado <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-j-s">(11)</a> y definir <span class="math notranslate nohighlight">\(| \omega \rangle\)</span></p>
+<p>Podemos ahora también redefinir el estado <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-j-s">()</a> y definir <span class="math notranslate nohighlight">\(| \omega \rangle\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-omega-omega-perp">
-<span class="eqno">(26)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-omega-omega-perp" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-omega-omega-perp" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-M}}\sum_{i \in \omega^{\perp}}  |i \rangle}
 &amp; \boxed{| \omega  \rangle = \frac{1}{\sqrt{M}}\sum_{i \in \omega} | i \rangle}
 \end{align} \]</div>
 <p>de forma que</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-phi-j-s">
-<span class="eqno">(27)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle =  k(t) \sqrt{M} |\omega \rangle + l(t) \sqrt{N-M} | \omega^{\perp}  \rangle}.
 \end{equation} \]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Nuevamente, los factores <span class="math notranslate nohighlight">\(\sqrt{N-M}\)</span> y <span class="math notranslate nohighlight">\(\sqrt{M}\)</span> en las definiciones de <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega \rangle\)</span> son para hacerlos vectores unitarios</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22f2fb2e-a03a-4e7a-acb9-17b269d7d5f2">
-<span class="eqno">(28)<a class="headerlink" href="#equation-22f2fb2e-a03a-4e7a-acb9-17b269d7d5f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-23fbc1f6-057a-4cb1-b03a-adf2ed29d4e0">
+<span class="eqno">()<a class="headerlink" href="#equation-23fbc1f6-057a-4cb1-b03a-adf2ed29d4e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \langle \omega^{\perp} | \omega^{\perp} \rangle = 1 
 &amp; \langle \omega | \omega \rangle = 1 .
 \end{align}\]</div>
 </div>
-<p>Veamos ahora la expresión del esto inicial en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-theta">(14)</a></p>
+<p>Veamos ahora la expresión del esto inicial en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span> de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-theta">()</a></p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-theta">
-<span class="eqno">(29)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \sin \theta \, |\omega \rangle + \cos \theta \, | \omega^{\perp} \rangle, \qquad \text{donde} \qquad  \boxed{\sin \theta = \sqrt{\frac{M}{N}}}.
 \end{equation} \]</div>
-<p>Nuevamente, comparando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-theta">(29)</a> y la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-phi-j-s">(27)</a> obtenemos las expresiones de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span> en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Nuevamente, comparando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-theta">()</a> y la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-phi-j-s">()</a> obtenemos las expresiones de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span> en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-sin-cos">
-<span class="eqno">(30)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{k(t) = \frac{1}{\sqrt{M}} \sin \Lc (2t+1) \theta \Rc}
 &amp; \boxed{l(t) = \frac{1}{\sqrt{N-M}}\cos \Lc (2t+1) \theta \Rc}.
 \end{align} \]</div>
-<p>Vemos que estas expresiones cumplen la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-mod-1">(25)</a>.
-Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), tenemos que el oráculo (Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-uw">(15)</a>), el difusor (Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-us">(18)</a>) nos quedan:</p>
+<p>Vemos que estas expresiones cumplen la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-mod-1">()</a>.
+Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), tenemos que el oráculo (Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-uw">()</a>), el difusor (Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-us">()</a>) nos quedan:</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-uw-us">
-<span class="eqno">(31)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-uw-us" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-uw-us" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
 &amp; \boxed{U_\omega | i \rangle = 
 	\lch
 		\begin{matrix}
@@ -575,7 +557,7 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 \end{align} \end{split}\]</div>
 <p>donde recordemos que denominamos operador de Grover a</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-g">
-<span class="eqno">(32)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-g" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-g" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{G = U_{\Psi_0} U_\omega} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation} \]</div>
 <p>Véase que el caso particular de una solución es, efectivamente, aquel con <span class="math notranslate nohighlight">\(M=1\)</span>.</p>
@@ -583,51 +565,51 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 <section id="numero-de-iteraciones">
 <span id="sec-fta-grover-t-conocido-iteraciones"></span><h2><a class="toc-backref" href="#id97">Número de iteraciones.</a><a class="headerlink" href="#numero-de-iteraciones" title="Permalink to this heading">#</a></h2>
 <p>Denominemos <span class="math notranslate nohighlight">\(T\)</span> al <strong>número de iteraciones para el cual la probabilidad de medir la solución correcta se maximiza</strong>. Es decir, <span class="math notranslate nohighlight">\(l(T) \approx 0\)</span> y <span class="math notranslate nohighlight">\(k(T) \approx 1\)</span>. Sabemos que <span class="math notranslate nohighlight">\(l(\tilde{T}) =0\)</span> cuando el coseno es igual cero, es decir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f34ebd9a-446d-430e-937a-25c084869197">
-<span class="eqno">(33)<a class="headerlink" href="#equation-f34ebd9a-446d-430e-937a-25c084869197" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b7e5642-82b3-4912-a832-9c7c512fae0e">
+<span class="eqno">()<a class="headerlink" href="#equation-6b7e5642-82b3-4912-a832-9c7c512fae0e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 l(\tilde{T}) = 0 \rqa (2\tilde{T}+1) \theta = \frac{\pi}{2} \rqa \tilde{T} = \frac{\pi}{4 \theta} - \frac{1}{2}.
 \end{equation}\]</div>
 <p>Por regla general, este valor <span class="math notranslate nohighlight">\(\tilde{T}\)</span> no será un entero. Tomemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-522f9537-61be-4e55-89de-e7f41fe034e3">
-<span class="eqno">(34)<a class="headerlink" href="#equation-522f9537-61be-4e55-89de-e7f41fe034e3" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-4cf61143-8aa3-45be-9307-4ef5833f2b33">
+<span class="eqno">()<a class="headerlink" href="#equation-4cf61143-8aa3-45be-9307-4ef5833f2b33" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 T = \lfloor \pi / 4 \theta \rfloor
 \end{equation}\]</div>
 <p>donde la notación <span class="math notranslate nohighlight">\(\lfloor \alpha \rfloor\)</span> quiere decir que <strong>redondeamos a un entero por truncamiento</strong>. Véase que <span class="math notranslate nohighlight">\(|m-\tilde{m}| \leq 1/2\)</span>. Se sigue que <span class="math notranslate nohighlight">\(|(2T+1)\theta - (2\tilde{T}+1)\theta | \leq \theta \)</span>. Pero <span class="math notranslate nohighlight">\((2 \tilde{T}+1) \theta = \pi/2\)</span> por definición de <span class="math notranslate nohighlight">\(\tilde{T}\)</span>. Con lo cual <span class="math notranslate nohighlight">\(\left| \cos \Lp (2T+1) \theta \Rp \right| \leq | \sin \theta |\)</span>. Concluimos entonces que la probabilidad de fallo después de <span class="math notranslate nohighlight">\(T = \lfloor \pi / 4 \theta \rfloor\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b063c1d-7e26-4e33-bd1e-4fe650facec0">
-<span class="eqno">(35)<a class="headerlink" href="#equation-2b063c1d-7e26-4e33-bd1e-4fe650facec0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f031731-36f5-4b24-9fbb-94120efd2871">
+<span class="eqno">()<a class="headerlink" href="#equation-1f031731-36f5-4b24-9fbb-94120efd2871" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (N-M)l^2(T) = \cos^2 \Lp (2T+1) \theta \Rp \leq \sin^2 \theta = \frac{M}{N}
 \end{equation}\]</div>
 <p>que es despreciable si <span class="math notranslate nohighlight">\(M \ll N\)</span>. Véase que el <span class="math notranslate nohighlight">\((N-M)\)</span> de la expresión anterior es porque hay <span class="math notranslate nohighlight">\((N-M)\)</span> estados incorrectos que podemos medir, cada uno de ellos con probabilidad <span class="math notranslate nohighlight">\(l^2(T)\)</span>.</p>
 <p>Véase que el algoritmo corre en un tiempo del orden de <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> ya que</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-m">
-<span class="eqno">(36)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-m" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-m" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 T \leq \frac{\pi}{4 \theta} \approx \frac{\pi}{4 \sin \theta} \approx \frac{\pi}{4} \sqrt{\frac{N}{M}} \rqa \boxed{T = \left\lfloor \frac{\pi}{4} \sqrt{\frac{N}{M}} \right\rfloor}.
 \end{equation} \]</div>
 </section>
 <section id="extra-formulacion-recursiva-de-k-t-y-l-t">
 <span id="sec-fta-grover-t-conocido-extra"></span><h2><a class="toc-backref" href="#id98">Extra: Formulación recursiva de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span>.</a><a class="headerlink" href="#extra-formulacion-recursiva-de-k-t-y-l-t" title="Permalink to this heading">#</a></h2>
-<p>Ya hemos comentado en cada iteración se aplican lo dos operadores de la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">(31)</a>, es decir</p>
+<p>Ya hemos comentado en cada iteración se aplican lo dos operadores de la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">()</a>, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-psi-j-1-j">
-<span class="eqno">(37)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-psi-j-1-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-psi-j-1-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi{(t+1)} \rangle = U_{\Psi_0} U_\omega |\Psi(t) \rangle.
 \end{equation} \]</div>
-<p>Desarrollemos esta expresión para ver la relación de recursivida de los coeficientes, es decir, para ver la expresión de <span class="math notranslate nohighlight">\(k(t+1)\)</span> y <span class="math notranslate nohighlight">\(l(t+1)\)</span> en función de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span>. Primero vamos el término <span class="math notranslate nohighlight">\(U_\omega |\Psi(t) \rangle\)</span> usando la expresión de <span class="math notranslate nohighlight">\(U_\omega\)</span> de la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">(31)</a>:</p>
+<p>Desarrollemos esta expresión para ver la relación de recursivida de los coeficientes, es decir, para ver la expresión de <span class="math notranslate nohighlight">\(k(t+1)\)</span> y <span class="math notranslate nohighlight">\(l(t+1)\)</span> en función de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span>. Primero vamos el término <span class="math notranslate nohighlight">\(U_\omega |\Psi(t) \rangle\)</span> usando la expresión de <span class="math notranslate nohighlight">\(U_\omega\)</span> de la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">()</a>:</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-aux-1">
-<span class="eqno">(38)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 U_\omega |\Psi(t) \rangle =  - k(t)  \sqrt{M}|\omega \rangle + l(t) \sqrt{N-M} | \omega^{\perp} \rangle.
 \end{equation} \]</div>
-<p>Desarrollemos un poco la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-psi-j-1-j">(37)</a> y usando la expresión de <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> de la  Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">(31)</a>:</p>
+<p>Desarrollemos un poco la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-psi-j-1-j">()</a> y usando la expresión de <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> de la  Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-uw-us">()</a>:</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-aux-2">
-<span class="eqno">(39)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \begin{split}
 |\Psi(t+1) \rangle &amp; =  U_{\Psi_0} U_\omega |\Psi(t) \rangle  \\
 &amp; =  \Bigl( 2 |\Psi_0 \rangle \langle \Psi_0 | - I \Bigr) U_\omega |\Psi(t) \rangle  \\ 
 &amp; =  2 |\Psi_0 \rangle \langle \Psi_0 |  U_\omega |\Psi(t) \rangle  - U_\omega |\Psi(t) \rangle .
 \end{split}
 \end{equation} \end{split}\]</div>
-<p>Usando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">(38)</a> el término <span class="math notranslate nohighlight">\(\langle \Psi_0 |  U_\omega |\Psi(t) \rangle\)</span> nos queda</p>
+<p>Usando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">()</a> el término <span class="math notranslate nohighlight">\(\langle \Psi_0 |  U_\omega |\Psi(t) \rangle\)</span> nos queda</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-aux-3">
-<span class="eqno">(40)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-3" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-3" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \langle \Psi_0 | U_\omega |\Psi(t) \rangle = \frac{1}{\sqrt{N}} \Lp -k(t) M + (N-M) l(t) \Rp.
 \end{equation} \]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -639,7 +621,7 @@ Cálculo de <span class="math notranslate nohighlight">\(\langle \Psi_0 |  U_\om
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="tip admonition">
 <p class="admonition-title">Cálculo</p>
-<p class="sd-card-text">Hacemos ahora el producto <span class="math notranslate nohighlight">\( \langle \Psi_0 |  U_\omega |\Psi(t) \rangle  =  \langle \Psi_0 | \Lp U_\omega |\Psi(t) \rangle \Rp \)</span> usando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">(38)</a></p>
+<p class="sd-card-text">Hacemos ahora el producto <span class="math notranslate nohighlight">\( \langle \Psi_0 |  U_\omega |\Psi(t) \rangle  =  \langle \Psi_0 | \Lp U_\omega |\Psi(t) \rangle \Rp \)</span> usando la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">()</a></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \begin{split}
@@ -657,9 +639,9 @@ Cálculo de <span class="math notranslate nohighlight">\(\langle \Psi_0 |  U_\om
 \end{equation*}\]</div>
 </div>
 </div>
-</details><p>Sustituyendo la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">(38)</a> y la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-3">(40)</a> en la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-2">(39)</a> tenemos:</p>
+</details><p>Sustituyendo la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-1">()</a> y la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-3">()</a> en la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-2">()</a> tenemos:</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-aux-4">
-<span class="eqno">(41)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-aux-4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi(t+1) \rangle  = \lp \frac{N-2M}{N} k(t) + \frac{2(N-M)}{N} l(t) \rp \sum_{i \in \omega} | i \rangle + \lp \frac{N-2M}{N} l(t) - \frac{2M}{N} k(t) \rp \sum_{i \in \omega^{\perp}} | i \rangle.
 \end{equation} \]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -681,12 +663,12 @@ Cálculo de la ecuación anterior<div class="sd-summary-down docutils">
 &amp; =  \, \lc \frac{2}{N} \Lp -k(t) M + (N-M) l(t) \Rp + k(t) \rc \sqrt{M}  | \omega \rangle   \\
 &amp; \qquad + \lc \frac{2}{N}  \Lp -k(t) M + (N-M) l(t) \Rp - l(t)  \rc \sqrt{N-M} | \omega^{\perp} \rangle.
 \end{align*}\]</div>
-<p class="sd-card-text">Simplificando y teniendo en cuenta que las expresión de <span class="math notranslate nohighlight">\(| \omega \rangle\)</span> y <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span> en la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-omega-omega-perp">(26)</a>, llegamos a la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-4">(41)</a>.</p>
+<p class="sd-card-text">Simplificando y teniendo en cuenta que las expresión de <span class="math notranslate nohighlight">\(| \omega \rangle\)</span> y <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span> en la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-omega-omega-perp">()</a>, llegamos a la Ec. <a class="reference internal" href="#equation-ec-fta-grover-t-sols-aux-4">()</a>.</p>
 </div>
 </div>
 </details><p>Finalmente llegamos a las relaciones:</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-t-sols-k-l-j-1">
-<span class="eqno">(42)<a class="headerlink" href="#equation-ec-fta-grover-t-sols-k-l-j-1" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-t-sols-k-l-j-1" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{k(t+1) = \frac{N-2M}{N} k(t) + \frac{2(N-M)}{N} l(t)},
 &amp; \boxed{l(t+1) = \frac{N-2M}{N} l(t) - \frac{2M}{N}k(t)}.
 \end{align} \]</div>
@@ -753,24 +735,6 @@ Cálculo de la ecuación anterior<div class="sd-summary-down docutils">
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="Section_02_explicacion_geometrica_myst.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2. Explicación geométrica</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Section_04_Numero_desconocido_sols_myst.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Número desconocido de soluciones</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

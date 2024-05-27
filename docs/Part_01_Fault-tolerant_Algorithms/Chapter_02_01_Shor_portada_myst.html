@@ -104,8 +104,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. Introducción" href="Chapter_02_02_Shor/Section_01-Introduccion_myst.html" />
-    <link rel="prev" title="2. Implementación y ejemplos" href="Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html" />
+    <link rel="next" title="Algoritmo de Grover" href="Chapter_03_01_Grover_portada_myst.html" />
+    <link rel="prev" title="Algoritmo de Estimación Iterativa de Fase (IPE)" href="Chapter_01_01_IPE_portada_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,27 +214,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Algoritmo de Shor</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_01_Introduccion_myst.html">1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter_03_02_Grover/Section_08_Implementacion_myst.html">8. Implementación</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Algoritmo de Shor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
 </ul>
 
     </div>
@@ -450,17 +432,11 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>May 24, 2024 | 0 min read</p>
+<div><p>May 27, 2024 | 0 min read</p>
 </div></blockquote>
 <section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-shor">
 <span id="sec-fta-shor-portada"></span><h1>Algoritmo de Shor<a class="headerlink" href="#algoritmo-de-shor" title="Permalink to this heading">#</a></h1>
 <p>En este capítulo vamos a estudiar en detalle el algoritmo de Shor.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
-</ul>
-</div>
 <hr class="docutils" />
 <p>Autores:</p>
 <p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
@@ -513,20 +489,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html"
+       href="Chapter_01_01_IPE_portada_myst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2. Implementación y ejemplos</p>
+        <p class="prev-next-title">Algoritmo de Estimación Iterativa de Fase (IPE)</p>
       </div>
     </a>
     <a class="right-next"
-       href="Chapter_02_02_Shor/Section_01-Introduccion_myst.html"
+       href="Chapter_03_01_Grover_portada_myst.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Introducción</p>
+        <p class="prev-next-title">Algoritmo de Grover</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

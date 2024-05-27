@@ -1,0 +1,597 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0875c43f",
+   "metadata": {},
+   "source": [
+    "> Feb 07, 2024 | {sub-ref}`wordcount-minutes` min read\n",
+    "\n",
+    "\n",
+    "\n",
+    "$ \\newcommand{\\bra}[1]{\\langle #1|} $\n",
+    "$ \\newcommand{\\ket}[1]{|#1\\rangle} $\n",
+    "$ \\newcommand{\\braket}[2]{\\langle #1|#2\\rangle} $\n",
+    "$ \\newcommand{\\i}{{\\color{blue} i}} $ \n",
+    "$ \\newcommand{\\Hil}{{\\cal H}} $\n",
+    "$ \\newcommand{\\cg}[1]{{\\rm C}#1} $\n",
+    "$ \\newcommand{\\lp}{\\left(} $\n",
+    "$ \\newcommand{\\rp}{\\right)} $\n",
+    "$ \\newcommand{\\lc}{\\left[} $\n",
+    "$ \\newcommand{\\rc}{\\right]} $\n",
+    "$ \\newcommand{\\lch}{\\left\\{} $\n",
+    "$ \\newcommand{\\rch}{\\right\\}} $\n",
+    "$ \\newcommand{\\Lp}{\\Bigl(} $\n",
+    "$ \\newcommand{\\Rp}{\\Bigr)} $\n",
+    "$ \\newcommand{\\Lc}{\\Bigl[} $\n",
+    "$ \\newcommand{\\Rc}{\\Bigr]} $\n",
+    "$ \\newcommand{\\Lch}{\\Bigl\\{} $\n",
+    "$ \\newcommand{\\Rch}{\\Bigr\\}} $\n",
+    "$ \\newcommand{\\rqa}{\\quad \\Rightarrow \\quad} $"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "81b282ff",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_geo)= \n",
+    "# 2. Explicación geométrica"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "104a7e33",
+   "metadata": {},
+   "source": [
+    ":::{contents}\n",
+    ":local:\n",
+    ":depth: 1\n",
+    ":::\n",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed4e052b",
+   "metadata": {},
+   "source": [
+    "Para facilitar la explicación y sin perdida de generalidad, pongámonos en el caso más simple de todos: queremos encontrar una única solución $| \\omega_0 \\rangle$ y tenemos $N=2^n$. Supongamos también que podemos partir del caso más simple, de una superposión uniforme de todos los estados. Más adelante iremos viendo generalizaciones del algoritmo para casos más complicados, como el caso de varias soluciones o el caso en el que partimos de una distribución de probabilidad aleatoria."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a3bc4fed",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_geo_superposicion)= \n",
+    "## Estado inicial: superposición"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "82a76b75",
+   "metadata": {},
+   "source": [
+    "Partimos de una superposición uniforme de $N$ estados \n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi-0_1 \n",
+    "\\begin{equation} \n",
+    "| \\Psi_0 \\rangle = \\frac{1}{\\sqrt{N}}  \\sum_{i=0}^{N} | i \\rangle.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "Esto no es más que decir que al inicio de la búsqueda, todas las opciones son igualmente probables (cualquier suposición de la ubicación de la solución es tan buena como cualquier otra)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ce0f5eec",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Recordemos que si $N=2^n$, donde $n$ es el número de qubits, este estado es fácil de construir, pues solo tenemos que aplicar puertas de Hadamard en todos los Qubits (partiendo estos del estado $|0 \\rangle$):\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi_0_H \n",
+    "\\begin{equation} \n",
+    "|\\Psi_0 \\rangle = H^{\\otimes n} |0 \\rangle^{n} = \\frac{1}{\\sqrt{N}}  \\sum_{i=0}^{N=2^n} | i \\rangle.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ab8bd036",
+   "metadata": {},
+   "source": [
+    "El objetivo del algoritmo de Grover es aumentar el valor del coeficiente que acompaña al estado $| \\omega_0 \\rangle$ que queremos encontrar, es decir, aumentar la probabilidad de que al medir, obtengamos este estado. Como la suma de todas las probabilidades tiene que ser 1, este aumento en la probabilidad del estado $| \\omega_0 \\rangle$ se produce a expensas de reducir la probabilidad del resto. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "170ac6ee",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Recordemos que en mecánica cuántica podemos tener un estado que sea la <b>superposición</b>\n",
+    "de varios estado (como es el caso anterior), pero al medir solo obtenemos <b>uno de estos \n",
+    "estado</b>. La probabilidad de medir cada uno de estos estados que forman la superposición es igual \n",
+    "al módulo cuadrado del coeficiente que lo acompaña en el vector de esto $| \\Psi \\rangle$ (el módulo \n",
+    "cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabilidad $1/N$. \n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cfac5885",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_geo_amplificacion)= \n",
+    "## Amplificación de amplitud mediante iteraciones del algoritmo"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3aabf019",
+   "metadata": {},
+   "source": [
+    "Como vamos a ver a continuación, el algoritmo de Grover tiene una interpretación geométrica muy simple: dos reflexiones que rotan el vector de estado en un plano bidimensional. \n",
+    "\n",
+    "El algoritmo de Grover consta de dos partes: un **oráculo** y un **difusor**. Para que el algoritmo maximice la probabilidad de la solución deseada tenemos realizar un número concreto de \\textbf{iteraciones}. En cada iteración del algoritmo, primero se aplica el oráculo y después el difusor. Con cada iteración la probabilidad de medir la solución deseada va aumentando. Sin embargo, es muy importante aplicar el número correcto de iteraciones que nos maximiza la probabilidad, pues tanto si nos quedamos cortos como si nos pasamos, la probabilidad de medir $|\\omega_0 \\rangle$ disminuye. Esto se va a entender muy bien a continuación, cuando veamos la explicación geométrica. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a9125d90",
+   "metadata": {},
+   "source": [
+    "Pongamos el estado inicial de la Ec. {eq}`ec_FTA_grover_geo_phi-0_1` de una forma más adecuada para nuestro propósito\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi-0_2 \n",
+    "\\begin{equation} \n",
+    "\\boxed{|\\Psi_0 \\rangle = | \\Psi (k(0),l(0)) \\rangle = k(0) |\\omega_0 \\rangle + \\sum_{i \\neq \\omega_0}  l(0)  |i \\rangle}, \\quad \\text{donde} \\quad \\boxed{k(0) = l(0) = \\frac{1}{\\sqrt{N}}}.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "Denominaremos $k(t)$ y $l(t)$ a los coeficientes que tendremos en la t-esima iteración del algoritmo, es decir\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi-j_old \n",
+    "\\begin{equation} \n",
+    "\\boxed{|\\Psi(t) \\rangle = | \\Psi (k(t),l(t)) \\rangle = k(t) |\\omega_0 \\rangle +  \\sum_{i \\neq \\omega_0}^N l(t) |i \\rangle }.\n",
+    "\\end{equation} \n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5f2d72d4",
+   "metadata": {},
+   "source": [
+    "Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado $|\\Psi(t) \\rangle$ vive en un espacio de Hilbert de $N$ dimensiones y los estados $| i \\rangle$, con $i=0,1,\\dots,N-1$ , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye $\\omega_0$, pues no es nada más que un valor de $i$ concreto). Para entender bien esto, podemos fijamos en las ecuaciones anteriores (Ec. {eq}`ec_FTA_grover_geo_phi-0_1` y Ec. {eq}`ec_FTA_grover_geo_phi-0_2`) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base\\footnote{Esto es en esencia lo mismo que con vectores en tres dimensiones: $\\vec{r} = a \\hat{x} + b \\hat{y} + c \\hat{z}$}. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores $|\\omega_0 \\rangle$ y $| \\omega^{\\perp} \\rangle$, donde este último es la suma de todos los demás elementos de la base, es decir:\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi-j-s \n",
+    "\\begin{equation} \n",
+    "\\boxed{|\\Psi(t) \\rangle = | \\Psi (k(t),l(t)) \\rangle = k(t) |\\omega_0 \\rangle + l(t) \\sqrt{N-1} | \\omega^{\\perp}  \\rangle}, \\qquad \\text{donde} \\qquad \\boxed{| \\omega^{\\perp}  \\rangle = \\frac{1}{\\sqrt{N-1}}\\sum_{i \\neq \\omega_0}^N  |i \\rangle}.\n",
+    "\\end{equation} \n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2973747b",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Es importante darse cuenta de donde sale el factor $\\sqrt{N-1}$ en la definición de \n",
+    "$|\\omega^{\\perp}\\rangle$. Este es debido a que estamos definiendo $|\\omega^{\\perp}\\rangle$ \n",
+    "como un vector unitario, es decir \n",
+    "\\begin{equation}\n",
+    "\\langle \\omega^{\\perp}| \\omega^{\\perp} \\rangle = 1.\n",
+    "\\end{equation}\n",
+    "Por otro lado, $|\\Psi_0\\rangle$ también es unitario\n",
+    "\\begin{equation}\n",
+    "\\parallel |\\Psi(t) \\rangle \\parallel^2 = \\langle \\Psi(t) | \\Psi(t) \\rangle = \n",
+    "k(t)^2 + \\sum_{i \\neq \\omega_0}^N l(t)^2 = k(t)^2 + l(t)^2 (N-1) = 1 .\n",
+    "\\end{equation}\n",
+    "Con lo cual, ese factor es necesario. \n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fdd3a71b",
+   "metadata": {},
+   "source": [
+    "Teniendo en cuenta que $|\\omega_0 \\rangle$ es un elemento de la base, eso quiere decir que es ortogonal al resto de elementos de la base. Concluimos entonces que $|\\omega_0 \\rangle$ y $| \\omega^{\\perp} \\rangle$ son ortogonales. Podemos pues dibujar nuestro vector de estado en un plano cuyos ejes son $|\\omega_0 \\rangle$ y $|\\omega^{\\perp} \\rangle$. La imagen de la izquierda de la {numref}`fig_FTA_grover_geo_1` podemos ver el estado inicial $| \\Psi_0 \\rangle$ dibujado en este plano. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "86984f16",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Veamos un ejemplo sencillo para ver a que nos referimos con esta descomposición. Pongamos que \n",
+    "tenemos un vector tridimensional unitario de la forma\n",
+    "    \n",
+    "$$ \\vec{r} = a \\vec{x} + b \\vec{y} + c \\vec{z}, \\quad \\text{ donde } a^2+b^2+c^2 = 1 .$$\n",
+    "    \n",
+    "y donde $\\vec{x}$, $\\vec{y}$ y $\\vec{z}$ son los vectores unitarios en las direcciones de los ejes\n",
+    "$X$, $Y$ y $Z$. Estos vectores unitarios son los \\textbf{elementos de la base} que comentamos \n",
+    "anteriormente (los equivalentes a los estados $|i\\rangle$ en $\\mathbb{R}^3$). Supongamos ahora que\n",
+    "nuestra solución es $\\vec{z}$. Lo que podemos hacer es juntar $a \\vec{x} + b \\vec{y}$ en un único\n",
+    "vector unitario $\\vec{v}$ que represente al plano formado por $\\vec{x}$ y $\\vec{y}$\n",
+    "\n",
+    "$$ \\vec{v} = \\frac{1}{\\sqrt{a^2+b^2}} \\lp a \\vec{x} + b \\vec{y} \\rp. $$\n",
+    "    \n",
+    "Con lo que\n",
+    "    \n",
+    "$$ \\vec{r} = c \\vec{z} + \\sqrt{a^2+b^2} \\, \\vec{v}. $$\n",
+    "    \n",
+    "De esta forma, al aumentar $c$ el vector $r$ se va poniendo cada vez más paralelo\n",
+    "al eje $Z$, mientras que si aumentamos $a$ o $b$ el vector se acerca a $\\vec{v}$, que representa el \n",
+    "plano $XY$.\n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "26aa82a4",
+   "metadata": {},
+   "source": [
+    "::::{figure} Figuras/Fig_geo_1.png\n",
+    ":name: fig_FTA_grover_geo_1\n",
+    ":width: 800px\n",
+    ":align: center\n",
+    "Estado inicial del algoritmo de Grover: superposición uniforme de los $N$ estados. En la figura de la izquierda, $| \\Psi_0 \\rangle$ representa el estado inicial, el eje $|\\omega_0 \\rangle $ representa la solución y el eje $| \\omega^{\\perp} \\rangle$ el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la \\textbf{amplitud} de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de {cite}`bib_FTA_Grover_Qiskit_textbook`.\n",
+    "::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a90fd354",
+   "metadata": {},
+   "source": [
+    "Sabemos también que todo vector en un plano podemos definirlo mediante su módulo y el ángulo respecto a uno de los ejes. Como el vector de estado tiene módulo uno (la suma de las probabilidades es uno), podemos escribirlo solo en función de un ángulo. Si llamamos $\\theta_0$ al ángulo que forman el vector de estado con el eje $| \\omega^{\\perp} \\rangle$, podemos escribir\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_theta \n",
+    "\\begin{equation} \n",
+    "| \\Psi_0 \\rangle = \\sin \\theta_0 \\, |\\omega_0 \\rangle + \\cos \\theta_0 \\, | \\omega^{\\perp} \\rangle, \\qquad \\text{donde} \\qquad  \\boxed{\\sin \\theta_0 = \\frac{1}{\\sqrt{N}}}.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "En el gráfico de barras de la derecha en la {numref}`fig_FTA_grover_geo_1` podemos ver las amplitudes de los estados. Recordemos que la probabilidad de un estado es el cuadrado de la amplitud."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "31040ebd",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_geo_oraculo)= \n",
+    "### Primera parte de las iteraciones: El oráculo."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d59778e8",
+   "metadata": {},
+   "source": [
+    "El algoritmo de Grover usa un \\textbf{oráculo} cuya función es aplicar una fase negativa al estado que buscamos, es decir\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_Uw \n",
+    "\\begin{equation} \n",
+    "\\boxed{U_{\\omega_0} | i \\rangle = \n",
+    "\t\\lch\n",
+    "\t\t\\begin{matrix}\n",
+    "\t\t\t& | i \\rangle \\quad \\text{si } i \\neq \\omega_0 \\\\\n",
+    "\t\t\t& - | i \\rangle \\quad \\text{si } i = \\omega_0.\n",
+    "\t\t\\end{matrix}\n",
+    "\t\\right.}\n",
+    "\\end{equation} \n",
+    "```\n",
+    "\n",
+    "Este oráculo no es más que una matriz diagonal con todo 1 en la diagonal menos en el elemento correspondiente al estado $| \\omega_0 \\rangle$, donde tenemos un $-1$. Veremos más adelante ejemplos de como construir este tipo de oráculos. Podemos adelantar que, aunque no es trivial construirlos pues a priori parece que tenemos que conocer la solución de antemano, tampoco es (en muchos caso) excesivamente complicado."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5aa5079e",
+   "metadata": {},
+   "source": [
+    "Una de las características importantes de este algoritmo es lo fácil que resulta convertir un problema a un oráculo de esta forma. Hay muchos problemas computacionales en los que es difícil encontrar una solución, pero relativamente fácil verificarla (problemas NP). Por ejemplo, podemos verificar fácilmente la solución de un sudoku comprobando que se cumplen todas las reglas. Para estos problemas, podemos crear una función $f$ que tome una propuesta de solución $i$ y nos devuelva $f(i)=0$ si $i$ no es solución ($i \\neq  \\omega_0$) y $f(i) = 1$ si $i$ es solución ($i \\neq  \\omega_0$). Podemos entonces definir el oráculo de la forma\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_U_f \n",
+    "\\begin{equation} \n",
+    "\\boxed{U_{\\omega_0} |i \\rangle = (-1)^{f(i)} |i \\rangle}.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "\n",
+    "De esta forma, a matriz es ahora una matriz diagonal con \n",
+    "\n",
+    "\\begin{equation}\n",
+    "Diag(U_{\\omega_0})=\\lc (-1)^{f(0)}, \\, (-1)^{f(1)}, \\dots , \\, (-1)^{f(2^n-1)}    \\rc .\n",
+    "\\end{equation}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "06f36412",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota (Retorno de fase -phase kickback-) \n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Podemos usar el retorno de fase (<b>phase kickback</b>) para construir este tipo de oráculos. \n",
+    "Si tenemos nuestra función clásica $f(x)$,   podemos convertirla en un circuito reversible de la \n",
+    "forma \n",
+    "    \n",
+    "\\begin{equation*}\n",
+    "|x \\rangle |0 \\rangle \\rightarrow |x \\rangle | 0 \\oplus f(x) \\rangle  = |x \\rangle | f(x) \\rangle .\n",
+    "\\end{equation*}\n",
+    "::::{figure} Figuras/Fig_geo_phase_kick_0.png\n",
+    ":width: 300px\n",
+    ":align: center\n",
+    "::::\n",
+    "    \n",
+    "    \n",
+    "Si inicializamos la ancilla en el estado $| -\\rangle$, tenemos (ver la segunda figura)\n",
+    "\\begin{equation*}\n",
+    "|x \\rangle |- \\rangle = \\frac{1}{\\sqrt{2}} |x \\rangle \\lp | 0 \\rangle - | 1 \\rangle \\rp \n",
+    "\\rightarrow \n",
+    "|x \\rangle \\lp | 0 \\oplus f(x) \\rangle - | 1 \\oplus f(x) \\rangle  \\rp = (-1)^{f(x))} |x \\rangle |- \\rangle .\n",
+    "\\end{equation*} \n",
+    "::::{figure} Figuras/Fig_geo_phase_kick.png\n",
+    ":width: 300px\n",
+    ":align: center\n",
+    "::::\n",
+    "    \n",
+    "    \n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4d70237a",
+   "metadata": {},
+   "source": [
+    "::::{figure} Figuras/Fig_geo_2.png\n",
+    ":name: fig_FTA_grover_geo_2\n",
+    ":width: 800px\n",
+    ":align: center\n",
+    "Primer paso del algoritmo de Grover: aplicación del \\textbf{oráculo} $U_{\\omega_0}$ para cambiar el signo de la amplitud del estado deseado. En la figura de la izquierda, \t$| \\Psi_0 \\rangle$ representa el estado inicial, el eje $|\\omega_0 \\rangle $ representa la solución y el eje $| \\omega^{\\perp} \\rangle$ el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la \\textbf{amplitud} de cada estado, donde la línea punteada representa la media. Figura tomada de {cite}`bib_FTA_Grover_Qiskit_textbook`.\n",
+    "::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "741435aa",
+   "metadata": {},
+   "source": [
+    "En la {numref}`fig_FTA_grover_geo_2` podemos ver el efecto del oráculo $U_{\\omega_0}$ sobre el vector y las amplitudes. El cambio de signo en la amplitud del estado $| \\omega_0 \\rangle$ se traduce en un cambio de signo en la proyección del vector de estado sobre este eje. A efectos prácticos, esto no es más que una reflexíón del vector de estado respecto al eje $| \\omega^{\\perp} \\rangle$. Como las probabilidades son el cuadrado de las amplitudes, este cambio de signo no se traduce en un cambio en la probabilidades. A efectos de las medidas, nada ha cambiado. En esta figura también se representa la media de las amplitudes (linea punteada). Vemos que ha disminuido la media al cambiar el signo de la amplitud del estado $| \\omega_0 \\rangle$. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a9b0748e",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_geo_difusor)= \n",
+    "### Segunda parte de las iteraciones: El difusor."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5d65157f",
+   "metadata": {},
+   "source": [
+    "El **difusor** consiste en aplicar el operador \n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_Us \n",
+    "\\begin{equation} \n",
+    "\\boxed{U_{\\Psi_0} = 2 |\\Psi_0 \\rangle \\langle \\Psi_0 | - I }.\n",
+    "\\end{equation} \n",
+    "```\n",
+    "\n",
+    "Este operador no es más que una reflexión respecto el esto inicial $|\\Psi_0 \\rangle$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "97fcfe9f",
+   "metadata": {},
+   "source": [
+    "::::{figure} Figuras/Fig_geo_3.png\n",
+    ":name: fig_FTA_grover_geo_3\n",
+    ":width: 800px\n",
+    ":align: center\n",
+    "Segundo paso del algoritmo de Grover: aplicar el operador de \\textbf{difusión} (o reflexión) $U_{\\Psi_0} = 2 |\\Psi_0 \\rangle \\langle \\Psi_0 | - I$.  En la figura de la izquierda, $| \\Psi_0 \\rangle$ representa el estado inicial, el eje $|\\omega_0 \\rangle $ representa \tla solución y el eje $| \\omega^{\\perp} \\rangle$ el resto de estados de espacio de Hilbert. En la figura de la \tderecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de {cite}`bib_FTA_Grover_Qiskit_textbook`.\n",
+    "::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ec0dd53b",
+   "metadata": {},
+   "source": [
+    "En la {numref}`fig_FTA_grover_geo_3` podemos ver el efecto del difusor.  En el diagrama de barras de la amplitud, podemos entender esta transformación como una reflexión respecto a la media de las amplitudes (la media queda igual). Como habíamos disminuido la media al aplicar el oráculo, lo que tenemos ahora es una amplificación de la amplitud del estado deseado. Esto se ve también en el plano de la izquierda, pues las amplitudes no son más que las proyecciones del vector sobre los ejes. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a383eb7e",
+   "metadata": {},
+   "source": [
+    "Lo que estamos haciendo mediante la aplicación del oráculo y el difusor no es mas que **rotar el vector de estado un ángulo** $2 \\theta_0$ (donde $\\theta_0$ está definido en la Ec. {eq}`ec_FTA_grover_geo_theta`) hacia el eje que representa nuestra solución, aumentando así su proyección, es decir, su amplitud, y con ello la probabilidad de medirlo. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8e1a0f88",
+   "metadata": {},
+   "source": [
+    "Después de $t$ iteraciones hemos aumentado el ángulo en $2t\\theta_0$, con lo que tenemos estado:\n",
+    "\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_phi-j \n",
+    "\\begin{equation} \n",
+    "\\boxed{|\\Psi(t) \\rangle = \\lp U_{\\Psi_0} U_{\\omega_0} \\rp^t | \\Psi_0 \\rangle} = \\sin \\lp (2t+1) \\theta_0 \\rp \\, |\\omega_0 \\rangle + \\cos \\lp (2t+1) \\theta_0 \\rp \\, | \\omega^{\\perp} \\rangle.\n",
+    "\\end{equation} \n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "236f9f65",
+   "metadata": {},
+   "source": [
+    "Podemos ahora definir el **operador de Grover**\n",
+    "\\begin{equation}\n",
+    "\\boxed{G = U_{\\Psi_0} U_{\\omega_0}} \\rqa |\\Psi(t) \\rangle =  G^t | \\Psi_0 \\rangle.\n",
+    "\\end{equation}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8360d6fb",
+   "metadata": {},
+   "source": [
+    "Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado $2 \\theta_0$ en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje $|\\omega\\rangle $. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es \"pasarnos de largo\" del eje. Discutiremos el número exacto de iteraciones en la sección {ref}`sec_FTA_grover_t-sols`, pero ya comentamos que es del orden de $\\sqrt{N}$.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fb475a53",
+   "metadata": {},
+   "source": [
+    "Si comparamos la Ec. {eq}`ec_FTA_grover_geo_phi-j-s` y la Ec. {eq}`ec_FTA_grover_geo_phi-j` vemos que\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_geo_sin-cos \n",
+    "\\begin{align} \n",
+    "& \\boxed{k(t) = \\sin \\Lc (2t+1) \\theta_0 \\Rc}\n",
+    "& \\boxed{l(t) = \\frac{1}{\\sqrt{N-1}}\\cos \\Lc (2t+1) \\theta_0 \\Rc}.\n",
+    "\\end{align} \n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b519be55",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Bibliografía \n",
+    "```{bibliography} \n",
+    ":style: plain\n",
+    ":filter: docname in docnames\n",
+    "```",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a346042",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "Autores:\n",
+    "\n",
+    "David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-CNS](https://www.bsc.es/es)), Daniel Talaván  ([Cenits](https://www.cenits.es/)), Francisco Matanza ([UNICAN](https://web.unican.es/))\n",
+    "\n",
+    "<img src=\"images/Logo_UMA.jpeg\"  width=\"170px\">\n",
+    "<img src=\"images/BSC-blue-medium.png\" width=\"195px\">\n",
+    "<img src=\"images/xaniversario_rectangle.jpg\" width=\"170px\">\n",
+    "<img src=\"images/Logo_UNICAM.jpg\" width=\"210px\">\n",
+    "\n",
+    "\n",
+    "---\n",
+    "::::{figure} https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\n",
+    ":width: 2000px\n",
+    ":align: center\n",
+    "::::\n",
+    "\n",
+    "<center>\n",
+    "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">\n",
+    "<img aling=\"left\" alt=\"Licencia Creative Commons\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a>\n",
+    "</center>\n",
+    "\n",
+    "License: <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.\n",
+    "\n",
+    "This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.\n",
+    "\n",
+    "<center>\n",
+    "<img align=\"left\" src=\"https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png\" width=\"1000px\" />\n",
+    "</center>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

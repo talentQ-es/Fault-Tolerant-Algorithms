@@ -5,10 +5,12 @@
    "id": "57bf6b78",
    "metadata": {},
    "source": [
-    "<a id='sec_FTA_IPE_intro'></a>\n",
+    "> {sub-ref}`today` | {sub-ref}`wordcount-minutes` min read\n",
+    "\n",
+    "(sec_FTA_IPE_intro)= \n",
     "# Algoritmo de Estimación Iterativa de Fase (IPE)\n",
     "\n",
-    "En este capítulo vamos a estudiar en detalle el Algoritmo de Estimación Iterativa de Fase (IPE). Este algoritmo es una versión refinada de la conocida Estimación de Fase Cuántica (Quantum Phase Estimation, QPE) [[1]](#bib_FTA_IPE_QSS_CICC_QPE) donde se usan medidas intermedias para reducir el número de qúbits en el registro de control a uno solo.\n",
+    "En este capítulo vamos a estudiar en detalle el Algoritmo de Estimación Iterativa de Fase (IPE). Este algoritmo es una versión refinada de la conocida Estimación de Fase Cuántica (Quantum Phase Estimation, QPE) {cite}`bib_FTA_IPE_QSS_CICC_QPE` donde se usan medidas intermedias para reducir el número de qúbits en el registro de control a uno solo.\n",
     "\n",
     "El algoritmo de QPE es uno de los algoritmos cuánticos más importantes y famosos. Es una subrutina clave del algoritmo de factorización de Shor, así como algoritmos para simulación cuántica. La versión de libro de texto del algoritmo utiliza una cantidad de qubits auxiliares que se escalan con la precisión deseada, lo que lleva a circuitos que son difíciles de ejecutar en los dispositivos ruidosos de hoy en día con un número de qubits y una conectividad limitados.\n",
     "\n",
@@ -25,10 +27,15 @@
    "id": "bc22d9c5",
    "metadata": {},
    "source": [
-    "<a id='sec_FTA_IPE_intro_Bibliografía'></a>\n",
-    "## Bibliografía\n",
-    "\n",
-    "[1]. [Curso básico de computación cuántica](https://talentq-es.github.io/TalentQ-CICC/docs/index.html) de [TalentQ], (https://www.talentq.es/es_es/), [Sección QPE](https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html) <a id='bib_FTA_IPE_QSS_CICC_QPE'></a>"
+    "---\n",
+    "## Bibliografía \n",
+    "```{bibliography} \n",
+    ":style: plain\n",
+    ":filter: docname in docnames\n",
+    "```",
+    "",
+    "",
+    ""
    ]
   },
   {
@@ -48,9 +55,10 @@
     "\n",
     "\n",
     "---\n",
-    "<figure><center>\n",
-    "<img   src=\"https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\" align=center  width=\"2000px\"/>\n",
-    "</center></figure>\n",
+    "::::{figure} https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\n",
+    ":width: 2000px\n",
+    ":align: center\n",
+    "::::\n",
     "\n",
     "<center>\n",
     "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">\n",

@@ -93,21 +93,21 @@
     ":class: note\n",
     "\n",
     "\n",
-    "\n",
+    "<br>\n",
     "Véase que estamos usando la <b>notación del punto decimal</b>:\n",
-    " \n",
+    "<br> <br>\n",
     "$$\n",
     "\\frac{1}{4} = 0\\cdot2^0 + 0\\cdot2^{-1} + 1\\cdot2^{-2} = 0.01\n",
     "$$\n",
-    "\n",
+    "<br>\n",
     "Veamos otro ejemplo:\n",
-    "\n",
+    "<br>\n",
     "$$\n",
     "10.101 = 1 \\cdot 2^1 + 0 \\cdot 2^0 + 1 \\cdot 2^{-1} + 0 \\cdot 2^{-2} + 1 \\cdot 2^{-3} = 2 + \\frac{1}{2}+\\frac{1}{8}\n",
     "$$\n",
-    "\n",
+    "<br>\n",
     "Debemos tener el cuenta también que multiplicar por 2 implica mover la coma un ligar a la izquierda:\n",
-    " \n",
+    "<br> <br>\n",
     "$$\n",
     "2 \\cdot 10.101 = 101.01 \\\\\n",
     "2^2 \\cdot 10.101 = 1010.1\n",
@@ -163,12 +163,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "47560d3f",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "\n",
     "def step_1_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
     "    # qr is a quantum register with 2 qubits\n",
@@ -209,11 +209,7 @@
    "cell_type": "code",
    "execution_count": 2,
    "id": "079f4c92",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stderr",
@@ -235,6 +231,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "\n",
@@ -283,12 +284,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0e45f042",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "# En Qiskit necesitamos los Dinamic Circuits para realizar esta retroalimentación clásica\n",
     "\n",
     "def step_2_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
@@ -335,11 +336,7 @@
    "cell_type": "code",
    "execution_count": 4,
    "id": "51c2ca73",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -353,6 +350,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "# En Qiskit necesitamos los Dinamic Circuits para realizar esta retroalimentación clásica\n",
@@ -407,12 +409,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b306bae1",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "sim_qk = AerSimulator()\n",
     "job_qk = sim_qk.run(qc_qk, shots=1000)\n",
     "result_qk = job_qk.result()\n",
@@ -432,11 +434,7 @@
    "cell_type": "code",
    "execution_count": 5,
    "id": "ae770ae6",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -449,6 +447,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "sim_qk = AerSimulator()\n",
@@ -482,12 +485,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "feebd084",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def t_gate_ipe_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
     "    # qr is a quantum register with 2 qubits\n",
     "    # cr is a classical register with 3 bits\n",
@@ -534,11 +537,7 @@
    "cell_type": "code",
    "execution_count": 6,
    "id": "b3c50656",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stderr",
@@ -560,6 +559,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def t_gate_ipe_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
@@ -606,12 +610,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "81aba5e5",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "sim_qk = AerSimulator()\n",
     "job_qk = sim_qk.run(qc_qk, shots=1000)\n",
     "result_qk = job_qk.result()\n",
@@ -631,11 +635,7 @@
    "cell_type": "code",
    "execution_count": 7,
    "id": "570c42da",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -648,6 +648,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "sim_qk = AerSimulator()\n",
@@ -692,12 +697,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ec6d1077",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
     "    # qr is a quantum register with 2 qubits\n",
     "    # cr is a classical register with 2 bits\n",
@@ -759,11 +764,7 @@
    "cell_type": "code",
    "execution_count": 8,
    "id": "1682ee0a",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -777,6 +778,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
@@ -838,12 +844,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "87c4991f",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "from qiskit_aer import AerSimulator\n",
     "\n",
     "sim_qk = AerSimulator()\n",
@@ -867,11 +873,7 @@
    "cell_type": "code",
    "execution_count": 10,
    "id": "2dbf4710",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
@@ -882,6 +884,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "from qiskit_aer import AerSimulator\n",
@@ -909,12 +916,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2057a529",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
     "    # qr is a quantum register with 2 qubits\n",
     "    # cr is a classical register with 1 bits\n",
@@ -959,11 +966,7 @@
    "cell_type": "code",
    "execution_count": 11,
    "id": "9b40572b",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -977,6 +980,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister) -> QuantumCircuit:\n",
@@ -1021,12 +1029,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e37645b0",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "job_qk = sim_qk.run(qc_qk, shots=1000)\n",
     "result_qk = job_qk.result()\n",
     "counts_qk = result_qk.get_counts()\n",
@@ -1045,11 +1053,7 @@
    "cell_type": "code",
    "execution_count": 13,
    "id": "9f08efbe",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
@@ -1059,6 +1063,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "job_qk = sim_qk.run(qc_qk, shots=1000)\n",
@@ -1077,12 +1086,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5bf2b6fa",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "\n",
     "keys_qk   = counts_qk.keys()\n",
     "values_qk = counts_qk.values()\n",
@@ -1108,11 +1117,7 @@
    "cell_type": "code",
    "execution_count": 15,
    "id": "6dc398f0",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
@@ -1122,6 +1127,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "\n",
@@ -1147,12 +1157,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6625a126",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister, step1_bit : int) -> QuantumCircuit:\n",
     "    # qr is a quantum register with 2 qubits\n",
     "    # cr is a classical register with 2 bits\n",
@@ -1205,11 +1215,7 @@
    "cell_type": "code",
    "execution_count": 17,
    "id": "07c97237",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -1223,6 +1229,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def u_circuit(qr: QuantumRegister, cr: ClassicalRegister, step1_bit : int) -> QuantumCircuit:\n",
@@ -1275,12 +1286,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "bfed1ef9",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "sim_qk = AerSimulator()\n",
     "job_qk = sim_qk.run(qc_qk, shots=1000)\n",
     "result_qk = job_qk.result()\n",
@@ -1302,11 +1313,7 @@
    "cell_type": "code",
    "execution_count": 18,
    "id": "7254e8a0",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
@@ -1317,6 +1324,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "sim_qk = AerSimulator()\n",
@@ -1337,7 +1349,7 @@
     ":class: note\n",
     "\n",
     "\n",
-    "\n",
+    "<br>\n",
     "Vemos que el resultado sigue sin ser muy bueno, pero es el que esperabamos $1/4$. Podemos mejorar la precisión de este valor aumentando el número de qúbit que usamos, de dos a tres, cuatro,...\n",
     "::::::\n"
    ]
@@ -1352,7 +1364,13 @@
     "```{bibliography} \n",
     ":style: plain\n",
     ":filter: docname in docnames\n",
-    "```"
+    "```",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
    ]
   },
   {

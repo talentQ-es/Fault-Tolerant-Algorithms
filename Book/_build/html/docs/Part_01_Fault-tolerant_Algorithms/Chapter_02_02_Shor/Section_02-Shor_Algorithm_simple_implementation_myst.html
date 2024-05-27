@@ -219,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
 </ul>
@@ -506,8 +506,8 @@ document.write(`
 </div>
 <p>El algoritmo de Shor se basa en el algoritmo de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id1">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id2">[<a class="reference internal" href="#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id3">[<a class="reference internal" href="#id89" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">2</a>]</span> y <span id="id4">[<a class="reference internal" href="#id91" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">3</a>]</span>). El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de <strong>encontrar el periodo de una función</strong>, el cual puede ser implementado en un tiempo polinómico.</p>
 <p>Para factorizar un número <span class="math notranslate nohighlight">\(N\)</span> básicamente el algoritmo de Shor lo que hace calcular el periodo de una función (periódica) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a5912a0-fecd-4c48-9be2-42ded03ff11f">
-<span class="eqno">()<a class="headerlink" href="#equation-2a5912a0-fecd-4c48-9be2-42ded03ff11f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-01b0bd8c-d870-4eb8-9086-a0e0720dbd66">
+<span class="eqno">()<a class="headerlink" href="#equation-01b0bd8c-d870-4eb8-9086-a0e0720dbd66" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes. La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. El periodo <span class="math notranslate nohighlight">\(r\)</span> de esta función se calcula mediante el algoritmo de estimación de fase cuántica. Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span> ya que existe una alta probabilidad de que el máximo común divisor de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -575,8 +575,8 @@ U |y \rangle \equiv | ay \, \text{mod} N \rangle
 U^x |1 \rangle = | f(x) \rangle
 \]</div>
 <p>Por ejemplo, para el caso que vimos en la gráfica anterior (<span class="math notranslate nohighlight">\(a=3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>) tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ae5b501-9f12-4a91-85a1-01aa545fb66c">
-<span class="eqno">()<a class="headerlink" href="#equation-8ae5b501-9f12-4a91-85a1-01aa545fb66c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-37df8e62-f404-4cb3-8107-d1da314e7031">
+<span class="eqno">()<a class="headerlink" href="#equation-37df8e62-f404-4cb3-8107-d1da314e7031" title="Permalink to this equation">#</a></span>\[\begin{align}
 U^0 |1\rangle &amp; = |1\rangle \\
 U |1\rangle &amp; = |3\rangle \\
 U^2 |1\rangle &amp; = |9\rangle \\
@@ -586,8 +586,8 @@ U^r |1\rangle &amp; = |1\rangle
 \end{align}\]</div>
 <p>(Recordemos que dado un estado de <span class="math notranslate nohighlight">\(n\)</span> qubits <span class="math notranslate nohighlight">\(\left| x \right\rangle\)</span> tenemos que <span class="math notranslate nohighlight">\(\left| x \right\rangle = \left| x_1 x_2 \dots x_n \right\rangle\)</span> donde <span class="math notranslate nohighlight">\(x_1\)</span> es el bit más significativo.)</p>
 <p>Como podemos ver, aplicar una vez más el operador <span class="math notranslate nohighlight">\(U\)</span> significa pasar de un número al siguiente de la lista periódica. Veámoslo explícitamente:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7a8e682-4a46-49bf-bd38-0d3ed829a153">
-<span class="eqno">()<a class="headerlink" href="#equation-f7a8e682-4a46-49bf-bd38-0d3ed829a153" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-31b23c8b-35f1-4463-b731-a9e553c533dd">
+<span class="eqno">()<a class="headerlink" href="#equation-31b23c8b-35f1-4463-b731-a9e553c533dd" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(U^0 |1\rangle) &amp; = U(|1\rangle) = |3\rangle \\
 U(U |1\rangle) &amp; = U(|3\rangle) = |9\rangle \\
 U(U^2 |1\rangle) &amp; = U(|9\rangle) = |27\rangle\\
@@ -610,8 +610,8 @@ Ejemplo<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae9f90b6-967b-4334-aedf-ae71c2211613">
-<span class="eqno">()<a class="headerlink" href="#equation-ae9f90b6-967b-4334-aedf-ae71c2211613" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-813ac4ae-f61c-4353-bac6-1a0c7c380b0a">
+<span class="eqno">()<a class="headerlink" href="#equation-813ac4ae-f61c-4353-bac6-1a0c7c380b0a" title="Permalink to this equation">#</a></span>\[\begin{align}
 U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangle + |9 \rangle + \dots |4 \rangle + |12 \rangle \right) \right] = \\
 &amp; = \frac{1}{\sqrt{12}} \left( U|1 \rangle + U|3\rangle + U|9 \rangle + \dots U|4 \rangle + U|12 \rangle \right) = \\
 &amp; =\frac{1}{\sqrt{12}} \left( |3 \rangle + |9\rangle + |27 \rangle + \dots |12 \rangle + |1 \rangle \right) = \\

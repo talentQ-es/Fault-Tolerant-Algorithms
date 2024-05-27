@@ -2,19 +2,15 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "57bf6b78",
+   "id": "9760ba1a",
    "metadata": {},
    "source": [
-    "<a id='sec_FTA_IPE_intro'></a>\n",
-    "# Algoritmo de Estimación Iterativa de Fase (IPE)\n",
+    "> {sub-ref}`today` | {sub-ref}`wordcount-minutes` min read\n",
     "\n",
-    "En este capítulo vamos a estudiar en detalle el Algoritmo de Estimación Iterativa de Fase (IPE). Este algoritmo es una versión refinada de la conocida Estimación de Fase Cuántica (Quantum Phase Estimation, QPE) [[1]](#bib_FTA_IPE_QSS_CICC_QPE) donde se usan medidas intermedias para reducir el número de qúbits en el registro de control a uno solo.\n",
+    "(sec_FTA_grover_portada)= \n",
+    "# Algoritmo de Grover\n",
     "\n",
-    "El algoritmo de QPE es uno de los algoritmos cuánticos más importantes y famosos. Es una subrutina clave del algoritmo de factorización de Shor, así como algoritmos para simulación cuántica. La versión de libro de texto del algoritmo utiliza una cantidad de qubits auxiliares que se escalan con la precisión deseada, lo que lleva a circuitos que son difíciles de ejecutar en los dispositivos ruidosos de hoy en día con un número de qubits y una conectividad limitados.\n",
-    "\n",
-    "La estimación de fase iterativa (iterative phase estimation, IPE) es una variante de QPE que requiere solo un qubit auxiliar. En IPE, el qubit auxiliar se mide repetidamente y los resultados de la medición se utilizan para guiar futuras operaciones cuánticas.\n",
-    "\n",
-    "\n",
+    "En este capítulo vamos a estudiar en detalle el algoritmo de Grover.\n",
     "\n",
     "```{tableofcontents}\n",
     "```"
@@ -22,18 +18,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "bc22d9c5",
-   "metadata": {},
-   "source": [
-    "<a id='sec_FTA_IPE_intro_Bibliografía'></a>\n",
-    "## Bibliografía\n",
-    "\n",
-    "[1]. [Curso básico de computación cuántica](https://talentq-es.github.io/TalentQ-CICC/docs/index.html) de [TalentQ], (https://www.talentq.es/es_es/), [Sección QPE](https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html) <a id='bib_FTA_IPE_QSS_CICC_QPE'></a>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "62e589cb",
+   "id": "0096eceb",
    "metadata": {},
    "source": [
     "---\n",
@@ -48,9 +33,10 @@
     "\n",
     "\n",
     "---\n",
-    "<figure><center>\n",
-    "<img   src=\"https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\" align=center  width=\"2000px\"/>\n",
-    "</center></figure>\n",
+    "::::{figure} https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\n",
+    ":width: 2000px\n",
+    ":align: center\n",
+    "::::\n",
     "\n",
     "<center>\n",
     "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">\n",

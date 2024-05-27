@@ -1,0 +1,402 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0875c43f",
+   "metadata": {},
+   "source": [
+    "> Apr 12, 2024 | {sub-ref}`wordcount-minutes` min read\n",
+    "\n",
+    "\n",
+    "$ \\newcommand{\\bra}[1]{\\langle #1|} $\n",
+    "$ \\newcommand{\\ket}[1]{|#1\\rangle} $\n",
+    "$ \\newcommand{\\braket}[2]{\\langle #1|#2\\rangle} $\n",
+    "$ \\newcommand{\\i}{{\\color{blue} i}} $ \n",
+    "$ \\newcommand{\\Hil}{{\\cal H}} $\n",
+    "$ \\newcommand{\\cg}[1]{{\\rm C}#1} $\n",
+    "$ \\newcommand{\\lp}{\\left(} $\n",
+    "$ \\newcommand{\\rp}{\\right)} $\n",
+    "$ \\newcommand{\\lc}{\\left[} $\n",
+    "$ \\newcommand{\\rc}{\\right]} $\n",
+    "$ \\newcommand{\\lch}{\\left\\{} $\n",
+    "$ \\newcommand{\\rch}{\\right\\}} $\n",
+    "$ \\newcommand{\\Lp}{\\Bigl(} $\n",
+    "$ \\newcommand{\\Rp}{\\Bigr)} $\n",
+    "$ \\newcommand{\\Lc}{\\Bigl[} $\n",
+    "$ \\newcommand{\\RC}{\\Bigr]} $\n",
+    "$ \\newcommand{\\Lch}{\\Bigl\\{} $\n",
+    "$ \\newcommand{\\Rch}{\\Bigr\\}} $\n",
+    "$ \\newcommand{\\rqa}{\\quad \\Rightarrow \\quad} $"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "81b282ff",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_quantum_counting)= \n",
+    "# 5. Conteo de soluciones (Quantum counting)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "104a7e33",
+   "metadata": {},
+   "source": [
+    ":::{contents}\n",
+    ":local:\n",
+    ":depth: 1\n",
+    ":::\n",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1fb358dd",
+   "metadata": {},
+   "source": [
+    "En esta sección vamos a ver un algoritmo para obtener el número $M$ de soluciones. Este algoritmo puede decirse que en cierta medida está inspirado en el algoritmo de Shor, pues lo que vamos a hacer es usar el \\textbf{algoritmo de estimación de fase cuántico (QPE)} para obtener el ángulo $\\theta$ a partir del operador de Grover $G$. Después, podemos usar la Ec. {eq}`ec_FTA_grover_t-sols_theta` para obtener $M$ partir de $\\theta$.\n",
+    "\n",
+    "Vamos a seguir en el caso en el que $N=2^n$ y la distribución de probabilidad inicial es uniforme."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f9c55c6f",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_qc_QPE)= \n",
+    "## Breve resumen de la estimación de fase cuántica (QFE)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bb5254d8",
+   "metadata": {},
+   "source": [
+    "Dado un operador unitario $U$ y un autovector $\\left| \\psi \\right\\rangle$ del mismo, tenemos:\n",
+    "\n",
+    "$$\n",
+    "U \\left| \\psi \\right\\rangle = e^{2 \\pi i \\alpha}  \\left| \\psi \\right\\rangle\n",
+    "$$\n",
+    "\n",
+    "El \\textbf{algoritmo de estimación de fase cuántica} lo que hace es calcular un valor aproximado del ángulo $\\alpha$.\n",
+    "En la {numref}`fig_FTA_grover_QC_QPE` podemos ver el circuito que implementa este algoritmo. No vamos a entrar a hablar en detalle del mismo (puede verse una explicación más detallada en las notas del algoritmo de Shor). Simplemente comentar dos cosas:\n",
+    "\n",
+    "- Por el registro de qubits de abajo en la {numref}`fig_FTA_grover_QC_QPE` debe de entrar el autoestado de $U$ del cual queremos medir la fase.\n",
+    "\n",
+    "- Si por el registro de conteo entran $p$ qubits (el de arriba en la {numref}`fig_FTA_grover_QC_QPE`), en la salida vamos a medir el estado $| 2^p \\alpha \\rangle$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fa98d62d",
+   "metadata": {},
+   "source": [
+    "::::{figure} Figuras/Fig_QC_QPE.png\n",
+    ":name: fig_FTA_grover_QC_QPE\n",
+    ":width: 1000px\n",
+    ":align: center\n",
+    "Implementación del algoritmo de estimación de fase cuántica (en el convenio estándar, siendo el bit más significativo el de arriba).\n",
+    "::::\n",
+    "    \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ce2f87b1",
+   "metadata": {},
+   "source": [
+    "Para más información soble la QPE, puede verse {cite}`bib_FTA_IPE_QSS_CICC_QPE`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd61ee58",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_qc_QPE_grover)= \n",
+    "## Estimación de fase con el operador de Grover."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4b39529e",
+   "metadata": {},
+   "source": [
+    "Como ya comentamos anteriormente, el operador de Grover $G$ (ver Ec. {eq}`ec_FTA_grover_t-sols_G`) rota el vector de estado en un ángulo $2\\theta$, donde $\\theta$ está dado por la Ec. {eq}`ec_FTA_grover_t-sols_theta`, es decir\n",
+    "\\begin{equation}\n",
+    "|\\Psi(t+1) \\rangle = G | \\Psi(t) \\rangle = e^{i 2 \\theta} | \\Psi(t) \\rangle.\n",
+    "\\end{equation}\n",
+    "En concreto, se puede aplicar sobre el estado inicial\n",
+    "\\begin{equation}\n",
+    "\\boxed{G | \\Psi_0 \\rangle = e^{i 2 \\theta} | \\Psi_0 \\rangle}, \n",
+    "\\qquad \\text{ donde } \\qquad\n",
+    "| \\Psi_0 \\rangle = H^{\\otimes n} |0\\rangle = \\frac{1}{2^n}  \\sum_{i=0}^{2^n} | i \\rangle\n",
+    "\\end{equation}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "26779881",
+   "metadata": {},
+   "source": [
+    "Podemos pues usar el algoritmo de QFE poniendo el registro de abajo en el estado $| \\Psi_0 \\rangle $ y mediremos a la salida el estado $| 2^p 2 \\theta / 2 \\pi \\rangle = | 2^p \\theta / \\pi \\rangle$. Podemos ver esto en la {numref}`fig_FTA_grover_QC_QPE_G`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "caadae6a",
+   "metadata": {},
+   "source": [
+    "::::{figure} Figuras/Fig_QC_QPE_G.png\n",
+    ":name: fig_FTA_grover_QC_QPE_G\n",
+    ":width: 1000px\n",
+    ":align: center\n",
+    "Circuito para la QFE en el caso de Grover.\n",
+    "::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c378730e",
+   "metadata": {},
+   "source": [
+    "Como acabamos de comentar, al aplicar QFE mediremos un valor $\\tilde{f} = 2^p\\tilde{\\theta} / \\pi$. Podemos despejar $\\tilde{\\theta}$ y usar Ec. {eq}`ec_FTA_grover_t-sols_theta` para calcular $\\tilde{M}$\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_QC_medidas \n",
+    "\\begin{equation} \n",
+    "\\tilde{\\theta} = \\frac{\\tilde{f} \\pi}{2^p} \\rqa \\tilde{M} = 2^n \\, \\sin^2 \\tilde{\\theta} = 2^n \\, \\sin^2 \\frac{\\tilde{f} \\pi}{2^p},\n",
+    "\\end{equation} \n",
+    "```\n",
+    "\n",
+    "donde las $\\tilde{\\theta}$, $\\tilde{f}$ y $\\tilde{M}$ llevan una tilde para diferenciarlos de los valores reales. Esto es, porque dependiendo del como de grande sea $p$ (cuantos qubits tengamos en el registro de conteo) nos acercaremos más a medir el valor real del ángulo $\\theta$. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "670be6d2",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "    \n",
+    "Como veremos en la {ref}`sec_FTA_grover_sub_U_s`, muchas veces en vez de implementar el operador de difusión $U_{\\Psi_0}$ (ver Ec. {eq}`ec_FTA_grover_t-sols_Uw_Us`) en realidad se implementa $-U_{\\Psi_0}$. En una búsqueda de Grover normal, esta fase es global y no afecta al resultado, pero ahora estamos aplicando versiones controladas del operador de Grover \t$G$, con lo que esta fase afecta. En esencia, el único cambio es que en realidad estamos contando aquellos estados que \\textit{no son solución}. Lo único que tenemos que hacer para obtener el número de soluciones es restar al total de estados, $N$, el valor que obtenemos de aplicar QFE. \n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "abf75fe9",
+   "metadata": {},
+   "source": [
+    "(sec_FTA_grover_qc_preci_M)= \n",
+    "## Precisión de $\\tilde{M}$ respecto a $M$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4f4b7bd6",
+   "metadata": {},
+   "source": [
+    "En esta sección vamos a seguir el artículo {cite}`bib_FTA_Grover_Boyer_1998`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "64f4a195",
+   "metadata": {},
+   "source": [
+    "Podemos evaluar la precisión del valor de $\\tilde{M}$ respecto al valor real $M$, acotando la desviación entre los mismos a medida que variamos $p$. Para ello, vamos a empezar asumiendo que la diferencia entre el valor real y el medido es menor que uno, es decir, $| f- \\tilde{f}| <1$. Esto sucede con una probabilidad razonable si $f$ es suficientemente grande (si $p$ es suficientemente grande). Teniendo en cuenta la Ec. {eq}`ec_FTA_grover_QC_medidas`, vemos que\n",
+    "\n",
+    "\\begin{equation*}\n",
+    "| f- \\tilde{f}| < 1 \\rqa | \\theta - \\tilde{\\theta}| < \\frac{\\pi}{2^p} \\rqa | \\sin \\theta - \\sin \\tilde{\\theta}| < \\frac{\\pi}{2^p},\n",
+    "\\end{equation*}\n",
+    "\n",
+    "donde en la última expresión se ha tenido en cuenta que $\\sin \\theta \\approx \\theta$ si $\\theta$ es pequeño, lo cual es lógico si consideramos $M << N$. Jugando con las desigualdades puede verse que\n",
+    "\n",
+    "\n",
+    "```{math}\n",
+    ":label: ec_FTA_grover_QC_error \n",
+    "\\begin{equation} \n",
+    "\\boxed{|M - \\tilde{M}| <   \\frac{2 \\pi}{2^p} \\sqrt{M N} + \\frac{\\pi^2}{(2^p)^2} N}.\n",
+    "\\end{equation} \n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1b963fd7",
+   "metadata": {},
+   "source": [
+    "::::::{admonition} Nota\n",
+    ":class: note\n",
+    "\n",
+    "<br>\n",
+    "Teniendo en cuenta las desigualdades anteriores, podemos derivar la expresión deseada\n",
+    "<br><br>    \n",
+    "\\begin{equation*}\n",
+    "M - \\tilde{M}|  \\lt N \\left| sin^2 \\theta - sin^2 \\tilde{\\theta}  \\right|  =   \n",
+    "N \\left| \\sin \\theta -  \\sin \\tilde{\\theta} \\right| \n",
+    "\\left| \\sin \\theta + \\sin \\tilde{\\theta} \\right|   \\lt\n",
+    "N \\frac{\\pi}{2^p} \\lp \\sin \\theta + \\sin \\tilde{\\theta} \\rp.\n",
+    "\\end{equation*}\n",
+    "<br>\n",
+    "En la última igualdad hemos quitado el valor absoluto porque es una suma de dos \n",
+    "términos positivos ($0 < \\theta < \\pi/2$). Precisamente, como estos dos senos son \n",
+    "positivos podemos escribir\n",
+    "<br><br>\n",
+    "\\begin{equation*}\n",
+    "\\left| \\sin \\theta - \\sin \\tilde{\\theta} \\right| \\lt \\frac{\\pi}{2^p} \\rqa\n",
+    "\\lch \\begin{matrix}\n",
+    "\t& \\sin \\tilde{\\theta} \\lt  \\sin \\theta + \\frac{\\pi}{2^p} \\\\\n",
+    "\t& \\sin \\theta \\lt  \\sin \\tilde{\\theta} + \\frac{\\pi}{2^p} .\n",
+    "\\end{matrix} \\right. \n",
+    "\\end{equation*}\n",
+    "<br>\n",
+    "Esto es porque tenemos dos números positivos que se diferencian en menos de una cierta \n",
+    "cantidad $\\alpha$, así que es siempre cierto que la suma de uno de los números más \n",
+    "$\\alpha$ es mayor que el otro. Podemos usar la primera de estas desigualdades para \n",
+    "seguir con el cálculo\n",
+    "<br><br>\n",
+    "\\begin{equation}\n",
+    "|M - \\tilde{M}|  \\lt N \\frac{\\pi}{2^p} \\lp \\sin \\theta + \\sin \\tilde{\\theta}  \\rp \\lt\n",
+    "N \\frac{\\pi}{2^p} \\lp 2 \\sin \\theta +\\frac{\\pi}{2^p} \\rp\n",
+    "\\end{equation}\n",
+    "    \n",
+    "Finalmente, llegamos a la Ec. {eq}`ec_FTA_grover_QC_error`\n",
+    "::::::\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5baec6f1",
+   "metadata": {},
+   "source": [
+    "Como podemos ver, la precisión depende de $p$. Además, el tiempo de ejecución depende de $p$, con lo que lo ideal es elegir un valor de $p$ suficientemente grande como para tener una buena precisión, pero que este valor de $p$ no sea demasiado grande y el algoritmo no tarde demasiado. Tomemos $c$ como un parámetro y veamos diferentes casos:\n",
+    "\n",
+    "- Si tomamos $2^p = c \\sqrt{N}$, el error de nuestra estimación de $M$ esta acotado por $\\frac{2 \\pi}{c} \\sqrt{M} + \\frac{\\pi^2}{c^2}$ siempre que $|f - \\tilde{f}| < 1$. Esto recuerda a encontrar la respuesta hasta unas pocas desviaciones estándar. \n",
+    "\t\n",
+    "- Si nos conformamos con tener un error \\textit{relativo} pequeño, podemos correr el algoritmo para sucesivos valores de $p$ hasta que $\\tilde{f}$ sea razonablemente grande. Esto sucederá cuando $2^p = c \\sqrt{N/M}$. Después de un tiempo proporcional a $\\sqrt{N/M}$, esto nos dará una estimación para $M$ que probablemente estén dentro de un factor $(1+ \\pi/c)^2$ de la respuesta correcta. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b4d3e725",
+   "metadata": {},
+   "source": [
+    "- Si queremos que el error \\textit{absoluto} esté probablemente limitado por una constante, aplicamos el algoritmo una vez para $2^p = c \\sqrt{N}$ con el objetivo de estimar $M$. Entonces, ejecutamos otra vez, pero esta vez con $2^p = c \\sqrt{\\tilde{M}N}$. De acuerdo con la Ec. {eq}`ec_FTA_grover_QC_error`, pero suponiendo $2^p = c \\sqrt{MN}$ por simplicidad, el error resultante en nuestra segunda estimación de $M$ es probable que esté acotado por $\\frac{2 \\pi}{c} + \\frac{\\pi^2}{c^2 M}$. En particular, obtenemos una solución exacta, siempre que $|f - \\tilde{f}| < 1$, si tomamos $c \\geq 14$ ya que $\\frac{2 \\pi}{c} + \\frac{\\pi^2}{c^2 M} < \\frac{1}{2}$ en ese caso. (Obsérvese que si aplicaciones sucesivamente el algoritmo de Grover y vamos tachamos las soluciones a medida que se encuentran también nos proporcionará un recuento exacto con alta probabilidad en un tiempo en $\\mathcal{O} (\\sqrt{M N})$, pero con un consumo enorme de memoria. Ver {cite}`bib_FTA_Grover_Approximate_QC`.)\n",
+    "\t\n",
+    "- Finalmente, comentar que si estamos en el caso en el que el número de soluciones es un cuadrado perfecto pequeño, podemos encontrar el valor  exacto en un tiempo $\\mathcal{O}(\\sqrt{N})$ con una probabilidad de error muy pequeña. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "df70924a",
+   "metadata": {},
+   "source": [
+    "Para más detalles sobre el tema, puede verse {cite}`bib_FTA_Grover_Approximate_QC`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a48a8be0",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Bibliografía \n",
+    "```{bibliography} \n",
+    ":style: plain\n",
+    ":filter: docname in docnames\n",
+    "```",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a346042",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "Autores:\n",
+    "\n",
+    "David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-CNS](https://www.bsc.es/es)), Daniel Talaván  ([Cenits](https://www.cenits.es/)), Francisco Matanza ([UNICAN](https://web.unican.es/))\n",
+    "\n",
+    "<img src=\"images/Logo_UMA.jpeg\"  width=\"170px\">\n",
+    "<img src=\"images/BSC-blue-medium.png\" width=\"195px\">\n",
+    "<img src=\"images/xaniversario_rectangle.jpg\" width=\"170px\">\n",
+    "<img src=\"images/Logo_UNICAM.jpg\" width=\"210px\">\n",
+    "\n",
+    "\n",
+    "---\n",
+    "::::{figure} https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\n",
+    ":width: 2000px\n",
+    ":align: center\n",
+    "::::\n",
+    "\n",
+    "<center>\n",
+    "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">\n",
+    "<img aling=\"left\" alt=\"Licencia Creative Commons\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a>\n",
+    "</center>\n",
+    "\n",
+    "License: <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.\n",
+    "\n",
+    "This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.\n",
+    "\n",
+    "<center>\n",
+    "<img align=\"left\" src=\"https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png\" width=\"1000px\" />\n",
+    "</center>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

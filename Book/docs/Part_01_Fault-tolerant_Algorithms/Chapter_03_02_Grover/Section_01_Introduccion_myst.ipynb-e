@@ -1,0 +1,168 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0875c43f",
+   "metadata": {},
+   "source": [
+    "> Apr 12, 2024 | {sub-ref}`wordcount-minutes` min read\n",
+    "\n",
+    "\n",
+    "\n",
+    "$ \\newcommand{\\bra}[1]{\\langle #1|} $\n",
+    "$ \\newcommand{\\ket}[1]{|#1\\rangle} $\n",
+    "$ \\newcommand{\\braket}[2]{\\langle #1|#2\\rangle} $\n",
+    "$ \\newcommand{\\i}{{\\color{blue} i}} $ \n",
+    "$ \\newcommand{\\Hil}{{\\cal H}} $\n",
+    "$ \\newcommand{\\cg}[1]{{\\rm C}#1} $\n",
+    "$ \\newcommand{\\lp}{\\left(} $\n",
+    "$ \\newcommand{\\rp}{\\right)} $\n",
+    "$ \\newcommand{\\lc}{\\left[} $\n",
+    "$ \\newcommand{\\rc}{\\right]} $\n",
+    "$ \\newcommand{\\lch}{\\left\\{} $\n",
+    "$ \\newcommand{\\rch}{\\right\\}} $\n",
+    "$ \\newcommand{\\Lp}{\\Bigl(} $\n",
+    "$ \\newcommand{\\Rp}{\\Bigr)} $\n",
+    "$ \\newcommand{\\Lc}{\\Bigl[} $\n",
+    "$ \\newcommand{\\RC}{\\Bigr]} $\n",
+    "$ \\newcommand{\\Lch}{\\Bigl\\{} $\n",
+    "$ \\newcommand{\\Rch}{\\Bigr\\}} $\n",
+    "$ \\newcommand{\\rqa}{\\quad \\Rightarrow \\quad} $"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "81b282ff",
+   "metadata": {},
+   "source": [
+    "# 1. Introducción"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6276a435",
+   "metadata": {},
+   "source": [
+    "La computación cuántica es un campo relativamente joven y en el cual hay depositadas muchas esperanzas, pues se cree que tiene el potencial de poder resolver algunos problemas con los que la computación clásica no puede lidiar. Estamos hablando de los famosos problemas de la clase de complejidad NP-hard. Sin embargo, pese a esta creencia, pocas demostraciones teóricas hay sobre el tema. La demostración más famosa es la del **Algoritmo de Shor**, que es capaz de abordar el problema de la factorización de un número en sus factores primos. Esto es porque el algoritmo es capaz de calcular los factores primos en un tiempo polinónico, frente al tiempo exponencial que requieren los mejores algoritmos clásicos. El algoritmo sobre el que tratan estas notas, el también archiconocido **Algoritmo de Grover**, no ofrece una ventaja exponencial respecto al mejor algoritmo clásico, pero si ofrece una mejora sustancial (cuadrática)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "eecacd49",
+   "metadata": {},
+   "source": [
+    "Resumiendo mucho, el algoritmo de Grover es un algoritmo de búsqueda no estructurada. El objetivo del algoritmo es encontrar un valor (o varios) en una secuencia no ordenada de $N$ componentes. Supongamos que tenemos una lista $L$ con $N$ elementos donde denominamos $L_i$, con $i=0,1,\\dots,N-1$, al i-ésido elemento de la lista. Supongamos que queremos encontrar un elemento $q$ en la lista, es decir, lo que queremos encontrar es el índice $\\omega$ tal que $L_\\omega = q$. Si asumimos que la lista está desordenada, ningún algoritmo clásico conocido puede darnos un tiempo de búsqueda mejor que $\\mathcal{O}(N)$. Es decir, el tiempo promedio de búsqueda crece linealmente con $N$, con el número de elementos entre los que buscamos. Esto es fácil de ver, pues para encontrar nuestro elemento tendremos que ir probando uno a uno los elementos de la lista. De esta forma en promedio tendremos que hacer $N/2$ pruebas para encontrar el resultado deseado. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "88e7db76",
+   "metadata": {},
+   "source": [
+    "Este tipo de problemas se denominan problemas de **búsqueda no estructurada** o problemas de búsqueda en **conjuntos de datos (datasets) no estructurados**. Como acabamos de comentar, estos problemas requieren un tiempo polinómico (en concreto, lineal) para ser resueltos. Se engloban dentro de esta categoría también problemas que presenten un dataset con alguna clase de estructura siempre que esta no se pueda aprovechar para acelerar la búsqueda. \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "40d5ee50",
+   "metadata": {},
+   "source": [
+    "La ventaja que aporta el algoritmo de Grover es **cuadrática**, ya que pasamos de necesitar un tiempo $\\mathcal{O}(N)$ a un tiempo $\\mathcal{O}(\\sqrt{N})$. Esto puede parecer decepcionante si lo comparamos con la mejora exponencial que promete el algoritmo de Shor, pero está lejos de serlo.  Aunque a priori no parezca una mejora sustancial, cuando tratamos con valores suficientemente grandes de $N$ (datasets inmenso), la mejora en tiempo respecto a su contrapartida clásica puede ser de ordenes de magnitud, es decir, para nada despreciable. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "06ebc5ed",
+   "metadata": {},
+   "source": [
+    "El algoritmo de Grover no hace uso de la estructura interna del dataset en el que realiza la búsqueda, lo cual lo hace genérico y aplicable a una gran variedad de casos. Los problemas de búsqueda aparecen por doquier en las ciencias computacionales, con lo que una mejora en la eficiencia de estos es de gran interés. Además, este algoritmo no solo nos sirve para búsquedas, sino que nos sirve como subrutina para conseguir un aumento de velocidad cuadrático en otros algoritmo. A esto último se lo denomina el truco de la **amplificación de la amplitud**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "66576906",
+   "metadata": {},
+   "source": [
+    "En estas notas vamos a ver todo lo necesario para entender el algoritmo de Grover, hablando tanto de matemática como de implementaciones. La estructura de las notas es la siguiente. En la sección {ref}`sec_FTA_grover_geo` veremos una explicación geométrica del algoritmo, donde se usará como ejemplo el caso más simple (una solución, $N=2^n$ y distribución uniforme) y se verán las diferentes partes del algoritmo. En las siguientes secciones iremos generalizando el algoritmo a medida que relajamos las condiciones del ejemplo anterior. En la sección {ref}`sec_FTA_grover_t-sols` veremos que pasa cuando tenemos un número $M$ de soluciones (conocido $M$). \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d7c3a709",
+   "metadata": {},
+   "source": [
+    "En la sección {ref}`sec_FTA_grover_t_no_conocido` relajaremos la condición de conocer el número $M$ de soluciones y veremos que el algoritmo sigue siendo eficiente. Como continuación lógica de la sección anterior, en la sección {ref}`sec_FTA_grover_quantum_counting` veremos un algoritmo inspirado en el algoritmo de Shor que usa el operador de Grover para contar el número de soluciones (obtener $M$). En la sección {ref}`sec_FTA_grover_cons_imple` hablaremos sobre la implementación del difusor y como la formulación más habitual del mismo es la responsable de imponer la condición $N=2^n$. Veremos en la subseción {ref}`sec_FTA_grover_subsec-N_neq_2n` como podemos eliminar también esta condición. Por último, en la sección {ref}`sec_FTA_grover_arbitrary_distribition` veremos que también es posible relajar la condición de partir de una distribución de probabilidad uniforme. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a346042",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "Autores:\n",
+    "\n",
+    "David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-CNS](https://www.bsc.es/es)), Daniel Talaván  ([Cenits](https://www.cenits.es/)), Francisco Matanza ([UNICAN](https://web.unican.es/))\n",
+    "\n",
+    "<img src=\"images/Logo_UMA.jpeg\"  width=\"170px\">\n",
+    "<img src=\"images/BSC-blue-medium.png\" width=\"195px\">\n",
+    "<img src=\"images/xaniversario_rectangle.jpg\" width=\"170px\">\n",
+    "<img src=\"images/Logo_UNICAM.jpg\" width=\"210px\">\n",
+    "\n",
+    "\n",
+    "---\n",
+    "::::{figure} https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png\n",
+    ":width: 2000px\n",
+    ":align: center\n",
+    "::::\n",
+    "\n",
+    "<center>\n",
+    "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">\n",
+    "<img aling=\"left\" alt=\"Licencia Creative Commons\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a>\n",
+    "</center>\n",
+    "\n",
+    "License: <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.\n",
+    "\n",
+    "This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.\n",
+    "\n",
+    "<center>\n",
+    "<img align=\"left\" src=\"https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png\" width=\"1000px\" />\n",
+    "</center>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

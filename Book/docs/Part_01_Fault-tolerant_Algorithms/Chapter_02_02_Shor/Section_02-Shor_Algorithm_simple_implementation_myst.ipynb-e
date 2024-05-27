@@ -66,7 +66,17 @@
     ":::{contents}\n",
     ":local:\n",
     ":depth: 1\n",
-    ":::\n"
+    ":::\n",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
    ]
   },
   {
@@ -264,12 +274,12 @@
    "metadata": {},
    "source": [
     "<a id=\"Ejemplo:-caso-con-a=3-y-N=35\"></a>\n",
-    "::::::::::{dropdown} Ejemplo\n",
+    "<details><summary><p style=\"color:blue\" > >> <i>Ejemplo</i> </p></summary>\n",
     "::::::{admonition} Ejemplo (Subtitulo del ejercicio/ejemplo) \n",
     ":class: tip\n",
     "\n",
     "\n",
-    "        \n",
+    "<br>        \n",
     "\\begin{align}\n",
     "U |u_0 \\rangle & = U \\left[ \\frac{1}{\\sqrt{12}} \\left( |1 \\rangle + |3\\rangle + |9 \\rangle + \\dots |4 \\rangle + |12 \\rangle \\right) \\right] = \\\\\n",
     "& = \\frac{1}{\\sqrt{12}} \\left( U|1 \\rangle + U|3\\rangle + U|9 \\rangle + \\dots U|4 \\rangle + U|12 \\rangle \\right) = \\\\\n",
@@ -277,7 +287,7 @@
     "& =  |u_0 \\rangle\n",
     "\\end{align}\n",
     "::::::\n",
-    "::::::::::\n"
+    "</details>\n"
    ]
   },
   {
@@ -337,7 +347,7 @@
     ":class: note\n",
     "\n",
     "\n",
-    "     \n",
+    "<br>     \n",
     "Denominamos <i>$n$ al número de qubits que necesitamos para codificar el número $N$ </i>(que queremos factorizar) en un registro cuántico. Para aplicar el algoritmo de Shor se suelen usar $t=2n$ qubits en el <i>registro de conteo</i>.\n",
     "::::::\n"
    ]
@@ -351,19 +361,19 @@
     ":class: note\n",
     "\n",
     "\n",
-    "     \n",
+    "<br>     \n",
     "Véase que este circuito sigue el convenio más extendido en la literatura, es decir, aquel en el que el <b>bit más significativo</b> es el de más arriba y el bit menos significativo el de más abajo. Qiskit sigue el convenio contrario. Esto es, dado un estado\n",
-    "\n",
+    "<br>\n",
     "$$\n",
     "\\left| x \\right\\rangle = \\left| a_{n-1} a_{n-2} \\dots a_1 a_0 \\right\\rangle\n",
     "$$\n",
-    "\n",
+    "<br>\n",
     "que podemos escribirlo en la base decimal como\n",
-    "\n",
+    "<br>\n",
     "$$\n",
     "x = a_{n-1} 2^{n-1} + a_{n-2} 2^{n-2} + \\dots + a_0 2^{0}\n",
     "$$\n",
-    "\n",
+    "<br>\n",
     "tenemos que al escribir los circuitos\n",
     "    \n",
     "::::{figure} Figuras_Shor/Fig-2_convenios.png\n",
@@ -404,9 +414,9 @@
     ":class: note\n",
     "\n",
     "\n",
-    "     \n",
+    "<br>     \n",
     "Un <b>oráculo</b> es, por decirlo así, la forma que se usa en computación cuántica para denominar a las funciones de las cuales queremos extraer información haciendo llamadas a las mismas. El oráculo es una función que desconoces cómo está hecha, sólo sabes lo que hace. Como a los oráculos griegos, sólo te está permitido interrogarles, pero no preguntarles cómo saben que esa es la respuesta.\n",
-    "\n",
+    "<br>\n",
     "Al final los oráculos se representan como secciones del circuito que se dedica a aplicar un operador $U$. En nuestro caso, por ejemplo, llamamos oráculo a la función que construye el operador de la exponencial modulada $U^{2^j} |y \\rangle = | a^{2^j}y \\, \\text{mod} N \\rangle$.\n",
     "\n",
     "::::::\n"
@@ -447,12 +457,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "593df176",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "# Oracle: Modular Exponentiation U^{2^j} |y> = |a^{2^j}y mod N> \n",
     "def c_amod15(a, power): # It use 4 \n",
     "    \"\"\"Controlled multiplication by a mod 15\"\"\"\n",
@@ -506,12 +516,13 @@
    "cell_type": "code",
    "execution_count": 3,
    "id": "0c3c89a1",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "# Oracle: Modular Exponentiation U^{2^j} |y> = |a^{2^j}y mod N> \n",
@@ -565,12 +576,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0262fc76",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "# Specify variables\n",
     "n_count = 8  # number of counting qubits\n",
     "a = 7\n",
@@ -613,9 +624,7 @@
    "execution_count": 5,
    "id": "5d0f9439",
    "metadata": {
-    "tags": [
-     "remove_input"
-    ]
+    "scrolled": false
    },
    "outputs": [
     {
@@ -638,6 +647,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "# Specify variables\n",
@@ -679,12 +693,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c8bcdc2b",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "aer_sim = Aer.get_backend('aer_simulator')\n",
     "t_qc = transpile(qc, aer_sim)\n",
     "results = aer_sim.run(t_qc).result()\n",
@@ -705,9 +719,7 @@
    "execution_count": 7,
    "id": "85a51ef7",
    "metadata": {
-    "tags": [
-     "remove_input"
-    ]
+    "scrolled": false
    },
    "outputs": [
     {
@@ -722,6 +734,11 @@
      "output_type": "execute_result"
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "aer_sim = Aer.get_backend('aer_simulator')\n",
@@ -750,7 +767,7 @@
     ":class: note\n",
     "\n",
     "\n",
-    "     \n",
+    "<br>     \n",
     "Se trata de una simulación ideal, sin ruido. En un ordenador cuántico de verdad tendríamos más resultados con probabilidades bajas y estos 4 sobresaliendo.\n",
     "\n",
     "::::::\n"
@@ -768,12 +785,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c7cf475d",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "rows, measured_phases = [], []\n",
     "for output in counts:\n",
     "    decimal = int(output, 2)  # Convert (base 2) string to decimal\n",
@@ -802,11 +819,7 @@
    "cell_type": "code",
    "execution_count": 9,
    "id": "ed250ee8",
-   "metadata": {
-    "tags": [
-     "remove_input"
-    ]
-   },
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
@@ -820,6 +833,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "rows, measured_phases = [], []\n",
@@ -946,7 +964,7 @@
     "::::::{admonition} Nota\n",
     ":class: note\n",
     "\n",
-    "\n",
+    "<br>\n",
     "    \n",
     "Véase que el máximo común divisor se calcula usando la función gcd() del módulo [math](https://docs.python.org/3/library/math.html) de python. Esto es, se calcula clásicamente (sin ningún circuito cuántico), pues como ya comentamos, el algoritmo de Euclides {cite}`bib_FTA_Shor_Euclides` se implementa de forma eficiente en un ordenado clásico. \n",
     "\n",
@@ -969,12 +987,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1d6e1516",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def qpe_amod15(a):\n",
     "    n_count = 8\n",
     "    qc = QuantumCircuit(4+n_count, n_count)\n",
@@ -1010,12 +1028,13 @@
    "cell_type": "code",
    "execution_count": 14,
    "id": "e7206f0a",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def qpe_amod15(a):\n",
@@ -1051,12 +1070,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a9df8220",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "factor_found = False\n",
     "attempt = 0\n",
     "while not factor_found:\n",
@@ -1090,7 +1109,7 @@
    "id": "bdf05187",
    "metadata": {
     "tags": [
-     "remove_input"
+     "scroll-output"
     ]
    },
    "outputs": [
@@ -1108,6 +1127,11 @@
      ]
     }
    ],
+   "metadata": {
+    "tags": [
+     "remove_input"
+    ]
+   },
    "source": [
     "'''Qiskit_code_cell'''\n",
     "factor_found = False\n",
@@ -1164,7 +1188,31 @@
     "```{bibliography} \n",
     ":style: plain\n",
     ":filter: docname in docnames\n",
-    "```"
+    "```",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
    ]
   },
   {

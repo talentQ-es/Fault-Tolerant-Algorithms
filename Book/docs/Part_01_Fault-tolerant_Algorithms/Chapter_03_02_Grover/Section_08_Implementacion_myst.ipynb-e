@@ -46,17 +46,25 @@
     ":::{contents}\n",
     ":local:\n",
     ":depth: 1\n",
-    ":::\n"
+    ":::\n",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "7a404d61",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "import numpy as np\n",
     "from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile\n",
     "from qiskit.visualization import plot_histogram\n",
@@ -65,6 +73,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "from qibo import Circuit, gates\n",
     "import numpy as np\n",
     "```\n",
@@ -76,12 +85,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "113f8611",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "import numpy as np\n",
@@ -133,12 +143,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ff1f4616",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def mcz(circuit, control_qubits, target_qubit):\n",
     "    '''\n",
     "    This funntion implements a multicontroled Z-gate. If all the control_qubits\n",
@@ -173,8 +183,8 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
-    "# On qibo there is a built-in MCZ gate\n",
-    "\n",
+    "",
+    "# On qibo there is a built-in MCZ gate\n\n",
     "```\n",
     "::::\n",
     ":::::\n"
@@ -184,12 +194,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "2cae998e",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def mcz(circuit, control_qubits, target_qubit):\n",
@@ -251,12 +262,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ca55f587",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def Grover_Diffuser(circuit, target_reg):\n",
     "    ''' \n",
     "    This function apply the Grover's diffuser to a quantum register.\n",
@@ -300,6 +311,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "def grover_diffuser_qibo(circuit_qibo,ancilla=0):\n",
     "    \"\"\"\n",
     "    This functions generates the Grover diffuser circuit for nqubits. \n",
@@ -341,12 +353,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "39901e1f",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def Grover_Diffuser(circuit, target_reg):\n",
@@ -408,12 +421,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "55848036",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "n = 6\n",
     "\n",
     "quantum_reg = QuantumRegister(n)\n",
@@ -428,6 +441,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "n=6\n",
     "circuit_qibo=Circuit(n)\n",
     "print(grover_diffuser_qibo(circuit_qibo).draw())\n",
@@ -440,12 +454,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "8a0f449c",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "n = 6\n",
@@ -498,7 +513,7 @@
     ":class: note\n",
     "\n",
     "\n",
-    "     \n",
+    "<br>     \n",
     "Recordemos que en qiskit el bit menos significativo es que va arriaba en el circuito, así que \tel \"qiskit\" en el nombre de la lista <code>M_list_bin_qiskit</code> hace referencia que estamos mandando las cadenas el revés. Es decir, para pasarlas a decimal las invertimos:\n",
     "\n",
     "$$\n",
@@ -519,12 +534,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "275bc017",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def Grover_Oracle_trivial(circuit, target_reg, M_list_bin_qiskit): # n, M_list_bin):\n",
     "    '''\n",
     "    This function implements a Grover oracle. We call it \"trivial\" because this\n",
@@ -568,6 +583,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "def Grover_oracle_trivial_qibo(circuit_qibo, M_list_bin_qibo):\n",
     "    \"\"\"\n",
     "    This functions generates a Grover oracle that phase-tags a list of binary numbers.\n",
@@ -610,12 +626,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "eaa08561",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def Grover_Oracle_trivial(circuit, target_reg, M_list_bin_qiskit): # n, M_list_bin):\n",
@@ -669,12 +686,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8081368f",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "# We import functions from the scripts in ..\\..\\Code folder\n",
     "n = 5\n",
     "\n",
@@ -693,6 +710,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "\n",
     "M_list_bin = [ '01101', '11000']\n",
     "#To get the same result with Qibo as with Qiskit, we must flip the order of bits in the strings:\n",
@@ -711,12 +729,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "2cce603a",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "# We import functions from the scripts in ..\\..\\Code folder\n",
@@ -837,12 +856,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "29164d31",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def XOR_2qubits(qc, a, b, output):\n",
     "    qc.cx(a, output)\n",
     "    qc.cx(b, output)\n",
@@ -850,6 +869,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "def XOR_2qubits_qibo(circuit_qibo, a, b, output):\n",
     "    circuit_qibo.add(gates.X(output).controlled_by(a))\n",
     "    circuit_qibo.add(gates.X(output).controlled_by(b))\n",
@@ -863,12 +883,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "a03446ea",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def XOR_2qubits(qc, a, b, output):\n",
@@ -886,12 +907,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d1b6c2f7",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "in_qubits = QuantumRegister(2, name='input')\n",
     "out_qubit = QuantumRegister(1, name='output')\n",
     "qc = QuantumCircuit(in_qubits, out_qubit)\n",
@@ -901,9 +922,9 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "circuit_qibo=Circuit(3)\n",
-    "print(XOR_2qubits_qibo(circuit_qibo, a=0, b=1, output=2).draw())\n",
-    "\n",
+    "print(XOR_2qubits_qibo(circuit_qibo, a=0, b=1, output=2).draw())\n\n",
     "```\n",
     "::::\n",
     ":::::\n"
@@ -914,11 +935,14 @@
    "execution_count": null,
    "id": "94924bcd",
    "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "in_qubits = QuantumRegister(2, name='input')\n",
@@ -938,12 +962,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "704a70a9",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "def Grover_Oracle_Sudoku_2x2(circuit, conditions_list, ancilla_reg, \n",
     "                             output_qubit, print_oracle = 1):\n",
     "    '''\n",
@@ -971,6 +995,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "def Grover_Oracle_Sudoku_2x2_qibo(circuit_qibo, conditions_list,n):\n",
     "\n",
     "    '''\n",
@@ -994,8 +1019,7 @@
     "        XOR_2qubits_qibo(circuit_qibo,clause[1], clause[0], var_reg+j)\n",
     "\n",
     "    return circuit_qibo\n",
-    "\n",
-    "\n",
+    "\n\n",
     "```\n",
     "::::\n",
     ":::::\n"
@@ -1005,12 +1029,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "1582a252",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "def Grover_Oracle_Sudoku_2x2(circuit, conditions_list, ancilla_reg, \n",
@@ -1074,12 +1099,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "89430f83",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "n = 4\n",
     "N = 2**n # Total number of states\n",
     "M = 2    # Number of solutions\n",
@@ -1116,6 +1141,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "\n",
     "n = 4\n",
     "N = 2**n # Total number of states\n",
@@ -1149,12 +1175,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "3dd9b29a",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "n = 4\n",
@@ -1209,17 +1236,18 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4cb4608d",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "circuit.draw(output='mpl', fold = -1, filename = '3-Fig_Sudoku_2x2')\n",
     "```\n",
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "print(circuit_qibo.draw())\n",
     "```\n",
     "::::\n",
@@ -1230,12 +1258,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "55f7c601",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "circuit.draw(output='mpl', fold = -1, filename = '3-Fig_Sudoku_2x2')"
@@ -1243,12 +1272,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3c481aee",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "sim = AerSimulator(method = 'statevector')\n",
     "tcircuit = transpile(circuit, sim)\n",
     "result = sim.run(tcircuit).result()\n",
@@ -1282,6 +1311,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "result_qibo= circuit_qibo(nshots=1000)\n",
     "\n",
     "keys_bin_qibo = list(result_qibo.frequencies(binary=True).keys())\n",
@@ -1314,12 +1344,13 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "3aa5b5d3",
+   "metadata": {},
+   "outputs": [],
    "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "sim = AerSimulator(method = 'statevector')\n",
@@ -1355,12 +1386,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e8d94f69",
    "metadata": {},
    "source": [
     ":::::{tab-set}\n",
     "::::{tab-item} Qiskit\n",
     "```python\n",
+    "",
     "fig = plot_histogram(result.get_counts())\n",
     "\n",
     "fig.tight_layout()\n",
@@ -1370,6 +1401,7 @@
     "::::\n",
     "::::{tab-item} Qibo\n",
     "```python\n",
+    "",
     "import matplotlib.pyplot as plt\n",
     "fig, ax = plt.subplots()\n",
     "plt.bar(sorted(keys_bin_qibo), [x for _,x in sorted(zip(keys_bin_qibo, values_qibo))])\n",
@@ -1377,8 +1409,7 @@
     "    plt.text(i,[x for _,x in sorted(zip(keys_bin_qibo, values_qibo))][i]+2,[x for _,x in sorted(zip(keys_bin_qibo, values_qibo))][i], ha='center')\n",
     "plt.xticks(rotation=45)\n",
     "plt.ylabel('Counts')\n",
-    "plt.show()\n",
-    "\n",
+    "plt.show()\n\n",
     "```\n",
     "::::\n",
     ":::::\n"
@@ -1389,11 +1420,14 @@
    "execution_count": null,
    "id": "395cabf0",
    "metadata": {
+    "scrolled": false
+   },
+   "outputs": [],
+   "metadata": {
     "tags": [
      "remove_input"
     ]
    },
-   "outputs": [],
    "source": [
     "'''Qiskit_code_cell'''\n",
     "fig = plot_histogram(result.get_counts())\n",
@@ -1413,7 +1447,10 @@
     "```{bibliography} \n",
     ":style: plain\n",
     ":filter: docname in docnames\n",
-    "```"
+    "```",
+    "",
+    "",
+    ""
    ]
   },
   {

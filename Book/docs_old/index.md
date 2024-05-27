@@ -34,13 +34,14 @@ David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-C
 
 ---
 
+<center>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
   <img alt="Licencia Creative Commons" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="display: inline-block; vertical-align: middle;" />
   <div style="display: inline-block; font-size: 10px; vertical-align: middle;">
     License: Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional.
   </div>
 </a>
-
+</center>
     
 
 <div style="font-size: 10px">

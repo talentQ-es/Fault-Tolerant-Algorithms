@@ -2,7 +2,7 @@
 
 - **[Algoritmos "Fault-tolerant"](./Notebooks/Part_01_Fault-tolerant_Algorithms)**
 
-    - **[Algoritmo de Estimación Iterativa de Fase](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada.ipynb)**
+    - **[Algoritmo de Estimación Iterativa de Fase (IPE)](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada.ipynb)**
         - **[1. Teoría](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_02_IPE/Section_01_Teoria.ipynb)**
         - **[2. Implementación y ejemplos](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo.ipynb)**
 

@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
 </ul>
@@ -705,8 +705,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <span id="sec-fta-grover-imple-trivial-oracle"></span><h2><a class="toc-backref" href="#id98">Oráculo “trivial”.</a><a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
 <p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está echo “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a esta caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
 <p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <code class="docutils literal notranslate"><span class="pre">M_list_bin_qiskit</span></code>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-97420e0c-c26d-4f92-82ac-400edf273479">
-<span class="eqno">()<a class="headerlink" href="#equation-97420e0c-c26d-4f92-82ac-400edf273479" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d16e7a9-ebce-43f8-9ee3-dd74daeac94b">
+<span class="eqno">()<a class="headerlink" href="#equation-3d16e7a9-ebce-43f8-9ee3-dd74daeac94b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{M_list_bin_qiskit} = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
 \end{equation}\]</div>
 <div class="note admonition">
@@ -859,8 +859,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="el-sudoku">
 <h4>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h4>
 <p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-228a8a14-eaab-46b7-aff0-009687b94568">
-<span class="eqno">()<a class="headerlink" href="#equation-228a8a14-eaab-46b7-aff0-009687b94568" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0080a0bd-a866-4acc-96b8-da2ec76ae5c1">
+<span class="eqno">()<a class="headerlink" href="#equation-0080a0bd-a866-4acc-96b8-da2ec76ae5c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\lc
 	\begin{matrix}
 	V_0 &amp; V_1 \\
@@ -872,8 +872,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="condiciones-y-puerta-xor">
 <h4>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h4>
 <p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c70c937-3e04-4ca0-8987-1bc62f59188f">
-<span class="eqno">()<a class="headerlink" href="#equation-7c70c937-3e04-4ca0-8987-1bc62f59188f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cdd34699-dabe-4269-bb82-7c0bf325c5b2">
+<span class="eqno">()<a class="headerlink" href="#equation-cdd34699-dabe-4269-bb82-7c0bf325c5b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_0 \neq V_1, \qquad 
 V_0 \neq V_2, \qquad
 V_2 \neq V_3, \qquad

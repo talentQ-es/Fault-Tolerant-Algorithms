@@ -4,17 +4,14 @@ parts:
 - caption:  Algoritmos "Fault-tolerant"
   chapters:
   - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada_myst.ipynb
-  - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_01_01_IPE_portada_myst.ipynb-e
     sections:
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_01_02_IPE/Section_01_Teoria_myst.ipynb
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.ipynb
   - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_02_01_Shor_portada_myst.ipynb
-  - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_02_01_Shor_portada_myst.ipynb-e
     sections:
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_02_02_Shor/Section_01-Introduccion_myst.ipynb
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.ipynb
   - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_01_Grover_portada_myst.ipynb
-  - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_01_Grover_portada_myst.ipynb-e
     sections:
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_01_Introduccion_myst.ipynb
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_02_explicacion_geometrica_myst.ipynb

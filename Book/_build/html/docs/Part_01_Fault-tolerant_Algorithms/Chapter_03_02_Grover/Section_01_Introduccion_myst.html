@@ -106,6 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2. Explicación geométrica" href="Section_02_explicacion_geometrica_myst.html" />
+    <link rel="prev" title="Algoritmo de Grover" href="../Chapter_03_01_Grover_portada_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,8 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -215,10 +215,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -457,19 +475,19 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1>1. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
-<p>La computación cuántica es un campo relativamente joven y en el cual hay depositadas muchas esperanzas, pues se cree que tiene el potencial de poder resolver algunos problemas con los que la computación clásica no puede lidiar. Estamos hablando de los famosos problemas de la clase de complejidad NP-hard. Sin embargo, pese a esta creencia, pocas demostraciones teóricas hay sobre el tema. La demostración más famosa es la del <strong>Algoritmo de Shor</strong>, que es capaz de abordar el problema de la factorización de un número en sus factores primos. Esto es porque el algoritmo es capaz de calcular los factores primos en un tiempo polinónico, frente al tiempo exponencial que requieren los mejores algoritmos clásicos. El algoritmo sobre el que tratan estas notas, el también archiconocido <strong>Algoritmo de Grover</strong>, no ofrece una ventaja exponencial respecto al mejor algoritmo clásico, pero si ofrece una mejora sustancial (cuadrática).</p>
+<p>La computación cuántica es un campo relativamente joven y en el cual hay depositadas muchas esperanzas, pues se cree que tiene el potencial de poder resolver algunos problemas con los que la computación clásica no puede lidiar. Estamos hablando de los famosos problemas de la clase de complejidad NP-hard. Sin embargo, pese a esta creencia, pocas demostraciones teóricas hay sobre el tema. La demostración más famosa es la del <strong>Algoritmo de Shor</strong>, que es capaz de abordar el problema de la factorización de un número en sus factores primos. Esto es porque el algoritmo es capaz de calcular los factores primos en un tiempo polinómico, frente al tiempo exponencial que requieren los mejores algoritmos clásicos. El algoritmo sobre el que tratan estas notas, el también archiconocido <strong>Algoritmo de Grover</strong>, no ofrece una ventaja exponencial respecto al mejor algoritmo clásico, pero si ofrece una mejora sustancial (cuadrática).</p>
 <p>Resumiendo mucho, el algoritmo de Grover es un algoritmo de búsqueda no estructurada. El objetivo del algoritmo es encontrar un valor (o varios) en una secuencia no ordenada de <span class="math notranslate nohighlight">\(N\)</span> componentes. Supongamos que tenemos una lista <span class="math notranslate nohighlight">\(L\)</span> con <span class="math notranslate nohighlight">\(N\)</span> elementos donde denominamos <span class="math notranslate nohighlight">\(L_i\)</span>, con <span class="math notranslate nohighlight">\(i=0,1,\dots,N-1\)</span>, al i-ésido elemento de la lista. Supongamos que queremos encontrar un elemento <span class="math notranslate nohighlight">\(q\)</span> en la lista, es decir, lo que queremos encontrar es el índice <span class="math notranslate nohighlight">\(\omega\)</span> tal que <span class="math notranslate nohighlight">\(L_\omega = q\)</span>. Si asumimos que la lista está desordenada, ningún algoritmo clásico conocido puede darnos un tiempo de búsqueda mejor que <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span>. Es decir, el tiempo promedio de búsqueda crece linealmente con <span class="math notranslate nohighlight">\(N\)</span>, con el número de elementos entre los que buscamos. Esto es fácil de ver, pues para encontrar nuestro elemento tendremos que ir probando uno a uno los elementos de la lista. De esta forma en promedio tendremos que hacer <span class="math notranslate nohighlight">\(N/2\)</span> pruebas para encontrar el resultado deseado.</p>
 <p>Este tipo de problemas se denominan problemas de <strong>búsqueda no estructurada</strong> o problemas de búsqueda en <strong>conjuntos de datos (datasets) no estructurados</strong>. Como acabamos de comentar, estos problemas requieren un tiempo polinómico (en concreto, lineal) para ser resueltos. Se engloban dentro de esta categoría también problemas que presenten un dataset con alguna clase de estructura siempre que esta no se pueda aprovechar para acelerar la búsqueda.</p>
 <p>La ventaja que aporta el algoritmo de Grover es <strong>cuadrática</strong>, ya que pasamos de necesitar un tiempo <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span> a un tiempo <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N})\)</span>. Esto puede parecer decepcionante si lo comparamos con la mejora exponencial que promete el algoritmo de Shor, pero está lejos de serlo.  Aunque a priori no parezca una mejora sustancial, cuando tratamos con valores suficientemente grandes de <span class="math notranslate nohighlight">\(N\)</span> (datasets inmenso), la mejora en tiempo respecto a su contrapartida clásica puede ser de ordenes de magnitud, es decir, para nada despreciable.</p>
-<p>El algoritmo de Grover no hace uso de la estructura interna del dataset en el que realiza la búsqueda, lo cual lo hace genérico y aplicable a una gran variedad de casos. Los problemas de búsqueda aparecen por doquier en las ciencias computacionales, con lo que una mejora en la eficiencia de estos es de gran interés. Además, este algoritmo no solo nos sirve para búsquedas, sino que nos sirve como subrutina para conseguir un aumento de velocidad cuadrático en otros algoritmo. A esto último se lo denomina el truco de la <strong>amplificación de la amplitud</strong>.</p>
+<p>El algoritmo de Grover no hace uso de la estructura interna del dataset en el que realiza la búsqueda, lo cual lo hace genérico y aplicable a una gran variedad de casos. Los problemas de búsqueda aparecen por doquier en las ciencias computacionales, con lo que una mejora en la eficiencia de estos es de gran interés. Además, este algoritmo no solo nos sirve para búsquedas, sino que nos sirve como subrutina para conseguir un aumento de velocidad cuadrático en otros algoritmos. A esto último se lo denomina el truco de la <strong>amplificación de la amplitud</strong>.</p>
 <p>En estas notas vamos a ver todo lo necesario para entender el algoritmo de Grover, hablando tanto de matemática como de implementaciones. La estructura de las notas es la siguiente. En la sección <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#sec-fta-grover-geo"><span class="std std-ref">2. Explicación geométrica</span></a> veremos una explicación geométrica del algoritmo, donde se usará como ejemplo el caso más simple (una solución, <span class="math notranslate nohighlight">\(N=2^n\)</span> y distribución uniforme) y se verán las diferentes partes del algoritmo. En las siguientes secciones iremos generalizando el algoritmo a medida que relajamos las condiciones del ejemplo anterior. En la sección <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#sec-fta-grover-t-sols"><span class="std std-ref">3. Número conocido de soluciones</span></a> veremos que pasa cuando tenemos un número <span class="math notranslate nohighlight">\(M\)</span> de soluciones (conocido <span class="math notranslate nohighlight">\(M\)</span>).</p>
 <p>En la sección <a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html#sec-fta-grover-t-no-conocido"><span class="std std-ref">4. Número desconocido de soluciones</span></a> relajaremos la condición de conocer el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones y veremos que el algoritmo sigue siendo eficiente. Como continuación lógica de la sección anterior, en la sección <a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html#sec-fta-grover-quantum-counting"><span class="std std-ref">5. Conteo de soluciones (Quantum counting)</span></a> veremos un algoritmo inspirado en el algoritmo de Shor que usa el operador de Grover para contar el número de soluciones (obtener <span class="math notranslate nohighlight">\(M\)</span>). En la sección <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-cons-imple"><span class="std std-ref">6. Consideraciones sobre la implementación</span></a> hablaremos sobre la implementación del difusor y como la formulación más habitual del mismo es la responsable de imponer la condición <span class="math notranslate nohighlight">\(N=2^n\)</span>. Veremos en la subseción <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-subsec-n-neq-2n"><span class="std std-ref">Caso con N \neq 2^n.</span></a> como podemos eliminar también esta condición. Por último, en la sección <a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html#sec-fta-grover-arbitrary-distribition"><span class="std std-ref">7. Distribución de probababilidad inicial aleatoria</span></a> veremos que también es posible relajar la condición de partir de una distribución de probabilidad uniforme.</p>
 <hr class="docutils" />
 <p>Autores:</p>
-<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
-<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX3.jpg"><img alt="../../../_images/COMPUTAEX3.jpg" src="../../../_images/COMPUTAEX3.jpg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
 <hr class="docutils" />
 <figure class="align-center">
@@ -515,6 +533,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter_03_01_Grover_portada_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Algoritmo de Grover</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_02_explicacion_geometrica_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Explicación geométrica</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

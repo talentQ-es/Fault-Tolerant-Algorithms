@@ -29,7 +29,7 @@ David Castaño ([UMA-SCBI](https://www.scbi.uma.es/site/)), Raul Fuentes ([BSC-C
     
 <img src="images/Logo_UMA.jpeg"  width="150px">
 <img src="images/BSC-blue-medium.png" width="175px">
-<img src="images/xaniversario_rectangle.jpg" width="150px">
+<img src="images/COMPUTAEX.jpg" width="150px">
 <img src="images/Logo_UNICAM.jpg" width="190px">
 
 ---

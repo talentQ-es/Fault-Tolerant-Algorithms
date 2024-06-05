@@ -106,6 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6. Consideraciones sobre la implementación" href="Section_06_consideraciones_implementacion_myst.html" />
+    <link rel="prev" title="4. Número desconocido de soluciones" href="Section_04_Numero_desconocido_sols_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,8 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -215,10 +215,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_01_Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -478,7 +496,7 @@ document.write(`
 <li><p><a class="reference internal" href="#bibliografia" id="id102">Bibliografía</a></p></li>
 </ul>
 </div>
-<p>En esta sección vamos a ver un algoritmo para obtener el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones. Este algoritmo puede decirse que en cierta medida está inspirado en el algoritmo de Shor, pues lo que vamos a hacer es usar el \textbf{algoritmo de estimación de fase cuántico (QPE)} para obtener el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> a partir del operador de Grover <span class="math notranslate nohighlight">\(G\)</span>. Después, podemos usar la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">()</a> para obtener <span class="math notranslate nohighlight">\(M\)</span> partir de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>En esta sección vamos a ver un algoritmo para obtener el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones. Este algoritmo puede decirse que en cierta medida está inspirado en el algoritmo de Shor, pues lo que vamos a hacer es usar el \textbf{algoritmo de estimación de fase cuántico (QPE)} para obtener el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> a partir del operador de Grover <span class="math notranslate nohighlight">\(G\)</span>. Después, podemos usar la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a> para obtener <span class="math notranslate nohighlight">\(M\)</span> partir de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>Vamos a seguir en el caso en el que <span class="math notranslate nohighlight">\(N=2^n\)</span> y la distribución de probabilidad inicial es uniforme.</p>
 <section id="breve-resumen-de-la-estimacion-de-fase-cuantica-qfe">
 <span id="sec-fta-grover-qc-qpe"></span><h2><a class="toc-backref" href="#id99">Breve resumen de la estimación de fase cuántica (QFE).</a><a class="headerlink" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe" title="Permalink to this heading">#</a></h2>
@@ -488,62 +506,62 @@ document.write(`
 U \left| \psi \right\rangle = e^{2 \pi i \alpha}  \left| \psi \right\rangle
 \]</div>
 <p>El \textbf{algoritmo de estimación de fase cuántica} lo que hace es calcular un valor aproximado del ángulo <span class="math notranslate nohighlight">\(\alpha\)</span>.
-En la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_FTA_grover_QC_QPE</span></code> podemos ver el circuito que implementa este algoritmo. No vamos a entrar a hablar en detalle del mismo (puede verse una explicación más detallada en las notas del algoritmo de Shor). Simplemente comentar dos cosas:</p>
+En la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="std std-numref">Fig. 4</span></a> podemos ver el circuito que implementa este algoritmo. No vamos a entrar a hablar en detalle del mismo (puede verse una explicación más detallada en las notas del algoritmo de Shor). Simplemente comentar dos cosas:</p>
 <ul class="simple">
-<li><p>Por el registro de qubits de abajo en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_FTA_grover_QC_QPE</span></code> debe de entrar el autoestado de <span class="math notranslate nohighlight">\(U\)</span> del cual queremos medir la fase.</p></li>
-<li><p>Si por el registro de conteo entran <span class="math notranslate nohighlight">\(p\)</span> qubits (el de arriba en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_FTA_grover_QC_QPE</span></code>), en la salida vamos a medir el estado <span class="math notranslate nohighlight">\(| 2^p \alpha \rangle\)</span>.</p></li>
+<li><p>Por el registro de qubits de abajo en la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="std std-numref">Fig. 4</span></a> debe de entrar el autoestado de <span class="math notranslate nohighlight">\(U\)</span> del cual queremos medir la fase.</p></li>
+<li><p>Si por el registro de conteo entran <span class="math notranslate nohighlight">\(p\)</span> qubits (el de arriba en la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="std std-numref">Fig. 4</span></a>), en la salida vamos a medir el estado <span class="math notranslate nohighlight">\(| 2^p \alpha \rangle\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig-fta-grover-qc-qpe">
 <a class="reference internal image-reference" href="../../../_images/Fig_QC_QPE.png"><img alt="../../../_images/Fig_QC_QPE.png" src="../../../_images/Fig_QC_QPE.png" style="width: 1000px;" /></a>
 <figcaption>
-<p><span class="caption-text">Implementación del algoritmo de estimación de fase cuántica (en el convenio estándar, siendo el bit más significativo el de arriba).</span><a class="headerlink" href="#fig-fta-grover-qc-qpe" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Implementación del algoritmo de estimación de fase cuántica (en el convenio estándar, siendo el bit más significativo el de arriba).</span><a class="headerlink" href="#fig-fta-grover-qc-qpe" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Para más información soble la QPE, puede verse <span id="id1">[<a class="reference internal" href="#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span></p>
 </section>
 <section id="estimacion-de-fase-con-el-operador-de-grover">
 <span id="sec-fta-grover-qc-qpe-grover"></span><h2><a class="toc-backref" href="#id100">Estimación de fase con el operador de Grover.</a><a class="headerlink" href="#estimacion-de-fase-con-el-operador-de-grover" title="Permalink to this heading">#</a></h2>
-<p>Como ya comentamos anteriormente, el operador de Grover <span class="math notranslate nohighlight">\(G\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-g">()</a>) rota el vector de estado en un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span>, donde <span class="math notranslate nohighlight">\(\theta\)</span> está dado por la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">()</a>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfc51765-33eb-422c-a2c0-6cfd7aa86ef2">
-<span class="eqno">()<a class="headerlink" href="#equation-dfc51765-33eb-422c-a2c0-6cfd7aa86ef2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Como ya comentamos anteriormente, el operador de Grover <span class="math notranslate nohighlight">\(G\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-g">(32)</a>) rota el vector de estado en un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span>, donde <span class="math notranslate nohighlight">\(\theta\)</span> está dado por la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a>, es decir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cb171361-01f8-4d00-af4b-456ecd6b8b04">
+<span class="eqno">(58)<a class="headerlink" href="#equation-cb171361-01f8-4d00-af4b-456ecd6b8b04" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\Psi(t+1) \rangle = G | \Psi(t) \rangle = e^{i 2 \theta} | \Psi(t) \rangle.
 \end{equation}\]</div>
 <p>En concreto, se puede aplicar sobre el estado inicial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6290d387-2e0b-420b-a8f5-8ead8f617395">
-<span class="eqno">()<a class="headerlink" href="#equation-6290d387-2e0b-420b-a8f5-8ead8f617395" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a68255f-6c88-4658-8c0f-a20d3214176b">
+<span class="eqno">(59)<a class="headerlink" href="#equation-6a68255f-6c88-4658-8c0f-a20d3214176b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G | \Psi_0 \rangle = e^{i 2 \theta} | \Psi_0 \rangle}, 
 \qquad \text{ donde } \qquad
 | \Psi_0 \rangle = H^{\otimes n} |0\rangle = \frac{1}{2^n}  \sum_{i=0}^{2^n} | i \rangle
 \end{equation}\]</div>
-<p>Podemos pues usar el algoritmo de QFE poniendo el registro de abajo en el estado <span class="math notranslate nohighlight">\(| \Psi_0 \rangle \)</span> y mediremos a la salida el estado <span class="math notranslate nohighlight">\(| 2^p 2 \theta / 2 \pi \rangle = | 2^p \theta / \pi \rangle\)</span>. Podemos ver esto en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_FTA_grover_QC_QPE_G</span></code>.</p>
+<p>Podemos pues usar el algoritmo de QFE poniendo el registro de abajo en el estado <span class="math notranslate nohighlight">\(| \Psi_0 \rangle \)</span> y mediremos a la salida el estado <span class="math notranslate nohighlight">\(| 2^p 2 \theta / 2 \pi \rangle = | 2^p \theta / \pi \rangle\)</span>. Podemos ver esto en la <a class="reference internal" href="#fig-fta-grover-qc-qpe-g"><span class="std std-numref">Fig. 5</span></a>.</p>
 <figure class="align-center" id="fig-fta-grover-qc-qpe-g">
 <a class="reference internal image-reference" href="../../../_images/Fig_QC_QPE_G.png"><img alt="../../../_images/Fig_QC_QPE_G.png" src="../../../_images/Fig_QC_QPE_G.png" style="width: 1000px;" /></a>
 <figcaption>
-<p><span class="caption-text">Circuito para la QFE en el caso de Grover.</span><a class="headerlink" href="#fig-fta-grover-qc-qpe-g" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Circuito para la QFE en el caso de Grover.</span><a class="headerlink" href="#fig-fta-grover-qc-qpe-g" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Como acabamos de comentar, al aplicar QFE mediremos un valor <span class="math notranslate nohighlight">\(\tilde{f} = 2^p\tilde{\theta} / \pi\)</span>. Podemos despejar <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> y usar Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">()</a> para calcular <span class="math notranslate nohighlight">\(\tilde{M}\)</span></p>
+<p>Como acabamos de comentar, al aplicar QFE mediremos un valor <span class="math notranslate nohighlight">\(\tilde{f} = 2^p\tilde{\theta} / \pi\)</span>. Podemos despejar <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> y usar Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a> para calcular <span class="math notranslate nohighlight">\(\tilde{M}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-qc-medidas">
-<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-qc-medidas" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(60)<a class="headerlink" href="#equation-ec-fta-grover-qc-medidas" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \tilde{\theta} = \frac{\tilde{f} \pi}{2^p} \rqa \tilde{M} = 2^n \, \sin^2 \tilde{\theta} = 2^n \, \sin^2 \frac{\tilde{f} \pi}{2^p},
 \end{equation} \]</div>
 <p>donde las <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span>, <span class="math notranslate nohighlight">\(\tilde{f}\)</span> y <span class="math notranslate nohighlight">\(\tilde{M}\)</span> llevan una tilde para diferenciarlos de los valores reales. Esto es, porque dependiendo del como de grande sea <span class="math notranslate nohighlight">\(p\)</span> (cuantos qubits tengamos en el registro de conteo) nos acercaremos más a medir el valor real del ángulo <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Como veremos en la <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-sub-u-s"><span class="std std-ref">Creación de un difusor U_{\Psi_0}.</span></a>, muchas veces en vez de implementar el operador de difusión <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-uw-us">()</a>) en realidad se implementa <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. En una búsqueda de Grover normal, esta fase es global y no afecta al resultado, pero ahora estamos aplicando versiones controladas del operador de Grover 	<span class="math notranslate nohighlight">\(G\)</span>, con lo que esta fase afecta. En esencia, el único cambio es que en realidad estamos contando aquellos estados que \textit{no son solución}. Lo único que tenemos que hacer para obtener el número de soluciones es restar al total de estados, <span class="math notranslate nohighlight">\(N\)</span>, el valor que obtenemos de aplicar QFE.</p>
+<p>Como veremos en la <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-sub-u-s"><span class="std std-ref">Creación de un difusor U_{\Psi_0}.</span></a>, muchas veces en vez de implementar el operador de difusión <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-uw-us">(31)</a>) en realidad se implementa <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. En una búsqueda de Grover normal, esta fase es global y no afecta al resultado, pero ahora estamos aplicando versiones controladas del operador de Grover 	<span class="math notranslate nohighlight">\(G\)</span>, con lo que esta fase afecta. En esencia, el único cambio es que en realidad estamos contando aquellos estados que \textit{no son solución}. Lo único que tenemos que hacer para obtener el número de soluciones es restar al total de estados, <span class="math notranslate nohighlight">\(N\)</span>, el valor que obtenemos de aplicar QFE.</p>
 </div>
 </section>
 <section id="precision-de-tilde-m-respecto-a-m">
 <span id="sec-fta-grover-qc-preci-m"></span><h2><a class="toc-backref" href="#id101">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a><a class="headerlink" href="#precision-de-tilde-m-respecto-a-m" title="Permalink to this heading">#</a></h2>
 <p>En esta sección vamos a seguir el artículo <span id="id2">[<a class="reference internal" href="#id95" title="Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4-5):493–505, jun 1998. URL: https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p, doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p.">1</a>]</span>.</p>
-<p>Podemos evaluar la precisión del valor de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto al valor real <span class="math notranslate nohighlight">\(M\)</span>, acotando la desviación entre los mismos a medida que variamos <span class="math notranslate nohighlight">\(p\)</span>. Para ello, vamos a empezar asumiendo que la diferencia entre el valor real y el medido es menor que uno, es decir, <span class="math notranslate nohighlight">\(| f- \tilde{f}| &lt;1\)</span>. Esto sucede con una probabilidad razonable si <span class="math notranslate nohighlight">\(f\)</span> es suficientemente grande (si <span class="math notranslate nohighlight">\(p\)</span> es suficientemente grande). Teniendo en cuenta la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-medidas">()</a>, vemos que</p>
+<p>Podemos evaluar la precisión del valor de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto al valor real <span class="math notranslate nohighlight">\(M\)</span>, acotando la desviación entre los mismos a medida que variamos <span class="math notranslate nohighlight">\(p\)</span>. Para ello, vamos a empezar asumiendo que la diferencia entre el valor real y el medido es menor que uno, es decir, <span class="math notranslate nohighlight">\(| f- \tilde{f}| &lt;1\)</span>. Esto sucede con una probabilidad razonable si <span class="math notranslate nohighlight">\(f\)</span> es suficientemente grande (si <span class="math notranslate nohighlight">\(p\)</span> es suficientemente grande). Teniendo en cuenta la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-medidas">(60)</a>, vemos que</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 | f- \tilde{f}| &lt; 1 \rqa | \theta - \tilde{\theta}| &lt; \frac{\pi}{2^p} \rqa | \sin \theta - \sin \tilde{\theta}| &lt; \frac{\pi}{2^p},
 \end{equation*}\]</div>
 <p>donde en la última expresión se ha tenido en cuenta que <span class="math notranslate nohighlight">\(\sin \theta \approx \theta\)</span> si <span class="math notranslate nohighlight">\(\theta\)</span> es pequeño, lo cual es lógico si consideramos <span class="math notranslate nohighlight">\(M &lt;&lt; N\)</span>. Jugando con las desigualdades puede verse que</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-qc-error">
-<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-qc-error" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(61)<a class="headerlink" href="#equation-ec-fta-grover-qc-error" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|M - \tilde{M}| &lt;   \frac{2 \pi}{2^p} \sqrt{M N} + \frac{\pi^2}{(2^p)^2} N}.
 \end{equation} \]</div>
 <div class="note admonition">
@@ -571,12 +589,12 @@ positivos podemos escribir</p>
 cantidad <span class="math notranslate nohighlight">\(\alpha\)</span>, así que es siempre cierto que la suma de uno de los números más
 <span class="math notranslate nohighlight">\(\alpha\)</span> es mayor que el otro. Podemos usar la primera de estas desigualdades para
 seguir con el cálculo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bde334b5-0b62-4178-a3ab-96f90de7b6e3">
-<span class="eqno">()<a class="headerlink" href="#equation-bde334b5-0b62-4178-a3ab-96f90de7b6e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ac7f7c1-0af6-42fa-a5b7-63002da6e2e0">
+<span class="eqno">(62)<a class="headerlink" href="#equation-4ac7f7c1-0af6-42fa-a5b7-63002da6e2e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |M - \tilde{M}|  \lt N \frac{\pi}{2^p} \lp \sin \theta + \sin \tilde{\theta}  \rp \lt
 N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 \end{equation}\]</div>
-<p>Finalmente, llegamos a la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">()</a></p>
+<p>Finalmente, llegamos a la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">(61)</a></p>
 </div>
 <p>Como podemos ver, la precisión depende de <span class="math notranslate nohighlight">\(p\)</span>. Además, el tiempo de ejecución depende de <span class="math notranslate nohighlight">\(p\)</span>, con lo que lo ideal es elegir un valor de <span class="math notranslate nohighlight">\(p\)</span> suficientemente grande como para tener una buena precisión, pero que este valor de <span class="math notranslate nohighlight">\(p\)</span> no sea demasiado grande y el algoritmo no tarde demasiado. Tomemos <span class="math notranslate nohighlight">\(c\)</span> como un parámetro y veamos diferentes casos:</p>
 <ul class="simple">
@@ -584,7 +602,7 @@ N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 <li><p>Si nos conformamos con tener un error \textit{relativo} pequeño, podemos correr el algoritmo para sucesivos valores de <span class="math notranslate nohighlight">\(p\)</span> hasta que <span class="math notranslate nohighlight">\(\tilde{f}\)</span> sea razonablemente grande. Esto sucederá cuando <span class="math notranslate nohighlight">\(2^p = c \sqrt{N/M}\)</span>. Después de un tiempo proporcional a <span class="math notranslate nohighlight">\(\sqrt{N/M}\)</span>, esto nos dará una estimación para <span class="math notranslate nohighlight">\(M\)</span> que probablemente estén dentro de un factor <span class="math notranslate nohighlight">\((1+ \pi/c)^2\)</span> de la respuesta correcta.</p></li>
 </ul>
 <ul class="simple">
-<li><p>Si queremos que el error \textit{absoluto} esté probablemente limitado por una constante, aplicamos el algoritmo una vez para <span class="math notranslate nohighlight">\(2^p = c \sqrt{N}\)</span> con el objetivo de estimar <span class="math notranslate nohighlight">\(M\)</span>. Entonces, ejecutamos otra vez, pero esta vez con <span class="math notranslate nohighlight">\(2^p = c \sqrt{\tilde{M}N}\)</span>. De acuerdo con la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">()</a>, pero suponiendo <span class="math notranslate nohighlight">\(2^p = c \sqrt{MN}\)</span> por simplicidad, el error resultante en nuestra segunda estimación de <span class="math notranslate nohighlight">\(M\)</span> es probable que esté acotado por <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M}\)</span>. En particular, obtenemos una solución exacta, siempre que <span class="math notranslate nohighlight">\(|f - \tilde{f}| &lt; 1\)</span>, si tomamos <span class="math notranslate nohighlight">\(c \geq 14\)</span> ya que <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M} &lt; \frac{1}{2}\)</span> en ese caso. (Obsérvese que si aplicaciones sucesivamente el algoritmo de Grover y vamos tachamos las soluciones a medida que se encuentran también nos proporcionará un recuento exacto con alta probabilidad en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{M N})\)</span>, pero con un consumo enorme de memoria. Ver <span id="id3">[<a class="reference internal" href="#id96" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">2</a>]</span>.)</p></li>
+<li><p>Si queremos que el error \textit{absoluto} esté probablemente limitado por una constante, aplicamos el algoritmo una vez para <span class="math notranslate nohighlight">\(2^p = c \sqrt{N}\)</span> con el objetivo de estimar <span class="math notranslate nohighlight">\(M\)</span>. Entonces, ejecutamos otra vez, pero esta vez con <span class="math notranslate nohighlight">\(2^p = c \sqrt{\tilde{M}N}\)</span>. De acuerdo con la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">(61)</a>, pero suponiendo <span class="math notranslate nohighlight">\(2^p = c \sqrt{MN}\)</span> por simplicidad, el error resultante en nuestra segunda estimación de <span class="math notranslate nohighlight">\(M\)</span> es probable que esté acotado por <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M}\)</span>. En particular, obtenemos una solución exacta, siempre que <span class="math notranslate nohighlight">\(|f - \tilde{f}| &lt; 1\)</span>, si tomamos <span class="math notranslate nohighlight">\(c \geq 14\)</span> ya que <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M} &lt; \frac{1}{2}\)</span> en ese caso. (Obsérvese que si aplicaciones sucesivamente el algoritmo de Grover y vamos tachamos las soluciones a medida que se encuentran también nos proporcionará un recuento exacto con alta probabilidad en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{M N})\)</span>, pero con un consumo enorme de memoria. Ver <span id="id3">[<a class="reference internal" href="#id96" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">2</a>]</span>.)</p></li>
 <li><p>Finalmente, comentar que si estamos en el caso en el que el número de soluciones es un cuadrado perfecto pequeño, podemos encontrar el valor  exacto en un tiempo <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N})\)</span> con una probabilidad de error muy pequeña.</p></li>
 </ul>
 <p>Para más detalles sobre el tema, puede verse <span id="id4">[<a class="reference internal" href="#id96" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">2</a>]</span>.</p>
@@ -607,10 +625,10 @@ N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
-<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
-<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX3.jpg"><img alt="../../../_images/COMPUTAEX3.jpg" src="../../../_images/COMPUTAEX3.jpg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
 <hr class="docutils" />
 <figure class="align-center">
@@ -657,6 +675,24 @@ N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_04_Numero_desconocido_sols_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. Número desconocido de soluciones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_06_consideraciones_implementacion_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Consideraciones sobre la implementación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

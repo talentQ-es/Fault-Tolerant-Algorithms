@@ -109,6 +109,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Algoritmo de Grover" href="../Chapter_03_01_Grover_portada_myst.html" />
+    <link rel="prev" title="1. Introducción" href="Section_01-Introduccion_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,8 +172,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -218,10 +218,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_01_Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_08_Implementacion_myst.html">8. Implementación</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -506,8 +524,8 @@ document.write(`
 </div>
 <p>El algoritmo de Shor se basa en el algoritmo de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id1">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id2">[<a class="reference internal" href="#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id3">[<a class="reference internal" href="#id89" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">2</a>]</span> y <span id="id4">[<a class="reference internal" href="#id91" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">3</a>]</span>). El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de <strong>encontrar el periodo de una función</strong>, el cual puede ser implementado en un tiempo polinómico.</p>
 <p>Para factorizar un número <span class="math notranslate nohighlight">\(N\)</span> básicamente el algoritmo de Shor lo que hace calcular el periodo de una función (periódica) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e93e930-ab80-493b-adbe-9ed72f887b1d">
-<span class="eqno">()<a class="headerlink" href="#equation-7e93e930-ab80-493b-adbe-9ed72f887b1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00bc87de-9887-449e-a54e-8abd9e5cdadf">
+<span class="eqno">(3)<a class="headerlink" href="#equation-00bc87de-9887-449e-a54e-8abd9e5cdadf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes. La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. El periodo <span class="math notranslate nohighlight">\(r\)</span> de esta función se calcula mediante el algoritmo de estimación de fase cuántica. Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span> ya que existe una alta probabilidad de que el máximo común divisor de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -575,8 +593,8 @@ U |y \rangle \equiv | ay \, \text{mod} N \rangle
 U^x |1 \rangle = | f(x) \rangle
 \]</div>
 <p>Por ejemplo, para el caso que vimos en la gráfica anterior (<span class="math notranslate nohighlight">\(a=3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>) tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38fbaf64-0eca-4840-97e5-2a5189e057e6">
-<span class="eqno">()<a class="headerlink" href="#equation-38fbaf64-0eca-4840-97e5-2a5189e057e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4a547e41-adcd-436a-83d4-9d493657a96d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-4a547e41-adcd-436a-83d4-9d493657a96d" title="Permalink to this equation">#</a></span>\[\begin{align}
 U^0 |1\rangle &amp; = |1\rangle \\
 U |1\rangle &amp; = |3\rangle \\
 U^2 |1\rangle &amp; = |9\rangle \\
@@ -586,8 +604,8 @@ U^r |1\rangle &amp; = |1\rangle
 \end{align}\]</div>
 <p>(Recordemos que dado un estado de <span class="math notranslate nohighlight">\(n\)</span> qubits <span class="math notranslate nohighlight">\(\left| x \right\rangle\)</span> tenemos que <span class="math notranslate nohighlight">\(\left| x \right\rangle = \left| x_1 x_2 \dots x_n \right\rangle\)</span> donde <span class="math notranslate nohighlight">\(x_1\)</span> es el bit más significativo.)</p>
 <p>Como podemos ver, aplicar una vez más el operador <span class="math notranslate nohighlight">\(U\)</span> significa pasar de un número al siguiente de la lista periódica. Veámoslo explícitamente:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3810f3bf-a656-479e-93e7-4f2b2c087c7e">
-<span class="eqno">()<a class="headerlink" href="#equation-3810f3bf-a656-479e-93e7-4f2b2c087c7e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e7eabcc8-7291-4a0c-9b25-fe4f66f1957b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-e7eabcc8-7291-4a0c-9b25-fe4f66f1957b" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(U^0 |1\rangle) &amp; = U(|1\rangle) = |3\rangle \\
 U(U |1\rangle) &amp; = U(|3\rangle) = |9\rangle \\
 U(U^2 |1\rangle) &amp; = U(|9\rangle) = |27\rangle\\
@@ -610,8 +628,8 @@ Ejemplo<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cfcd03c-d6d8-419f-a014-bda70c50a407">
-<span class="eqno">()<a class="headerlink" href="#equation-9cfcd03c-d6d8-419f-a014-bda70c50a407" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-edcf7eb5-edbf-462c-bbb6-ccfbc7dbde84">
+<span class="eqno">(6)<a class="headerlink" href="#equation-edcf7eb5-edbf-462c-bbb6-ccfbc7dbde84" title="Permalink to this equation">#</a></span>\[\begin{align}
 U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangle + |9 \rangle + \dots |4 \rangle + |12 \rangle \right) \right] = \\
 &amp; = \frac{1}{\sqrt{12}} \left( U|1 \rangle + U|3\rangle + U|9 \rangle + \dots U|4 \rangle + U|12 \rangle \right) = \\
 &amp; =\frac{1}{\sqrt{12}} \left( |3 \rangle + |9\rangle + |27 \rangle + \dots |12 \rangle + |1 \rangle \right) = \\
@@ -1043,10 +1061,10 @@ Guessed Factors: 3 and 1
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
-<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA2.jpeg"><img alt="../../../_images/Logo_UMA2.jpeg" src="../../../_images/Logo_UMA2.jpeg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/BSC-blue-medium2.png"><img alt="../../../_images/BSC-blue-medium2.png" src="../../../_images/BSC-blue-medium2.png" style="width: 195px;" /></a>
-<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle2.jpg"><img alt="../../../_images/xaniversario_rectangle2.jpg" src="../../../_images/xaniversario_rectangle2.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX2.jpg"><img alt="../../../_images/COMPUTAEX2.jpg" src="../../../_images/COMPUTAEX2.jpg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/Logo_UNICAM2.jpg"><img alt="../../../_images/Logo_UNICAM2.jpg" src="../../../_images/Logo_UNICAM2.jpg" style="width: 210px;" /></a>
 <hr class="docutils" />
 <figure class="align-center">
@@ -1093,6 +1111,24 @@ Guessed Factors: 3 and 1
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_01-Introduccion_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Introducción</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Chapter_03_01_Grover_portada_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Algoritmo de Grover</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

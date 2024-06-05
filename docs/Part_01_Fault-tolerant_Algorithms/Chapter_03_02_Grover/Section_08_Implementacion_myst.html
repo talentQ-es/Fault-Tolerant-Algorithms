@@ -106,6 +106,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="7. Distribución de probababilidad inicial aleatoria" href="Section_07_distribucion_prob_aleatoria_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,8 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -215,10 +214,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_01_Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8. Implementación</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -515,7 +532,7 @@ Qibo</label><div class="sd-tab-content docutils">
 <span id="sec-fta-grover-imple-mcz"></span><h2><a class="toc-backref" href="#id96">Puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ).</a><a class="headerlink" href="#puerta-multicontrolada-z-mcz" title="Permalink to this heading">#</a></h2>
 <p>Vamos a empezar viendo la implementación de la puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ), pues la usaremos bastante el las siguientes secciones. Esta puerta podemos construir a partir de la puerta multicontrolada Toffoli (MCT) de forma muy sencilla. Para ello, recordemos que la MCT no es más que una CNOT (es decir, una puerta <span class="math notranslate nohighlight">\(X\)</span>) con varios controles y recordemos también la propiedad</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-imple-hxh-z">
-<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-imple-hxh-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(73)<a class="headerlink" href="#equation-ec-fta-grover-imple-hxh-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 HXH = Z .
 \end{equation} \]</div>
 <p>Podemos pues construir la MCZ aplicando puertas de Hadammard en el qubit objetivo de la MCT antes y después de la misma.</p>
@@ -570,9 +587,9 @@ Qibo</label><div class="sd-tab-content docutils">
 </section>
 <section id="difusor-generico">
 <span id="sec-fta-grover-imple-difursor"></span><h2><a class="toc-backref" href="#id97">Difusor genérico.</a><a class="headerlink" href="#difusor-generico" title="Permalink to this heading">#</a></h2>
-<p>Como ya comentamos en la sección <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-sub-u-s"><span class="std std-ref">Creación de un difusor U_{\Psi_0}.</span></a>, habitualmente en vez de implementar <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> implementamos <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. Vimos además que podemos hacer la implementación mediante transformadas de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span>, puertas <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> y la puerta <span class="math notranslate nohighlight">\(MCZ\)</span> de la forma de la Ec. <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#equation-ec-fta-grover-cons-imple-u-psi0">()</a>, es decir</p>
+<p>Como ya comentamos en la sección <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#sec-fta-grover-sub-u-s"><span class="std std-ref">Creación de un difusor U_{\Psi_0}.</span></a>, habitualmente en vez de implementar <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> implementamos <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. Vimos además que podemos hacer la implementación mediante transformadas de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span>, puertas <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> y la puerta <span class="math notranslate nohighlight">\(MCZ\)</span> de la forma de la Ec. <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#equation-ec-fta-grover-cons-imple-u-psi0">(69)</a>, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-fta-grover-qiskit-diff-gen-u-psi0">
-<span class="eqno">()<a class="headerlink" href="#equation-ec-fta-grover-qiskit-diff-gen-u-psi0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(74)<a class="headerlink" href="#equation-ec-fta-grover-qiskit-diff-gen-u-psi0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}} 
 \end{equation} \]</div>
 <div class="sd-tab-set docutils">
@@ -703,10 +720,10 @@ Qibo</label><div class="sd-tab-content docutils">
 </section>
 <section id="oraculo-trivial">
 <span id="sec-fta-grover-imple-trivial-oracle"></span><h2><a class="toc-backref" href="#id98">Oráculo “trivial”.</a><a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
-<p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está echo “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a esta caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
+<p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está hecho “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a este caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
 <p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <code class="docutils literal notranslate"><span class="pre">M_list_bin_qiskit</span></code>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d16e7a9-ebce-43f8-9ee3-dd74daeac94b">
-<span class="eqno">()<a class="headerlink" href="#equation-3d16e7a9-ebce-43f8-9ee3-dd74daeac94b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-51493431-d25c-47ba-8e94-7b1276fd9396">
+<span class="eqno">(75)<a class="headerlink" href="#equation-51493431-d25c-47ba-8e94-7b1276fd9396" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{M_list_bin_qiskit} = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
 \end{equation}\]</div>
 <div class="note admonition">
@@ -859,8 +876,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="el-sudoku">
 <h4>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h4>
 <p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0080a0bd-a866-4acc-96b8-da2ec76ae5c1">
-<span class="eqno">()<a class="headerlink" href="#equation-0080a0bd-a866-4acc-96b8-da2ec76ae5c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98c2b9ee-c3d8-4f19-975f-3771cecbd907">
+<span class="eqno">(76)<a class="headerlink" href="#equation-98c2b9ee-c3d8-4f19-975f-3771cecbd907" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\lc
 	\begin{matrix}
 	V_0 &amp; V_1 \\
@@ -872,8 +889,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="condiciones-y-puerta-xor">
 <h4>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h4>
 <p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cdd34699-dabe-4269-bb82-7c0bf325c5b2">
-<span class="eqno">()<a class="headerlink" href="#equation-cdd34699-dabe-4269-bb82-7c0bf325c5b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b34f5d9-f138-4114-8cbd-12426c1990b3">
+<span class="eqno">(77)<a class="headerlink" href="#equation-9b34f5d9-f138-4114-8cbd-12426c1990b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_0 \neq V_1, \qquad 
 V_0 \neq V_2, \qquad
 V_2 \neq V_3, \qquad
@@ -1256,10 +1273,10 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
-<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
-<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX3.jpg"><img alt="../../../_images/COMPUTAEX3.jpg" src="../../../_images/COMPUTAEX3.jpg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
 <hr class="docutils" />
 <figure class="align-center">
@@ -1273,8 +1290,7 @@ Qibo</label><div class="sd-tab-content docutils">
 <p>This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.</p>
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
-</center>
-</section>
+</center></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1307,6 +1323,15 @@ Qibo</label><div class="sd-tab-content docutils">
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_07_distribucion_prob_aleatoria_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7. Distribución de probababilidad inicial aleatoria</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

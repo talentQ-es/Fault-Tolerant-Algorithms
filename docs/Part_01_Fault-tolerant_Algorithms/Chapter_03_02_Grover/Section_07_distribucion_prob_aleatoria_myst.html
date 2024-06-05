@@ -106,6 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="8. Implementación" href="Section_08_Implementacion_myst.html" />
+    <link rel="prev" title="6. Consideraciones sobre la implementación" href="Section_06_consideraciones_implementacion_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,8 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -215,10 +215,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_01_Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -477,7 +495,7 @@ document.write(`
 <p>En realidad, el algoritmo no tiene ningún misterio. Consiste simplemente en saltarse al paso de la inicialización con las puertas de Hadammard y partir del estado con una distribución aleatoria:</p>
 <ul class="simple">
 <li><p>Utilizar cualquier distribución inicial, por ejemplo, el estado final de cualquier otro algoritmo cuántico (no inicializar el sistema con la distribución uniforme).</p></li>
-<li><p>Aplicar el operador de Grover <span class="math notranslate nohighlight">\(T\)</span> veces (calcularemos <span class="math notranslate nohighlight">\(T\)</span>). El operador de Grover al que nos referimos aquí es el mismo de las anteriores secciones (con la Walsh-Hadammard o con una trasformación de la forma de la Ec. <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#equation-ec-fta-grover-n-no-2n-t">()</a>). No cambia nada en ese sentido.</p></li>
+<li><p>Aplicar el operador de Grover <span class="math notranslate nohighlight">\(T\)</span> veces (calcularemos <span class="math notranslate nohighlight">\(T\)</span>). El operador de Grover al que nos referimos aquí es el mismo de las anteriores secciones (con la Walsh-Hadammard o con una trasformación de la forma de la Ec. <a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html#equation-ec-fta-grover-n-no-2n-t">(71)</a>). No cambia nada en ese sentido.</p></li>
 <li><p>Medir el resultado</p></li>
 </ul>
 <p>Para conocer más detalles, puede verse <span id="id1">[<a class="reference internal" href="#id94" title="Eli Biham, Ofer Biham, David Biron, Markus Grassl, and Daniel A Lidar. Grover’s quantum search algorithm for an arbitrary initial amplitude distribution. Physical Review A, 60(4):2742, 1999.">1</a>]</span></p>
@@ -494,10 +512,10 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
-<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
-<a class="reference internal image-reference" href="../../../_images/xaniversario_rectangle3.jpg"><img alt="../../../_images/xaniversario_rectangle3.jpg" src="../../../_images/xaniversario_rectangle3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX3.jpg"><img alt="../../../_images/COMPUTAEX3.jpg" src="../../../_images/COMPUTAEX3.jpg" style="width: 170px;" /></a>
 <a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
 <hr class="docutils" />
 <figure class="align-center">
@@ -544,6 +562,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_06_consideraciones_implementacion_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6. Consideraciones sobre la implementación</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_08_Implementacion_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">8. Implementación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

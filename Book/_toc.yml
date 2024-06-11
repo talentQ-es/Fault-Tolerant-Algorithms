@@ -21,3 +21,6 @@ parts:
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_06_consideraciones_implementacion_myst.ipynb
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria_myst.ipynb
     - file:  docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_08_Implementacion_myst.ipynb
+- caption: Referencias
+  chapters:
+  - file: docs/Chapter_Bibliografia_myst.ipynb

@@ -238,6 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -452,7 +456,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe">Breve resumen de la estimación de fase cuántica (QFE).</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-fase-con-el-operador-de-grover">Estimación de fase con el operador de Grover.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-de-tilde-m-respecto-a-m">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
             </nav>
         </div>
@@ -490,16 +493,15 @@ document.write(`
 <span id="sec-fta-grover-quantum-counting"></span><h1>5. Conteo de soluciones (Quantum counting)<a class="headerlink" href="#conteo-de-soluciones-quantum-counting" title="Permalink to this heading">#</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe" id="id99">Breve resumen de la estimación de fase cuántica (QFE).</a></p></li>
-<li><p><a class="reference internal" href="#estimacion-de-fase-con-el-operador-de-grover" id="id100">Estimación de fase con el operador de Grover.</a></p></li>
-<li><p><a class="reference internal" href="#precision-de-tilde-m-respecto-a-m" id="id101">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a></p></li>
-<li><p><a class="reference internal" href="#bibliografia" id="id102">Bibliografía</a></p></li>
+<li><p><a class="reference internal" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe" id="id5">Breve resumen de la estimación de fase cuántica (QFE).</a></p></li>
+<li><p><a class="reference internal" href="#estimacion-de-fase-con-el-operador-de-grover" id="id6">Estimación de fase con el operador de Grover.</a></p></li>
+<li><p><a class="reference internal" href="#precision-de-tilde-m-respecto-a-m" id="id7">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a></p></li>
 </ul>
 </div>
 <p>En esta sección vamos a ver un algoritmo para obtener el número <span class="math notranslate nohighlight">\(M\)</span> de soluciones. Este algoritmo puede decirse que en cierta medida está inspirado en el algoritmo de Shor, pues lo que vamos a hacer es usar el \textbf{algoritmo de estimación de fase cuántico (QPE)} para obtener el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> a partir del operador de Grover <span class="math notranslate nohighlight">\(G\)</span>. Después, podemos usar la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a> para obtener <span class="math notranslate nohighlight">\(M\)</span> partir de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>Vamos a seguir en el caso en el que <span class="math notranslate nohighlight">\(N=2^n\)</span> y la distribución de probabilidad inicial es uniforme.</p>
 <section id="breve-resumen-de-la-estimacion-de-fase-cuantica-qfe">
-<span id="sec-fta-grover-qc-qpe"></span><h2><a class="toc-backref" href="#id99">Breve resumen de la estimación de fase cuántica (QFE).</a><a class="headerlink" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-grover-qc-qpe"></span><h2><a class="toc-backref" href="#id5">Breve resumen de la estimación de fase cuántica (QFE).</a><a class="headerlink" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe" title="Permalink to this heading">#</a></h2>
 <p>Dado un operador unitario <span class="math notranslate nohighlight">\(U\)</span> y un autovector <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del mismo, tenemos:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -517,18 +519,18 @@ En la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="s
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Implementación del algoritmo de estimación de fase cuántica (en el convenio estándar, siendo el bit más significativo el de arriba).</span><a class="headerlink" href="#fig-fta-grover-qc-qpe" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Para más información soble la QPE, puede verse <span id="id1">[<a class="reference internal" href="#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span></p>
+<p>Para más información soble la QPE, puede verse <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span></p>
 </section>
 <section id="estimacion-de-fase-con-el-operador-de-grover">
-<span id="sec-fta-grover-qc-qpe-grover"></span><h2><a class="toc-backref" href="#id100">Estimación de fase con el operador de Grover.</a><a class="headerlink" href="#estimacion-de-fase-con-el-operador-de-grover" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-grover-qc-qpe-grover"></span><h2><a class="toc-backref" href="#id6">Estimación de fase con el operador de Grover.</a><a class="headerlink" href="#estimacion-de-fase-con-el-operador-de-grover" title="Permalink to this heading">#</a></h2>
 <p>Como ya comentamos anteriormente, el operador de Grover <span class="math notranslate nohighlight">\(G\)</span> (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-g">(32)</a>) rota el vector de estado en un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span>, donde <span class="math notranslate nohighlight">\(\theta\)</span> está dado por la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dd1dd39-95e3-4fe5-aaf5-ab9ec9eb0d90">
-<span class="eqno">(58)<a class="headerlink" href="#equation-9dd1dd39-95e3-4fe5-aaf5-ab9ec9eb0d90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c426bbaf-a4e7-4dc6-ae8f-a08d221b717b">
+<span class="eqno">(58)<a class="headerlink" href="#equation-c426bbaf-a4e7-4dc6-ae8f-a08d221b717b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\Psi(t+1) \rangle = G | \Psi(t) \rangle = e^{i 2 \theta} | \Psi(t) \rangle.
 \end{equation}\]</div>
 <p>En concreto, se puede aplicar sobre el estado inicial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46fc3b7f-1ba9-4a10-9b17-503fe5f338b6">
-<span class="eqno">(59)<a class="headerlink" href="#equation-46fc3b7f-1ba9-4a10-9b17-503fe5f338b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ea8ae605-6249-438e-a35e-87ec2cdf5b3d">
+<span class="eqno">(59)<a class="headerlink" href="#equation-ea8ae605-6249-438e-a35e-87ec2cdf5b3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G | \Psi_0 \rangle = e^{i 2 \theta} | \Psi_0 \rangle}, 
 \qquad \text{ donde } \qquad
 | \Psi_0 \rangle = H^{\otimes n} |0\rangle = \frac{1}{2^n}  \sum_{i=0}^{2^n} | i \rangle
@@ -552,8 +554,8 @@ En la <a class="reference internal" href="#fig-fta-grover-qc-qpe"><span class="s
 </div>
 </section>
 <section id="precision-de-tilde-m-respecto-a-m">
-<span id="sec-fta-grover-qc-preci-m"></span><h2><a class="toc-backref" href="#id101">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a><a class="headerlink" href="#precision-de-tilde-m-respecto-a-m" title="Permalink to this heading">#</a></h2>
-<p>En esta sección vamos a seguir el artículo <span id="id2">[<a class="reference internal" href="#id95" title="Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4-5):493–505, jun 1998. URL: https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p, doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p.">1</a>]</span>.</p>
+<span id="sec-fta-grover-qc-preci-m"></span><h2><a class="toc-backref" href="#id7">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a><a class="headerlink" href="#precision-de-tilde-m-respecto-a-m" title="Permalink to this heading">#</a></h2>
+<p>En esta sección vamos a seguir el artículo <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id91" title="Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4-5):493–505, jun 1998. URL: https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p, doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p.">2</a>]</span>.</p>
 <p>Podemos evaluar la precisión del valor de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto al valor real <span class="math notranslate nohighlight">\(M\)</span>, acotando la desviación entre los mismos a medida que variamos <span class="math notranslate nohighlight">\(p\)</span>. Para ello, vamos a empezar asumiendo que la diferencia entre el valor real y el medido es menor que uno, es decir, <span class="math notranslate nohighlight">\(| f- \tilde{f}| &lt;1\)</span>. Esto sucede con una probabilidad razonable si <span class="math notranslate nohighlight">\(f\)</span> es suficientemente grande (si <span class="math notranslate nohighlight">\(p\)</span> es suficientemente grande). Teniendo en cuenta la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-medidas">(60)</a>, vemos que</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -589,8 +591,8 @@ positivos podemos escribir</p>
 cantidad <span class="math notranslate nohighlight">\(\alpha\)</span>, así que es siempre cierto que la suma de uno de los números más
 <span class="math notranslate nohighlight">\(\alpha\)</span> es mayor que el otro. Podemos usar la primera de estas desigualdades para
 seguir con el cálculo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f4463cb2-31ae-4286-b2b5-4071855a29fe">
-<span class="eqno">(62)<a class="headerlink" href="#equation-f4463cb2-31ae-4286-b2b5-4071855a29fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75aaeb01-ea9d-4931-b2ec-31a9f72ca0c1">
+<span class="eqno">(62)<a class="headerlink" href="#equation-75aaeb01-ea9d-4931-b2ec-31a9f72ca0c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |M - \tilde{M}|  \lt N \frac{\pi}{2^p} \lp \sin \theta + \sin \tilde{\theta}  \rp \lt
 N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 \end{equation}\]</div>
@@ -602,27 +604,10 @@ N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 <li><p>Si nos conformamos con tener un error \textit{relativo} pequeño, podemos correr el algoritmo para sucesivos valores de <span class="math notranslate nohighlight">\(p\)</span> hasta que <span class="math notranslate nohighlight">\(\tilde{f}\)</span> sea razonablemente grande. Esto sucederá cuando <span class="math notranslate nohighlight">\(2^p = c \sqrt{N/M}\)</span>. Después de un tiempo proporcional a <span class="math notranslate nohighlight">\(\sqrt{N/M}\)</span>, esto nos dará una estimación para <span class="math notranslate nohighlight">\(M\)</span> que probablemente estén dentro de un factor <span class="math notranslate nohighlight">\((1+ \pi/c)^2\)</span> de la respuesta correcta.</p></li>
 </ul>
 <ul class="simple">
-<li><p>Si queremos que el error \textit{absoluto} esté probablemente limitado por una constante, aplicamos el algoritmo una vez para <span class="math notranslate nohighlight">\(2^p = c \sqrt{N}\)</span> con el objetivo de estimar <span class="math notranslate nohighlight">\(M\)</span>. Entonces, ejecutamos otra vez, pero esta vez con <span class="math notranslate nohighlight">\(2^p = c \sqrt{\tilde{M}N}\)</span>. De acuerdo con la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">(61)</a>, pero suponiendo <span class="math notranslate nohighlight">\(2^p = c \sqrt{MN}\)</span> por simplicidad, el error resultante en nuestra segunda estimación de <span class="math notranslate nohighlight">\(M\)</span> es probable que esté acotado por <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M}\)</span>. En particular, obtenemos una solución exacta, siempre que <span class="math notranslate nohighlight">\(|f - \tilde{f}| &lt; 1\)</span>, si tomamos <span class="math notranslate nohighlight">\(c \geq 14\)</span> ya que <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M} &lt; \frac{1}{2}\)</span> en ese caso. (Obsérvese que si aplicaciones sucesivamente el algoritmo de Grover y vamos tachamos las soluciones a medida que se encuentran también nos proporcionará un recuento exacto con alta probabilidad en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{M N})\)</span>, pero con un consumo enorme de memoria. Ver <span id="id3">[<a class="reference internal" href="#id96" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">2</a>]</span>.)</p></li>
+<li><p>Si queremos que el error \textit{absoluto} esté probablemente limitado por una constante, aplicamos el algoritmo una vez para <span class="math notranslate nohighlight">\(2^p = c \sqrt{N}\)</span> con el objetivo de estimar <span class="math notranslate nohighlight">\(M\)</span>. Entonces, ejecutamos otra vez, pero esta vez con <span class="math notranslate nohighlight">\(2^p = c \sqrt{\tilde{M}N}\)</span>. De acuerdo con la Ec. <a class="reference internal" href="#equation-ec-fta-grover-qc-error">(61)</a>, pero suponiendo <span class="math notranslate nohighlight">\(2^p = c \sqrt{MN}\)</span> por simplicidad, el error resultante en nuestra segunda estimación de <span class="math notranslate nohighlight">\(M\)</span> es probable que esté acotado por <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M}\)</span>. En particular, obtenemos una solución exacta, siempre que <span class="math notranslate nohighlight">\(|f - \tilde{f}| &lt; 1\)</span>, si tomamos <span class="math notranslate nohighlight">\(c \geq 14\)</span> ya que <span class="math notranslate nohighlight">\(\frac{2 \pi}{c} + \frac{\pi^2}{c^2 M} &lt; \frac{1}{2}\)</span> en ese caso. (Obsérvese que si aplicaciones sucesivamente el algoritmo de Grover y vamos tachamos las soluciones a medida que se encuentran también nos proporcionará un recuento exacto con alta probabilidad en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{M N})\)</span>, pero con un consumo enorme de memoria. Ver <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id92" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">3</a>]</span>.)</p></li>
 <li><p>Finalmente, comentar que si estamos en el caso en el que el número de soluciones es un cuadrado perfecto pequeño, podemos encontrar el valor  exacto en un tiempo <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N})\)</span> con una probabilidad de error muy pequeña.</p></li>
 </ul>
-<p>Para más detalles sobre el tema, puede verse <span id="id4">[<a class="reference internal" href="#id96" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">2</a>]</span>.</p>
-</section>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2><a class="toc-backref" href="#id102">Bibliografía</a><a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id5">
-<dl class="citation">
-<dt class="label" id="id95"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. <em>Fortschritte der Physik</em>, 46(4-5):493–505, jun 1998. URL: <a class="reference external" href="https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p">https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p</a>, <a class="reference external" href="https://doi.org/10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p">doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p</a>.</p>
-</dd>
-<dt class="label" id="id96"><span class="brackets">2</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
-<dd><p>Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In <em>Automata, Languages and Programming</em>, pages 820–831. Springer Berlin Heidelberg, 1998. URL: <a class="reference external" href="https://doi.org/10.1007%2Fbfb0055105">https://doi.org/10.1007%2Fbfb0055105</a>, <a class="reference external" href="https://doi.org/10.1007/bfb0055105">doi:10.1007/bfb0055105</a>.</p>
-</dd>
-<dt class="label" id="id82"><span class="brackets"><a class="fn-backref" href="#id1">3</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-</dl>
-</div>
+<p>Para más detalles sobre el tema, puede verse <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id92" title="Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In Automata, Languages and Programming, pages 820–831. Springer Berlin Heidelberg, 1998. URL: https://doi.org/10.1007%2Fbfb0055105, doi:10.1007/bfb0055105.">3</a>]</span>.</p>
 <hr class="docutils" />
 <p>Autores:</p>
 <p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">Cenits</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
@@ -712,7 +697,6 @@ N \frac{\pi}{2^p} \lp 2 \sin \theta +\frac{\pi}{2^p} \rp
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breve-resumen-de-la-estimacion-de-fase-cuantica-qfe">Breve resumen de la estimación de fase cuántica (QFE).</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-fase-con-el-operador-de-grover">Estimación de fase con el operador de Grover.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-de-tilde-m-respecto-a-m">Precisión de <span class="math notranslate nohighlight">\(\tilde{M}\)</span> respecto a <span class="math notranslate nohighlight">\(M\)</span>.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
   </nav></div>
 

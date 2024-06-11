@@ -102,9 +102,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="application/vnd.jupyter.widget-state+json">{"state": {"358cf1b9040547f4afb89f301a2884e4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "48502f73691b48b0b54fbdae4e90b688": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_5fefc114f9124ff88cd19bbebd220cb9", "placeholder": "\u200b", "style": "IPY_MODEL_358cf1b9040547f4afb89f301a2884e4", "tabbable": null, "tooltip": null, "value": "<p style='font-family: IBM Plex Sans, Arial, Helvetica, sans-serif; font-size: 20px; font-weight: medium;'>Circuit Properties</p>"}}, "5fefc114f9124ff88cd19bbebd220cb9": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": "0px 0px 10px 0px", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}, "version_major": 2, "version_minor": 0}</script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_01_Fault-tolerant_Algorithms/Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -240,6 +237,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter_03_02_Grover/Section_08_Implementacion_myst.html">8. Implementación</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
 </ul>
 
     </div>
@@ -462,7 +463,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-shot-a-shot-optimo">2.2.2 - Caso shot a shot (óptimo)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
             </nav>
         </div>
@@ -504,34 +504,37 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">Aer</span><span class="p">,</span> <span class="n">transpile</span><span class="p">,</span> <span class="n">assemble</span>
 <span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span>
-<span class="kn">import</span> <span class="nn">qiskit.tools.jupyter</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<span class="c1"># import qiskit.tools.jupyter</span>
+<span class="c1"># import math</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randint</span>
 <span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Import qibo libraries</span>
+<span class="kn">from</span> <span class="nn">qibo.models</span> <span class="kn">import</span> <span class="n">Circuit</span>
+<span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span>  <span class="n">gates</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#hallar-del-periodo-de-una-funcion-period-finding" id="id105">2.1 - Hallar del periodo de una función (Period Finding)</a></p></li>
-<li><p><a class="reference internal" href="#implementacion-ad-hoc-en-qiskit-para-n-15" id="id106">2.2 - Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></p></li>
-<li><p><a class="reference internal" href="#bibliografia" id="id107">Bibliografía</a></p></li>
+<li><p><a class="reference internal" href="#hallar-del-periodo-de-una-funcion-period-finding" id="id11">2.1 - Hallar del periodo de una función (Period Finding)</a></p></li>
+<li><p><a class="reference internal" href="#implementacion-ad-hoc-en-qiskit-para-n-15" id="id12">2.2 - Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></p></li>
 </ul>
 </div>
-<p>El algoritmo de Shor se basa en el algoritmo de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id1">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id2">[<a class="reference internal" href="#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id3">[<a class="reference internal" href="#id89" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">2</a>]</span> y <span id="id4">[<a class="reference internal" href="#id91" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">3</a>]</span>). El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de <strong>encontrar el periodo de una función</strong>, el cual puede ser implementado en un tiempo polinómico.</p>
+<p>El algoritmo de Shor se basa en el algoritmo de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span> y <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id80" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">13</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id79" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">7</a>]</span> y <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id81" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">12</a>]</span>). El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de <strong>encontrar el periodo de una función</strong>, el cual puede ser implementado en un tiempo polinómico.</p>
 <p>Para factorizar un número <span class="math notranslate nohighlight">\(N\)</span> básicamente el algoritmo de Shor lo que hace calcular el periodo de una función (periódica) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00bc87de-9887-449e-a54e-8abd9e5cdadf">
-<span class="eqno">(3)<a class="headerlink" href="#equation-00bc87de-9887-449e-a54e-8abd9e5cdadf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-836b8825-d870-41e4-b937-034fc710575b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-836b8825-d870-41e4-b937-034fc710575b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes. La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. El periodo <span class="math notranslate nohighlight">\(r\)</span> de esta función se calcula mediante el algoritmo de estimación de fase cuántica. Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span> ya que existe una alta probabilidad de que el máximo común divisor de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
-<p>En esta guía vamos a seguir la explicación del Notebook de Qiskit <span id="id5">[<a class="reference internal" href="#id92" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">5</a>]</span>.</p>
+<p>En esta guía vamos a seguir la explicación del Notebook de Qiskit <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id82" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">14</a>]</span>.</p>
 <section id="hallar-del-periodo-de-una-funcion-period-finding">
-<span id="sec-fta-shor-period-finding"></span><h2><a class="toc-backref" href="#id105">2.1 - Hallar del periodo de una función (Period Finding)</a><a class="headerlink" href="#hallar-del-periodo-de-una-funcion-period-finding" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-shor-period-finding"></span><h2><a class="toc-backref" href="#id11">2.1 - Hallar del periodo de una función (Period Finding)</a><a class="headerlink" href="#hallar-del-periodo-de-una-funcion-period-finding" title="Permalink to this heading">#</a></h2>
 <section id="la-funcion">
 <span id="sec-fta-shor-la-funcion"></span><h3>2.1.1 - La función<a class="headerlink" href="#la-funcion" title="Permalink to this heading">#</a></h3>
 <p>Como comentamos en la introducción, lo que queremos es hallar el periodo de la función</p>
@@ -593,8 +596,8 @@ U |y \rangle \equiv | ay \, \text{mod} N \rangle
 U^x |1 \rangle = | f(x) \rangle
 \]</div>
 <p>Por ejemplo, para el caso que vimos en la gráfica anterior (<span class="math notranslate nohighlight">\(a=3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>) tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a547e41-adcd-436a-83d4-9d493657a96d">
-<span class="eqno">(4)<a class="headerlink" href="#equation-4a547e41-adcd-436a-83d4-9d493657a96d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cdf5eca1-1d35-404a-90fd-7599ab6fc77f">
+<span class="eqno">(4)<a class="headerlink" href="#equation-cdf5eca1-1d35-404a-90fd-7599ab6fc77f" title="Permalink to this equation">#</a></span>\[\begin{align}
 U^0 |1\rangle &amp; = |1\rangle \\
 U |1\rangle &amp; = |3\rangle \\
 U^2 |1\rangle &amp; = |9\rangle \\
@@ -604,8 +607,8 @@ U^r |1\rangle &amp; = |1\rangle
 \end{align}\]</div>
 <p>(Recordemos que dado un estado de <span class="math notranslate nohighlight">\(n\)</span> qubits <span class="math notranslate nohighlight">\(\left| x \right\rangle\)</span> tenemos que <span class="math notranslate nohighlight">\(\left| x \right\rangle = \left| x_1 x_2 \dots x_n \right\rangle\)</span> donde <span class="math notranslate nohighlight">\(x_1\)</span> es el bit más significativo.)</p>
 <p>Como podemos ver, aplicar una vez más el operador <span class="math notranslate nohighlight">\(U\)</span> significa pasar de un número al siguiente de la lista periódica. Veámoslo explícitamente:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7eabcc8-7291-4a0c-9b25-fe4f66f1957b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-e7eabcc8-7291-4a0c-9b25-fe4f66f1957b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9cb2bcff-97be-496b-9722-117de9e3ae6b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-9cb2bcff-97be-496b-9722-117de9e3ae6b" title="Permalink to this equation">#</a></span>\[\begin{align}
 U(U^0 |1\rangle) &amp; = U(|1\rangle) = |3\rangle \\
 U(U |1\rangle) &amp; = U(|3\rangle) = |9\rangle \\
 U(U^2 |1\rangle) &amp; = U(|9\rangle) = |27\rangle\\
@@ -628,8 +631,8 @@ Ejemplo<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edcf7eb5-edbf-462c-bbb6-ccfbc7dbde84">
-<span class="eqno">(6)<a class="headerlink" href="#equation-edcf7eb5-edbf-462c-bbb6-ccfbc7dbde84" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fe7367f4-fde3-4be1-90ea-d0e3cf2d0407">
+<span class="eqno">(6)<a class="headerlink" href="#equation-fe7367f4-fde3-4be1-90ea-d0e3cf2d0407" title="Permalink to this equation">#</a></span>\[\begin{align}
 U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangle + |9 \rangle + \dots |4 \rangle + |12 \rangle \right) \right] = \\
 &amp; = \frac{1}{\sqrt{12}} \left( U|1 \rangle + U|3\rangle + U|9 \rangle + \dots U|4 \rangle + U|12 \rangle \right) = \\
 &amp; =\frac{1}{\sqrt{12}} \left( |3 \rangle + |9\rangle + |27 \rangle + \dots |12 \rangle + |1 \rangle \right) = \\
@@ -654,8 +657,8 @@ U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangl
 |0 \rangle|1 \rangle \xrightarrow{QPS} \frac{1}{\sqrt{r}} \left( \left|2^t \frac{1}{r} \right\rangle + \left|2^t \frac{2}{r} \right\rangle + \dots + \left|2^t \frac{r-1}{r} \right\rangle \right) |1 \rangle
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(t\)</span> es el número de qubits del registro de conteo.
-Usando el las fracciones continuas <span id="id6">[<a class="reference internal" href="#id94" title="Wikipedia contributors. Continued fraction — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898.">6</a>]</span> podemos calcular <span class="math notranslate nohighlight">\(r\)</span> a partir de los cocientes <span class="math notranslate nohighlight">\(s/r\)</span>.</p>
-<p>En la siguiente imagen podemos ver el circuito (en el orden de Qiskit para los qubits) que implementa la estimación de fase cuántica (figura tomada de <span id="id7">[<a class="reference internal" href="#id92" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">5</a>]</span>)</p>
+Usando el las fracciones continuas <span id="id6">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id84" title="Wikipedia contributors. Continued fraction — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898.">17</a>]</span> podemos calcular <span class="math notranslate nohighlight">\(r\)</span> a partir de los cocientes <span class="math notranslate nohighlight">\(s/r\)</span>.</p>
+<p>En la siguiente imagen podemos ver el circuito (en el orden de Qiskit para los qubits) que implementa la estimación de fase cuántica (figura tomada de <span id="id7">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id82" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">14</a>]</span>)</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig-3_QPE-Shor.png"><img alt="../../../_images/Fig-3_QPE-Shor.png" src="../../../_images/Fig-3_QPE-Shor.png" style="width: 1000px;" /></a>
 </figure>
@@ -684,8 +687,8 @@ x = a_{n-1} 2^{n-1} + a_{n-2} 2^{n-2} + \dots + a_0 2^{0}
 </section>
 </section>
 <section id="implementacion-ad-hoc-en-qiskit-para-n-15">
-<span id="sec-fta-shor-implementacion-ad-hoc-en-qiskit"></span><h2><a class="toc-backref" href="#id106">2.2 - Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a><a class="headerlink" href="#implementacion-ad-hoc-en-qiskit-para-n-15" title="Permalink to this heading">#</a></h2>
-<p>En esta sección vamos a ver una implementación un poco <em>ad hoc</em> del algoritmo de Shor para factorizar el número 15. Con lo de <em>ad hoc</em> a lo que nos referimos es a que el oráculo que representa la exponencial modulada del operador <span class="math notranslate nohighlight">\(U\)</span> está construido específicamente para el caso de factorizar 15 y no se va a explicar como funciona. El objetivo de esta sección es ver como tratamos los resultados del circuito, aplicando el método de las fracciones continuas <span id="id8">[<a class="reference internal" href="#id94" title="Wikipedia contributors. Continued fraction — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898.">6</a>]</span> para obtener <span class="math notranslate nohighlight">\(r\)</span> y no tanto ver como se construye el oráculo.</p>
+<span id="sec-fta-shor-implementacion-ad-hoc-en-qiskit"></span><h2><a class="toc-backref" href="#id12">2.2 - Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a><a class="headerlink" href="#implementacion-ad-hoc-en-qiskit-para-n-15" title="Permalink to this heading">#</a></h2>
+<p>En esta sección vamos a ver una implementación un poco <em>ad hoc</em> del algoritmo de Shor para factorizar el número 15. Con lo de <em>ad hoc</em> a lo que nos referimos es a que el oráculo que representa la exponencial modulada del operador <span class="math notranslate nohighlight">\(U\)</span> está construido específicamente para el caso de factorizar 15 y no se va a explicar como funciona. El objetivo de esta sección es ver como tratamos los resultados del circuito, aplicando el método de las fracciones continuas <span id="id8">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id84" title="Wikipedia contributors. Continued fraction — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898.">17</a>]</span> para obtener <span class="math notranslate nohighlight">\(r\)</span> y no tanto ver como se construye el oráculo.</p>
 <p>En concreto, el caso que vamos a resolver es el de <span class="math notranslate nohighlight">\(a=7\)</span> y <span class="math notranslate nohighlight">\(N=15\)</span>. Es fácil ver que para este caso tenemos un periodo de <span class="math notranslate nohighlight">\(r = 4\)</span>, donde los cuatro posibles estados son <span class="math notranslate nohighlight">\(| 1 \rangle\)</span>, <span class="math notranslate nohighlight">\(| 7 \rangle\)</span>, <span class="math notranslate nohighlight">\(| 4 \rangle\)</span> y <span class="math notranslate nohighlight">\(| 13 \rangle\)</span>.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
@@ -695,7 +698,7 @@ x = a_{n-1} 2^{n-1} + a_{n-2} 2^{n-2} + \dots + a_0 2^{0}
 <section id="caso-con-muchos-shots-ineficiente-pero-didactico">
 <span id="sec-fta-shor-multishot"></span><h3>2.2.1 - Caso con muchos shots (ineficiente pero didáctico)<a class="headerlink" href="#caso-con-muchos-shots-ineficiente-pero-didactico" title="Permalink to this heading">#</a></h3>
 <p>Como el número elegido para la factorización es pequeño (necesitamos pocos qubits) vamos a lanzar varios shots al circuito para ver todos los posibles resultado. Veremos que esto es en realidad una perdida de tiempo, pues no nos hace falta tener toda la distribución. Es simplemente un caso pedagógico para entender como lidiar con los resultados del circuito.</p>
-<p>Veamos pues el código (el código se he tomado del textbook de Qiskit <span id="id9">[<a class="reference internal" href="#id92" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">5</a>]</span>) :</p>
+<p>Veamos pues el código (el código se he tomado del textbook de Qiskit <span id="id9">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id82" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">14</a>]</span>) :</p>
 <p><strong>Oráculos</strong>:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
@@ -746,7 +749,46 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oracle: Modular Exponentiation U^{2^j} |y&gt; = |a^{2^j}y mod N&gt; </span>
+<span class="k">def</span> <span class="nf">c_amod15_qibo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span> <span class="c1"># It use 4+1 control qubit </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Controlled multiplication by a mod 15&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;a&#39; must be 2,4,7,8,11 or 13&quot;</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="c1"># El qubit 0 se utilizará para controlar el resto de las puertas del circuito, mientras que los </span>
+    <span class="c1"># otros cuatro qubits hacen las veces de bits para representar los números que se multiplican.</span>
+    <span class="c1"># Recordemos que qibo utiliza el convenio estándar en la literatura, en el que el bit más</span>
+    <span class="c1"># significativo es el de más abajo y el menos significativo el de arriba (al contrario que Qiskit)</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">power</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">]:</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]:</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+                <span class="n">U</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">controlled_by</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">U</span>
+<span class="c1"># Inverse Quantum Fourier Transformation of n qubits</span>
+<span class="k">def</span> <span class="nf">qft_dagger_qibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;n-qubit QFTdagger the first n qubits in circ&quot;&quot;&quot;</span>
+    <span class="n">qc</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Don&#39;t forget the Swaps!</span>
+    <span class="k">for</span> <span class="n">qubit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">SWAP</span><span class="p">(</span><span class="n">qubit</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">qubit</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+            <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">CU1</span><span class="p">(</span> <span class="n">n</span><span class="o">-</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">m</span><span class="p">))</span> <span class="p">))</span>
+        <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;QFT†&quot;</span>
+    <span class="k">return</span> <span class="n">qc</span>
 </pre></div>
 </div>
 </div>
@@ -791,7 +833,31 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify variables</span>
+<span class="n">n_count</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># number of counting qubits</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="c1"># Create QuantumCircuit with n_count counting qubits</span>
+<span class="c1"># plus 4 qubits for U to act on</span>
+<span class="n">qcc</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">n_count</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Initialize counting qubits</span>
+<span class="c1"># in state |+&gt;</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">):</span>
+    <span class="n">qcc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>  
+
+<span class="c1"># And auxiliary register in state |1&gt;</span>
+<span class="n">qcc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">n_count</span><span class="p">))</span>
+
+<span class="c1"># Do controlled-U operations</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">):</span>
+    <span class="n">qcc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">c_amod15_qibo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">on_qubits</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">n_count</span><span class="o">-</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">n_count</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]))</span>
+<span class="c1"># Do inverse-QFT</span>
+<span class="n">qcc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">qft_dagger_qibo</span><span class="p">(</span><span class="n">n_count</span><span class="p">)</span><span class="o">.</span><span class="n">on_qubits</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">)))</span>
+<span class="c1"># Measure circuit</span>
+<span class="c1">#qcc.add(gates.M(*reversed(range(n_count)), register_name=&#39;results&#39;))</span>
+<span class="n">qcc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">),</span> <span class="n">register_name</span><span class="o">=</span><span class="s1">&#39;results&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">qcc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">line_wrap</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -822,13 +888,16 @@ Qiskit</label><div class="sd-tab-content docutils">
 </input><label class="sd-tab-label" for="sd-tab-item-5">
 Qibo</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">results_qibo</span> <span class="o">=</span> <span class="n">qcc</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">nshots</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">counts_qibo</span> <span class="o">=</span> <span class="n">results_qibo</span><span class="o">.</span><span class="n">frequencies</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_qibo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/40afabb7c933b23edb3bad123013f80f268e2d4bb7a7d438a05f3da58465596c.png" src="../../../_images/40afabb7c933b23edb3bad123013f80f268e2d4bb7a7d438a05f3da58465596c.png" />
+<img alt="../../../_images/241a9826d53951f06704bf135c5a6d69554e2a8cb3900f6916312dbc359ad68a.png" src="../../../_images/241a9826d53951f06704bf135c5a6d69554e2a8cb3900f6916312dbc359ad68a.png" />
 </div>
 </div>
 <p>Como ya comentamos, el periodo para el caso elegido sabemos de antemano que es <span class="math notranslate nohighlight">\(r = 4\)</span>. Podemos ver que efectivamente, al lanzar varios shots al circuito (ejecutarlo varias veces) y ver todos los resultados tenemos 4 posibilidades, correspondientes a las 4 fases <span class="math notranslate nohighlight">\(s/r\)</span> con <span class="math notranslate nohighlight">\(0 \leq s \leq r\)</span>. Esto no es lo habitual al aplicar el algoritmo de Shor, pues cuantos más grande es el número que queremos factorizar, más qubits necesitamos, más complejo se vuelve el circuito y más shots necesitamos para reconstruir la distribución de probabilidad.</p>
@@ -863,7 +932,20 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-7">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span><span class="p">,</span> <span class="n">measured_phases</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">counts_qibo</span><span class="p">:</span>
+    <span class="n">decimal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Convert (base 2) string to decimal</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_count</span><span class="p">)</span>  <span class="c1"># Find corresponding eigenvalue</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">limit_denominator</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="c1"># Add these values to the rows in our table:</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">(bin) = </span><span class="si">{</span><span class="n">decimal</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">(dec)&quot;</span><span class="p">,</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">phase</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">frac</span><span class="o">.</span><span class="n">numerator</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">frac</span><span class="o">.</span><span class="n">denominator</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                 <span class="n">frac</span><span class="o">.</span><span class="n">denominator</span><span class="p">])</span>
+<span class="c1"># Print the rows in a table</span>
+<span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Register Output&quot;</span><span class="p">,</span> <span class="s2">&quot;  Phase  &quot;</span><span class="p">,</span> <span class="s2">&quot;  Fraction  &quot;</span><span class="p">,</span> <span class="s2">&quot;Guess for r&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -871,10 +953,10 @@ Qibo</label><div class="sd-tab-content docutils">
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Register Output   Phase     Fraction    Guess for r
-0  00000000(bin) =   0(dec)      0.00          0/1            1
-1  01000000(bin) =  64(dec)      0.25          1/4            4
-2  10000000(bin) = 128(dec)      0.50          1/2            2
-3  11000000(bin) = 192(dec)      0.75          3/4            4
+0  11000000(bin) = 192(dec)      0.75          3/4            4
+1  10000000(bin) = 128(dec)      0.50          1/2            2
+2  00000000(bin) =   0(dec)      0.00          0/1            1
+3  01000000(bin) =  64(dec)      0.25          1/4            4
 </pre></div>
 </div>
 </div>
@@ -927,7 +1009,7 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Véase que el máximo común divisor se calcula usando la función gcd() del módulo <a class="reference external" href="https://docs.python.org/3/library/math.html">math</a> de python. Esto es, se calcula clásicamente (sin ningún circuito cuántico), pues como ya comentamos, el algoritmo de Euclides <span id="id10">[<a class="reference internal" href="#id93" title="Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518.">7</a>]</span> se implementa de forma eficiente en un ordenado clásico.</p>
+<p>Véase que el máximo común divisor se calcula usando la función gcd() del módulo <a class="reference external" href="https://docs.python.org/3/library/math.html">math</a> de python. Esto es, se calcula clásicamente (sin ningún circuito cuántico), pues como ya comentamos, el algoritmo de Euclides <span id="id10">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id83" title="Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518.">18</a>]</span> se implementa de forma eficiente en un ordenado clásico.</p>
 </div>
 <p>Ahora definimos una función que aplique el algoritmo de estimación de fases para fase <span class="math notranslate nohighlight">\(s/r\)</span> donde</p>
 <div class="math notranslate nohighlight">
@@ -966,7 +1048,29 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-9">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qpe_amod15_qibo</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">n_count</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">qc</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="n">n_count</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">):</span>
+        <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>     <span class="c1"># Initialize counting qubits in state |+&gt;</span>
+    <span class="c1"># And auxiliary register in state |1&gt;</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">n_count</span><span class="p">))</span>
+    <span class="c1"># Do controlled-U operations</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">):</span>
+        <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">c_amod15_qibo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">on_qubits</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">n_count</span><span class="o">-</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">n_count</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]))</span>
+    <span class="c1"># Do inverse-QFT</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">qft_dagger_qibo</span><span class="p">(</span><span class="n">n_count</span><span class="p">)</span><span class="o">.</span><span class="n">on_qubits</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">)))</span>
+    <span class="c1"># Add the measure gates</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="n">n_count</span><span class="p">),</span> <span class="n">register_name</span><span class="o">=</span><span class="s1">&#39;results&#39;</span><span class="p">))</span>
+    
+    <span class="c1">## Simulate Results ##</span>
+    <span class="n">results_qibo</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">nshots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">readings</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">results_qibo</span><span class="o">.</span><span class="n">frequencies</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span> <span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Register Reading: &quot;</span> <span class="o">+</span> <span class="n">readings</span><span class="p">)</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">readings</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_count</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corresponding Phase: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">phase</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phase</span>
+
 </pre></div>
 </div>
 </div>
@@ -1001,7 +1105,23 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-11">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">factor_found</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">factor_found</span><span class="p">:</span>
+    <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Attempt </span><span class="si">%i</span><span class="s2">:&quot;</span> <span class="o">%</span> <span class="n">attempt</span><span class="p">)</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="n">qpe_amod15_qibo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Phase = s/r</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">limit_denominator</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># Denominator should (hopefully!) tell us r</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">frac</span><span class="o">.</span><span class="n">denominator</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: r = </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">r</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">phase</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Gues   ses for factors are gcd(x^{r/2} ±1 , 15)</span>
+        <span class="n">guesses</span> <span class="o">=</span> <span class="p">[</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="p">(</span><span class="n">r</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="p">(</span><span class="n">r</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Guessed Factors: </span><span class="si">%i</span><span class="s2"> and </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">guesses</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">guesses</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">guess</span> <span class="ow">in</span> <span class="n">guesses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">guess</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">N</span> <span class="o">%</span> <span class="n">guess</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># Check to see if guess is a factor</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** Non-trivial factor found: </span><span class="si">%i</span><span class="s2"> ***&quot;</span> <span class="o">%</span> <span class="n">guess</span><span class="p">)</span>
+                <span class="n">factor_found</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -1011,11 +1131,12 @@ Qibo</label><div class="sd-tab-content docutils">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 1:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Register Reading: 10000000
-Corresponding Phase: 0.500000
-Result: r = 2
-Guessed Factors: 3 and 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Register Reading: 01000000
+Corresponding Phase: 0.250000
+Result: r = 4
+Guessed Factors: 3 and 5
 *** Non-trivial factor found: 3 ***
+*** Non-trivial factor found: 5 ***
 </pre></div>
 </div>
 </div>
@@ -1027,37 +1148,10 @@ Guessed Factors: 3 and 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><h3>Version Information</h3><table><tr><th>Software</th><th>Version</th></tr><tr><td><code>qiskit</code></td><td>0.45.2</td></tr><tr><td><code>qiskit_ibm_provider</code></td><td>0.8.0</td></tr><tr><td><code>qiskit_aer</code></td><td>0.13.2</td></tr><tr><td><code>qiskit_ibm_runtime</code></td><td>0.20.0</td></tr><tr><th colspan='2'>System information</th></tr><tr><td>Python version</td><td>3.11.7</td></tr><tr><td>Python compiler</td><td>GCC 11.2.0</td></tr><tr><td>Python build</td><td>main, Dec 15 2023 18:12:31</td></tr><tr><td>OS</td><td>Linux</td></tr><tr><td>CPUs</td><td>12</td></tr><tr><td>Memory (Gb)</td><td>62.61071014404297</td></tr><tr><td colspan='2'>Wed May 22 12:39:36 2024 CEST</td></tr></table></div></div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Line magic function `%qiskit_version_table` not found.
+</pre></div>
 </div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2><a class="toc-backref" href="#id107">Bibliografía</a><a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id11">
-<dl class="citation">
-<dt class="label" id="id88"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-<dt class="label" id="id89"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html</a>.</p>
-</dd>
-<dt class="label" id="id91"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
-<dd><p>Qiskit Textbook. Quantum fourier transform. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id90"><span class="brackets"><a class="fn-backref" href="#id2">4</a></span></dt>
-<dd><p>Qiskit Textbook. Quantum phase estimation. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id92"><span class="brackets">5</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id7">2</a>,<a href="#id9">3</a>)</span></dt>
-<dd><p>Qiskit Textbook. Shor's algorithm. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id94"><span class="brackets">6</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id8">2</a>)</span></dt>
-<dd><p>Wikipedia contributors. Continued fraction — Wikipedia, the free encyclopedia. 2023. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898">https://en.wikipedia.org/w/index.php?title=Continued_fraction&amp;oldid=1216447898</a>.</p>
-</dd>
-<dt class="label" id="id93"><span class="brackets"><a class="fn-backref" href="#id10">7</a></span></dt>
-<dd><p>Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518">https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518</a>.</p>
-</dd>
-</dl>
+</div>
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
@@ -1079,6 +1173,7 @@ Guessed Factors: 3 and 1
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
 </center></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1155,7 +1250,6 @@ Guessed Factors: 3 and 1
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-shot-a-shot-optimo">2.2.2 - Caso shot a shot (óptimo)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
   </nav></div>
 

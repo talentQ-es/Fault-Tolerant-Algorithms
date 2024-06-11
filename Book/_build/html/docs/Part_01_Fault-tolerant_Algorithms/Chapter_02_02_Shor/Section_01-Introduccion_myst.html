@@ -238,6 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -458,7 +462,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factores-de-n-a-partir-del-periodo-r">1.5.2 - Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span>.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
             </nav>
         </div>
@@ -496,16 +499,15 @@ document.write(`
 <h1>1. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#criptografia-y-factorizacion" id="id104">1.1 - Criptografía y factorización</a></p></li>
-<li><p><a class="reference internal" href="#algoritmo-de-factorizacion" id="id105">1.2 - Algoritmo de factorización</a></p></li>
-<li><p><a class="reference internal" href="#explicacion-cualitativa" id="id106">1.3 - Explicación cualitativa.</a></p></li>
-<li><p><a class="reference internal" href="#hallar-el-periodo-en-un-ordenador-cuantico" id="id107">1.4 - Hallar el periodo en un ordenador cuántico.</a></p></li>
-<li><p><a class="reference internal" href="#formalismo-matematico" id="id108">1.5 - Formalismo matemático.</a></p></li>
-<li><p><a class="reference internal" href="#bibliografia" id="id109">Bibliografía</a></p></li>
+<li><p><a class="reference internal" href="#criptografia-y-factorizacion" id="id10">1.1 - Criptografía y factorización</a></p></li>
+<li><p><a class="reference internal" href="#algoritmo-de-factorizacion" id="id11">1.2 - Algoritmo de factorización</a></p></li>
+<li><p><a class="reference internal" href="#explicacion-cualitativa" id="id12">1.3 - Explicación cualitativa.</a></p></li>
+<li><p><a class="reference internal" href="#hallar-el-periodo-en-un-ordenador-cuantico" id="id13">1.4 - Hallar el periodo en un ordenador cuántico.</a></p></li>
+<li><p><a class="reference internal" href="#formalismo-matematico" id="id14">1.5 - Formalismo matemático.</a></p></li>
 </ul>
 </div>
 <section id="criptografia-y-factorizacion">
-<span id="sec-fta-shor-criptografia-y-factorizacion"></span><h2><a class="toc-backref" href="#id104">1.1 - Criptografía y factorización</a><a class="headerlink" href="#criptografia-y-factorizacion" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-shor-criptografia-y-factorizacion"></span><h2><a class="toc-backref" href="#id10">1.1 - Criptografía y factorización</a><a class="headerlink" href="#criptografia-y-factorizacion" title="Permalink to this heading">#</a></h2>
 <p>El algoritmo de Shor es uno de los algoritmos de computación cuántica más conocidos debido a que es mejor en su tarea que cualquier algoritmo de computación clásica conocido hasta la fecha. Además, resuelve un problema que tiene una aplicación práctica directa: factorizar un número</p>
 <p>Para entender porque este algoritmo es tan importante debemos hablar primero de criptografía, en concreto, del encriptado de transmisiones a través de Internet mediante el método de clave pública y clave privada (<strong>criptografía asimétrica</strong>). La explicación conceptual de esta forma de encriptar es simple. Cuando quieres, por ejemplo, acceder a la aplicación de tú banco tienes que ingresar las claves de acceso (DNI y pin), estas se mandan por Internet hasta la sede de tu banco, el cual verifica que son correctas y te da acceso. El problema radica precisamente en que la conexión se hace mediante Internet, con lo cual el mensaje con las claves de acceso puede ser interceptado. La solución a este problema es que el mensaje que el cliente envía esté encriptado y que solo tu banco pueda desencriptar el mensaje.</p>
 <p>El método de encriptación más usado en Internet es la ya mencionada criptografía asimétrica. En este tipo de encriptado el receptor del mensaje (en nuestro ejemplo, el banco) genera dos claves dependientes entre sí, una la publicará al exterior (clave pública) y otra solo la conocerá él (clave privada). Si un receptor quisiera recibir un mensaje encriptado, bastaría con que publicase su clave pública de forma que cualquiera que quiera mandarle un mensaje, pueda usarla para encriptar el mismo. Sin embargo, la clave privada solo es conocida por el receptor del mensaje, y se usa para desencriptar. Puede decirse que la clave pública es como un candado y la clave privada es la llave. Cualquiera puede cerrar el candado, pero solo el que tiene la llave puede abrirlo. (Aquí podemos poner un poco más como se encripta/desencripta de forma sencilla…)</p>
@@ -513,8 +515,8 @@ document.write(`
 <p>La tremenda potencia y aplicabilidad del algoritmo de Shor es que convierte este problema de complejidad exponencial en el número de bits para un computador clásico, en un problema de complejidad polinómica para un computador cuántico. Es decir, con el algoritmo de Shor el tiempo requerido para factorizar un número crece <strong>polinómicamente</strong> con el número de cifras del número. De esta forma, si se llega a tener un ordenador cuántico con suficientes qubits como para aplicar este algoritmo a números de la longitud de clave que se usa actualmente, se podrían factorizar y hallar la clave privada en un tiempo razonable para la escala humana. El algoritmo de Shor tiene el potencial de romper la criptografía asimétrica y hacer vulnerables las comunicaciones a través de la red, pero estamos muy lejos de tener un ordenador cuántico capar de implementarlo a la escala requerida. Se estima que se necesitarían del orden del millón de qubits, mientras que actualmente (año 2022) los ordenadores cuánticos más grandes andan por el orden de cientos de qubits.</p>
 </section>
 <section id="algoritmo-de-factorizacion">
-<span id="sec-fta-shor-algoritmo-de-factorizacion"></span><h2><a class="toc-backref" href="#id105">1.2 - Algoritmo de factorización</a><a class="headerlink" href="#algoritmo-de-factorizacion" title="Permalink to this heading">#</a></h2>
-<p>El algoritmo de Shor <span id="id1">[<a class="reference internal" href="Section_02-Shor_Algorithm_simple_implementation_myst.html#id92" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">5</a>]</span> se basa en el hecho de poder reducir un problema de factorización a uno de <strong>period (o order) finding (hallar el periodo -orden- de una función)</strong>. Antes de hablar de nada cuántico, vamos a ver como sería la estructura general de un algoritmo de factorización de esta forma, tal y como se describe en el Nielsen-Chuang <span id="id2">[<a class="reference internal" href="#id70" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">3</a>]</span>, comentando en que punto entra la computación cuántica para acelerarlo.</p>
+<span id="sec-fta-shor-algoritmo-de-factorizacion"></span><h2><a class="toc-backref" href="#id11">1.2 - Algoritmo de factorización</a><a class="headerlink" href="#algoritmo-de-factorizacion" title="Permalink to this heading">#</a></h2>
+<p>El algoritmo de Shor <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id82" title="Qiskit Textbook. Shor's algorithm. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb.">14</a>]</span> se basa en el hecho de poder reducir un problema de factorización a uno de <strong>period (o order) finding (hallar el periodo -orden- de una función)</strong>. Antes de hablar de nada cuántico, vamos a ver como sería la estructura general de un algoritmo de factorización de esta forma, tal y como se describe en el Nielsen-Chuang <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id61" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">9</a>]</span>, comentando en que punto entra la computación cuántica para acelerarlo.</p>
 <p>Lo primero es introducir la noción de <strong>números coprimos</strong>: dos números <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son coprimos si su máximo común divisor es 1, esto es, gcd<span class="math notranslate nohighlight">\((a,b) = 1\)</span>. Es decir, dos números coprimos solo comparten como divisor común el 1.</p>
 <p>Los pasos reducir un problema de factorización en uno de period finding son los siguientes. Sea <span class="math notranslate nohighlight">\(N\)</span> el número que queremos factorizas</p>
 <ul class="simple">
@@ -539,16 +541,16 @@ document.write(`
 </ol>
 </li>
 </ul>
-<p>Todos los pasos de este algoritmo, excepto el <strong>paso 4</strong>, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor puede usar el Algoritmo de Euclides <span id="id3">[<a class="reference internal" href="Section_02-Shor_Algorithm_simple_implementation_myst.html#id93" title="Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518.">7</a>]</span>, el cual resuelve el problema en un <strong>tiempo polinómico</strong> (se puede calcular en un tiempo razonable).</p>
+<p>Todos los pasos de este algoritmo, excepto el <strong>paso 4</strong>, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor puede usar el Algoritmo de Euclides <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id83" title="Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518.">18</a>]</span>, el cual resuelve el problema en un <strong>tiempo polinómico</strong> (se puede calcular en un tiempo razonable).</p>
 <p>El paso complicado y que, por lo menos hasta la fecha, no hay ninguna forma de implementarlo en un tiempo polinómico (se implementa en un <strong>tiempo exponencial</strong>) en un ordenador clásico es el <strong>paso 4</strong>, hallar el periodo de la función. Sin embargo, este paso puede implementarse un ordenador cuántico en un tiempo polinómico. Tenemos pues que la forma óptima de factorizar un número consiste en implementar los pasos 1, 2, 3 y 5 en un ordenador clásico, y el paso 4 en un ordenador cuántico.</p>
 <p>No vamos a comentar nada en este documento sobre los tres primeros pasos, pues no revisten mucha complejidad. Vamos a centrarnos en entender un poco el formalismos matemático detrás de los pasos 4 y 5, y en ver como podemos implementar el paso 4 en un ordenador cuántico.</p>
 </section>
 <section id="explicacion-cualitativa">
-<span id="sec-fta-shor-explicacion-cualitativa"></span><h2><a class="toc-backref" href="#id106">1.3 - Explicación cualitativa.</a><a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-shor-explicacion-cualitativa"></span><h2><a class="toc-backref" href="#id12">1.3 - Explicación cualitativa.</a><a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
 <p>Vamos a intentar entender de forma cualitativa porqué calculando el periodo de una función se pueden hallar los factores de un número. En la sección <a class="reference internal" href="#sec-fta-shor-formalismo"><span class="std std-ref">1.5 - Formalismo matemático.</span></a> veremos un poco más en detalle las afirmaciones que se hacen en esta sección.</p>
 <p>La función que nos interesa es la siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bab554f2-33a6-4d8e-8201-c80689a46e02">
-<span class="eqno">(1)<a class="headerlink" href="#equation-bab554f2-33a6-4d8e-8201-c80689a46e02" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bf5e23cd-d605-49c5-b369-32c143ecc34e">
+<span class="eqno">(1)<a class="headerlink" href="#equation-bf5e23cd-d605-49c5-b369-32c143ecc34e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{ mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a\)</span> &lt; <span class="math notranslate nohighlight">\(N\)</span> y no teniendo factores comunes (es decir, cumpliéndose gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>). La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <strong>resto</strong> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. Esta función se denomina  <strong>exponenciales moduladas</strong>, se encaja dentro de la <strong>aritmética modular</strong> y si se cumplen las condiciones anteriores esta función es periódica. Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al valor del periodo de la función <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
@@ -575,11 +577,11 @@ a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 <p>Entonces tenemos una alta probabilidad de que el <strong>máximo común divisor</strong> de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </section>
 <section id="hallar-el-periodo-en-un-ordenador-cuantico">
-<span id="sec-fta-shor-hallar-el-periodo-en-un-ordenador-cuanticor"></span><h2><a class="toc-backref" href="#id107">1.4 - Hallar el periodo en un ordenador cuántico.</a><a class="headerlink" href="#hallar-el-periodo-en-un-ordenador-cuantico" title="Permalink to this heading">#</a></h2>
-<p>Como hemos comentado, el paso 4 descrito en la sección <a class="reference internal" href="#Algoritmo-de-factorizaci%C3%B3n"><span class="xref myst">1.2 - Algoritmo de factorización</span></a> (buscar el periodo de <span class="math notranslate nohighlight">\(f(x)\)</span>) se puede implementar en un ordenador cuántico. Para ello lo que se hace es reducir el problema de la búsqueda de periodo a un problema de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id4">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id5">[<a class="reference internal" href="Section_02-Shor_Algorithm_simple_implementation_myst.html#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id6">[<a class="reference internal" href="Section_02-Shor_Algorithm_simple_implementation_myst.html#id89" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">2</a>]</span> y <span id="id7">[<a class="reference internal" href="Section_02-Shor_Algorithm_simple_implementation_myst.html#id91" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">3</a>]</span>).</p>
+<span id="sec-fta-shor-hallar-el-periodo-en-un-ordenador-cuanticor"></span><h2><a class="toc-backref" href="#id13">1.4 - Hallar el periodo en un ordenador cuántico.</a><a class="headerlink" href="#hallar-el-periodo-en-un-ordenador-cuantico" title="Permalink to this heading">#</a></h2>
+<p>Como hemos comentado, el paso 4 descrito en la sección <a class="reference internal" href="#Algoritmo-de-factorizaci%C3%B3n"><span class="xref myst">1.2 - Algoritmo de factorización</span></a> (buscar el periodo de <span class="math notranslate nohighlight">\(f(x)\)</span>) se puede implementar en un ordenador cuántico. Para ello lo que se hace es reducir el problema de la búsqueda de periodo a un problema de <strong>Estimación de Fase Cuántica (Quantum Phase Estimation)</strong> (<span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span> y <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id80" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">13</a>]</span>), que a su vez usa la <strong>Transformada de Fourier Cuántica (Quantum Fourier Transform)</strong> (<span id="id6">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id79" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html.">7</a>]</span> y <span id="id7">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id81" title="Qiskit Textbook. Quantum fourier transform. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">12</a>]</span>).</p>
 </section>
 <section id="formalismo-matematico">
-<span id="sec-fta-shor-formalismo"></span><h2><a class="toc-backref" href="#id108">1.5 - Formalismo matemático.</a><a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
+<span id="sec-fta-shor-formalismo"></span><h2><a class="toc-backref" href="#id14">1.5 - Formalismo matemático.</a><a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
 <p>Veamos un poco el formalismo matemático detrás de las afirmaciones de la sección anterior.</p>
 <section id="periodicidad-de-f-x">
 <span id="sec-fta-shor-periodicidad"></span><h3>1.5.1 - Periodicidad de <span class="math notranslate nohighlight">\(f(x)\)</span>.<a class="headerlink" href="#periodicidad-de-f-x" title="Permalink to this heading">#</a></h3>
@@ -590,7 +592,7 @@ Explicación aquí<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Demostrar que, dada la condición gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span> es periódica no es fácil, pues se necesitan plantear varios teoremas y la explicación se hace árida (puede verse el Appendix 4 del Nielsen-Chuang <span id="id8">[<a class="reference internal" href="#id70" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">3</a>]</span>). Aquí vamos a ver una explicación más simple partiendo del siguiente resultado (sin demostrarlos):</p>
+<p class="sd-card-text">Demostrar que, dada la condición gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span> es periódica no es fácil, pues se necesitan plantear varios teoremas y la explicación se hace árida (puede verse el Appendix 4 del Nielsen-Chuang <span id="id8">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id61" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">9</a>]</span>). Aquí vamos a ver una explicación más simple partiendo del siguiente resultado (sin demostrarlos):</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Dada la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span>, si se cumple que gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, tenemos que para algún valor entero <span class="math notranslate nohighlight">\(z&gt;0\)</span> se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span>.</p>
@@ -607,8 +609,8 @@ a^0 =1 \rightarrow f(0) = a^0 \text{ mod} N = 1 = f(r).
 a^r = \alpha N + 1
 \]</div>
 <p class="sd-card-text">con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba003c08-18ba-4be4-95e6-d6b0ebbcd39a">
-<span class="eqno">(2)<a class="headerlink" href="#equation-ba003c08-18ba-4be4-95e6-d6b0ebbcd39a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e687b2c9-2a30-4012-9c56-2a081d7c25b2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e687b2c9-2a30-4012-9c56-2a081d7c25b2" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\ 
 &amp; = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
 \end{align}\]</div>
@@ -624,7 +626,7 @@ Explicación aquí<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Para entender como pasar del periodo <span class="math notranslate nohighlight">\(r\)</span> de nuestra función a tener los factores de <span class="math notranslate nohighlight">\(N\)</span> nos hace falta conocer un par de teoremas, ambos presentes en el Nielsen-Chuang <span id="id9">[<a class="reference internal" href="#id70" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">3</a>]</span>.</p>
+<p class="sd-card-text">Para entender como pasar del periodo <span class="math notranslate nohighlight">\(r\)</span> de nuestra función a tener los factores de <span class="math notranslate nohighlight">\(N\)</span> nos hace falta conocer un par de teoremas, ambos presentes en el Nielsen-Chuang <span id="id9">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id61" title="Michael A. Nielsen and Isaac L. Chuang. Quantum computation and quantum information. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.">9</a>]</span>.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><b>Teorema</b>: </i>5.2 del Nielsen-Chuang</i></p>
@@ -661,37 +663,7 @@ p(r \text{ es impar y }x^{r/2} \text{ mod} N = − 1) \geq 1 − \frac{1}{2^m}
 </div>
 <p class="sd-card-text">Los teoremas 5.2 y 5.3 pueden combinarse para dar un algoritmo que, con alta probabilidad, devuelve un factor no trivial de cualquier compuesto <span class="math notranslate nohighlight">\(N\)</span> . Todos los pasos del algoritmo pueden realizarse de forma eficiente en un ordenador clásico, excepto (por lo que se sabe hoy en día) una “subrutina” de búsqueda de periodo que utiliza el algoritmo. Repitiendo el procedimiento podemos encontrar una factorización prima completa de <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </div>
-</details></section>
-</section>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2><a class="toc-backref" href="#id109">Bibliografía</a><a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id10">
-<dl class="citation">
-<dt class="label" id="id87"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-<dt class="label" id="id88"><span class="brackets"><a class="fn-backref" href="#id6">2</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;transformada de fourier cuántica&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_042_QFT_myst.html</a>.</p>
-</dd>
-<dt class="label" id="id70"><span class="brackets">3</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id8">2</a>,<a href="#id9">3</a>)</span></dt>
-<dd><p>Michael A. Nielsen and Isaac L. Chuang. <em>Quantum computation and quantum information</em>. Cambridge University Press, Cambridge ; New York, 2000. ISBN 978-0-521-63235-5 978-0-521-63503-5.</p>
-</dd>
-<dt class="label" id="id90"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
-<dd><p>Qiskit Textbook. Quantum fourier transform. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id89"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>Qiskit Textbook. Quantum phase estimation. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id91"><span class="brackets"><a class="fn-backref" href="#id1">6</a></span></dt>
-<dd><p>Qiskit Textbook. Shor's algorithm. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/shor.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id92"><span class="brackets"><a class="fn-backref" href="#id3">7</a></span></dt>
-<dd><p>Wikipedia contributors. Euclidean algorithm — Wikipedia, the free encyclopedia. 2023. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518">https://en.wikipedia.org/w/index.php?title=Euclidean_algorithm&amp;oldid=1218011518</a>.</p>
-</dd>
-</dl>
-</div>
-<hr class="docutils" />
+</details><hr class="docutils" />
 <p>Autores:</p>
 <p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
 <a class="reference internal image-reference" href="../../../_images/Logo_UMA2.jpeg"><img alt="../../../_images/Logo_UMA2.jpeg" src="../../../_images/Logo_UMA2.jpeg" style="width: 170px;" /></a>
@@ -711,6 +683,7 @@ p(r \text{ es impar y }x^{r/2} \text{ mod} N = − 1) \geq 1 − \frac{1}{2^m}
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
 </center></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -786,7 +759,6 @@ p(r \text{ es impar y }x^{r/2} \text{ mod} N = − 1) \geq 1 − \frac{1}{2^m}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factores-de-n-a-partir-del-periodo-r">1.5.2 - Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span>.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
   </nav></div>
 

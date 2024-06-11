@@ -238,6 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -451,7 +455,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-simplificada">Explicación simplificada</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-formal">Explicación formal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
             </nav>
         </div>
@@ -489,7 +492,7 @@ document.write(`
 <h1>1. Teoría<a class="headerlink" href="#teoria" title="Permalink to this heading">#</a></h1>
 <section id="explicacion-simplificada">
 <h2>Explicación simplificada<a class="headerlink" href="#explicacion-simplificada" title="Permalink to this heading">#</a></h2>
-<p>Si se conoce la QPE (ver <span id="id1">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> y <span id="id2">[<a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html#id90" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">4</a>]</span>), explicar la IPE es simple. Recordemos que el objetivo de la QPE es estimar el valor de la fase que aplica un operador unitario <span class="math notranslate nohighlight">\(U\)</span> sobre uno de sus autovectores <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>. Es decir, queremos calcular <span class="math notranslate nohighlight">\(\theta\)</span> en la expresión</p>
+<p>Si se conoce la QPE (ver <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span> y <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id80" title="Qiskit Textbook. Quantum phase estimation. URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb.">13</a>]</span>), explicar la IPE es simple. Recordemos que el objetivo de la QPE es estimar el valor de la fase que aplica un operador unitario <span class="math notranslate nohighlight">\(U\)</span> sobre uno de sus autovectores <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>. Es decir, queremos calcular <span class="math notranslate nohighlight">\(\theta\)</span> en la expresión</p>
 <div class="math notranslate nohighlight">
 \[
 U \ket{\psi} = e^{2 \pi i \theta} \ket{\psi}
@@ -520,37 +523,11 @@ U \ket{\psi} = e^{2 \pi i \theta} \ket{\psi}
 </figure>
 <p>Como observamos, hay solo un qubit en el registro de conteo. El procedimiento consiste en primer lugar en aplicar sobre este qubit las mismas puertas que aplicaríamos sobre el último qubit del registro de control, seguido de una medición. La medida resultante se guarda en un bit clásico. Una vez obtenida la medida, podemos emplear el valor del bit clásico para controlar una puerta <span class="math notranslate nohighlight">\(X\)</span>. De esta manera, restablecemos el qubit a su estado inicial (es decir, el estado <span class="math notranslate nohighlight">\(| 0 \rangle\)</span>).</p>
 <p>Una vez que hemos restablecido el qubit a su estado inicial y hemos guardado con seguridad su medida, podemos proceder a aplicar sobre este qubit las mismas puertas que aplicaríamos sobre el siguiente qubit del registro de control (siendo una de ellas controlada por el bit clásico anterior) y medirlo, almacenando su valor en un segundo bit clásico. Nuevamente, utilizamos una puerta <span class="math notranslate nohighlight">\(X\)</span> controlada por este segundo bit clásico para devolver el qubit al estado inicial. Este proceso se repite sucesivamente.</p>
-<p>Para más detalles, pueden verse las referencias <span id="id3">[<a class="reference internal" href="#id91" title="Michele Mosca and Artur Ekert. The hidden subgroup problem and eigenvalue estimation on a quantum computer. 1999. arXiv:quant-ph/9903071.">2</a>]</span>, <span id="id4">[<a class="reference internal" href="#id92" title="Christof Zalka. Fast versions of shor's quantum factoring algorithm. 1998. arXiv:quant-ph/9806084.">6</a>]</span> y <span id="id5">[<a class="reference internal" href="#id93" title="S. Parker and M. B. Plenio. Efficient factorization with a single pure qubit and log n mixed qubits. Physical Review Letters, 85(14):3049–3052, October 2000. URL: http://dx.doi.org/10.1103/PhysRevLett.85.3049, doi:10.1103/physrevlett.85.3049.">3</a>]</span>.</p>
+<p>Para más detalles, pueden verse las referencias <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id85" title="Michele Mosca and Artur Ekert. The hidden subgroup problem and eigenvalue estimation on a quantum computer. 1999. arXiv:quant-ph/9903071.">8</a>]</span>, <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id86" title="Christof Zalka. Fast versions of shor's quantum factoring algorithm. 1998. arXiv:quant-ph/9806084.">15</a>]</span> y <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id87" title="S. Parker and M. B. Plenio. Efficient factorization with a single pure qubit and log n mixed qubits. Physical Review Letters, 85(14):3049–3052, October 2000. URL: http://dx.doi.org/10.1103/PhysRevLett.85.3049, doi:10.1103/physrevlett.85.3049.">10</a>]</span>.</p>
 </section>
 <section id="explicacion-formal">
 <h2>Explicación formal<a class="headerlink" href="#explicacion-formal" title="Permalink to this heading">#</a></h2>
-<p>Para ver una explicación más formal del algoritmo, puede verse la sección <strong>Antecedentes</strong> de <span id="id6">[<a class="reference internal" href="Section_02_Implementacion_y_ejemplo_myst.html#id79" title="Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb.">2</a>]</span>.</p>
-</section>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id7">
-<dl class="citation">
-<dt class="label" id="id84"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-<dt class="label" id="id91"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
-<dd><p>Michele Mosca and Artur Ekert. The hidden subgroup problem and eigenvalue estimation on a quantum computer. 1999. <a class="reference external" href="https://arxiv.org/abs/quant-ph/9903071">arXiv:quant-ph/9903071</a>.</p>
-</dd>
-<dt class="label" id="id93"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
-<dd><p>S. Parker and M. B. Plenio. Efficient factorization with a single pure qubit and log n mixed qubits. <em>Physical Review Letters</em>, 85(14):3049–3052, October 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1103/PhysRevLett.85.3049">http://dx.doi.org/10.1103/PhysRevLett.85.3049</a>, <a class="reference external" href="https://doi.org/10.1103/physrevlett.85.3049">doi:10.1103/physrevlett.85.3049</a>.</p>
-</dd>
-<dt class="label" id="id83"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
-<dd><p>Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: <a class="github reference external" href="https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb">qiskit-community/ibm-quantum-challenge-spring-2023</a>.</p>
-</dd>
-<dt class="label" id="id86"><span class="brackets"><a class="fn-backref" href="#id2">5</a></span></dt>
-<dd><p>Qiskit Textbook. Quantum phase estimation. URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-phase-estimation.ipynb">Qiskit/textbook</a>.</p>
-</dd>
-<dt class="label" id="id92"><span class="brackets"><a class="fn-backref" href="#id4">6</a></span></dt>
-<dd><p>Christof Zalka. Fast versions of shor's quantum factoring algorithm. 1998. <a class="reference external" href="https://arxiv.org/abs/quant-ph/9806084">arXiv:quant-ph/9806084</a>.</p>
-</dd>
-</dl>
-</div>
+<p>Para ver una explicación más formal del algoritmo, puede verse la sección <strong>Antecedentes</strong> de <span id="id6">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id77" title="Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb.">11</a>]</span>.</p>
 <hr class="docutils" />
 <p>Autores:</p>
 <p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
@@ -639,7 +616,6 @@ U \ket{\psi} = e^{2 \pi i \theta} \ket{\psi}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-simplificada">Explicación simplificada</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-formal">Explicación formal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
   </nav></div>
 

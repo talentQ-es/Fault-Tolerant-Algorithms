@@ -68,6 +68,8 @@ for i in $part_folders_orig; do
 
 done
 
+echo "- **[Bibliografía]("$Notebook_folder_aux"/Chapter_Bibliografia_myst.ipynb)**" >> $README_TOC
+
 
 #mkdir -p old_READMEs
 

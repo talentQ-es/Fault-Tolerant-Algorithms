@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Número desconocido de soluciones &#8212; Algoritmos &#34;Fault-Tolerant&#34;</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "talentQ-es/Fault-Tolerant-Algorithms");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5. Conteo de soluciones (Quantum counting)" href="Section_05_conteo_de_soluciones_myst.html" />
+    <link rel="prev" title="3. Número conocido de soluciones" href="Section_03_Numero_conocido_sols_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Algoritmos "Fault-Tolerant" - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Algoritmos "Fault-Tolerant" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos "Fault-tolerant"</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01_01_IPE_portada_myst.html">Algoritmo de Estimación Iterativa de Fase (IPE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02_01_Shor_portada_myst.html">Algoritmo de Shor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_01-Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02_02_Shor/Section_02-Shor_Algorithm_simple_implementation_myst.html">2. Implementación simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_03_01_Grover_portada_myst.html">Algoritmo de Grover</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_01_Introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_02_explicacion_geometrica_myst.html">2. Explicación geométrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html">3. Número conocido de soluciones</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms/edit/master/Book/docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/talentQ-es/Fault-Tolerant-Algorithms/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_04_Numero_desconocido_sols_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4. Número desconocido de soluciones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-para-el-caso-de-m-desconocido">Algoritmo para el caso de <span class="math notranslate nohighlight">\(M\)</span> desconocido.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-del-teorema">Demostración del Teorema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Apr 12, 2024 | 6 min read</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\RC}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="numero-desconocido-de-soluciones">
+<span id="sec-fta-grover-t-no-conocido"></span><h1>4. Número desconocido de soluciones<a class="headerlink" href="#numero-desconocido-de-soluciones" title="Permalink to this heading">#</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#algoritmo-para-el-caso-de-m-desconocido" id="id96">Algoritmo para el caso de <span class="math notranslate nohighlight">\(M\)</span> desconocido.</a></p></li>
+<li><p><a class="reference internal" href="#demostracion-del-teorema" id="id97">Demostración del Teorema</a></p></li>
+<li><p><a class="reference internal" href="#bibliografia" id="id98">Bibliografía</a></p></li>
+</ul>
+</div>
+<p>Como ya hemos comentado, para poder aplicar el algoritmo de Grover tal y como lo hemos visto hasta ahora, nos hace falta conocer el número de soluciones. Esto es debido a que debemos aplicar un número concreto de iteraciones para maximizar la probabilidad de las soluciones correctas. Si no aplicamos el número correcto de iteraciones, la probabilidad puede ser incluso nula. Como vemos en la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-m">(36)</a>, para saber el número de iteraciones tenemos que conocer el número de soluciones.</p>
+<p>En esta sección vamos a ver un algoritmo para poder abordar el caso en el que no conocemos el número de soluciones y por ende, no sabemos cuantas iteraciones debemos aplicar. Este algoritmo no es más que una forma inteligente de aplicar el algoritmo de Grover. Lo bueno de este algoritmo es que nuevamente podemos encontrar una solución con un número de iteraciones <span class="math notranslate nohighlight">\(\mathcal{O}( \sqrt{N/M} )\)</span>, aunque a priori no sabemos cuantas iteraciones son.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Uno de los pasos del algoritmo de Grover es una reflexión de las amplitudes respecto a la media.
+Esto implica que podemos tener los siguientes casos:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M &lt; N/2\)</span>: El algoritmo funciona normal.</p></li>
+<li><p><span class="math notranslate nohighlight">\(M = N/2\)</span>: El algoritmo no funciona</p></li>
+<li><p><span class="math notranslate nohighlight">\(M &gt; N/2\)</span>: El algoritmo amplifica las soluciones incorrectas.</p></li>
+</ul>
+</div>
+<p>En esta sección vamos a seguir el artículo <span id="id1">[<a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html#id95" title="Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4-5):493–505, jun 1998. URL: https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p, doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p.">1</a>]</span>.</p>
+<section id="algoritmo-para-el-caso-de-m-desconocido">
+<span id="sec-fta-grover-t-no-conocido-algoritmo"></span><h2><a class="toc-backref" href="#id96">Algoritmo para el caso de <span class="math notranslate nohighlight">\(M\)</span> desconocido.</a><a class="headerlink" href="#algoritmo-para-el-caso-de-m-desconocido" title="Permalink to this heading">#</a></h2>
+<p>Al igual que comentamos en la sección anterior, tenemos <span class="math notranslate nohighlight">\(M\)</span> valores diferentes <span class="math notranslate nohighlight">\(i\)</span> que cumplen <span class="math notranslate nohighlight">\(L_i=x\)</span>, solo que en este caso no conocemos <span class="math notranslate nohighlight">\(M\)</span>. Denominemos <span class="math notranslate nohighlight">\(\omega\)</span> al conjunto de los <span class="math notranslate nohighlight">\(M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que son solución, y denominemos <span class="math notranslate nohighlight">\(\omega^\perp\)</span> al conjunto de los <span class="math notranslate nohighlight">\(N-M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que no son solución</p>
+<div class="amsmath math notranslate nohighlight" id="equation-887a0ad6-ac3f-4533-8cce-f480460789db">
+<span class="eqno">(43)<a class="headerlink" href="#equation-887a0ad6-ac3f-4533-8cce-f480460789db" title="Permalink to this equation">#</a></span>\[\begin{align}
+&amp; \boxed{\omega = \lch i | L_{i} = x \rch }
+&amp; \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
+\end{align}\]</div>
+<p>Supondremos también que <strong>estamos en el caso en el que</strong> <span class="math notranslate nohighlight">\(N = 2^n\)</span> y que además partimos del estado de la Ec. <a class="reference internal" href="Section_02_explicacion_geometrica_myst.html#equation-ec-fta-grover-geo-phi-0-1">(7)</a>, es decir, de una <strong>superposición uniforme</strong>.</p>
+<p><a id='ref_FTA_Grover_teorema_no-t'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El siguiente algoritmo encuentra una solución en un tiempo esperado <span class="math notranslate nohighlight">\(\mathcal{O} ( \sqrt{N/M} )\)</span> (si tomamos <span class="math notranslate nohighlight">\(1 \leq M \leq 3N/4\)</span>)</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">Inicializamos <span class="math notranslate nohighlight">\(r=1\)</span> y <span class="math notranslate nohighlight">\(\lambda = 6/5\)</span>. (En realidad, cualquier valor <span class="math notranslate nohighlight">\(1 \leq \lambda \leq 4/3\)</span> sirve).</p></li>
+<li><p class="sd-card-text">Elegimos un valor aleatorio <span class="math notranslate nohighlight">\(t\)</span> con distribución uniforme tal que <span class="math notranslate nohighlight">\(0 \leq t &lt; r\)</span>.</p></li>
+<li><p class="sd-card-text">Aplicamos <span class="math notranslate nohighlight">\(t\)</span> iteraciones del algoritmo de Grover empezando desde el estado inicial <span class="math notranslate nohighlight">\(| \Psi_0 \rangle = \sum_i \frac{1}{\sqrt{N}} |i \rangle\)</span>.</p></li>
+<li><p class="sd-card-text">Medimos, de forma que obtenemos uno de los estados <span class="math notranslate nohighlight">\(|i \rangle\)</span> del paso anterior.</p></li>
+<li><p class="sd-card-text">Si <span class="math notranslate nohighlight">\(L_i = x\)</span>, hemos encontrado una solución:  <b>Exit</b>.</p></li>
+<li><p class="sd-card-text">En caso contrario, tomemos <span class="math notranslate nohighlight">\(r = \)</span> min<span class="math notranslate nohighlight">\((\lambda r, \sqrt{N})\)</span> y volvemos al paso 2.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="demostracion-del-teorema">
+<span id="sec-fta-grover-t-no-conocido-demostracion"></span><h2><a class="toc-backref" href="#id97">Demostración del Teorema</a><a class="headerlink" href="#demostracion-del-teorema" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Conocimientos previos<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Vamos a ver primero dos Lemmas que nos servirán para entender el algoritmo que se plantea en el <a class="reference internal" href="#ref_FTA_Grover_teorema_no-t"><span class="xref myst">Teorema</span></a>.</p>
+<p class="sd-card-text"><a id='ref_FTA_grover_lemma_suma_cos'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Para cualquier par de números <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>, y cualquier posible entero <span class="math notranslate nohighlight">\(r\)</span> tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f3a3663b-cd13-443d-94f7-44f83dcdd518">
+<span class="eqno">(44)<a class="headerlink" href="#equation-f3a3663b-cd13-443d-94f7-44f83dcdd518" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum_{j=0}^{r-1} \cos \lp \alpha + 2 \beta j \rp = \frac{\sin \lp r \beta \rp \cos (\alpha + (r-1) \beta)}{\sin \beta}.
+\end{equation}\]</div>
+<p class="sd-card-text">En particular, si <span class="math notranslate nohighlight">\(\alpha = \beta\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9209a1a9-fdcd-4550-8c7c-a36f0839438f">
+<span class="eqno">(45)<a class="headerlink" href="#equation-9209a1a9-fdcd-4550-8c7c-a36f0839438f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum^{r-1}_{j=0} \cos \lp \lp 2 j + 1 \rp \alpha \rp = \frac{\sin \lp 2 r \alpha \rp}{2 \sin \alpha}.
+\end{equation}\]</div>
+</div>
+</div>
+<p class="sd-card-text"><a id='ref_FTA_grover_lemma_Pm'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(M\)</span> el número (desconocido) de soluciones de un problema tipo Grover con <span class="math notranslate nohighlight">\(N\)</span> elementos y sea <span class="math notranslate nohighlight">\(\theta\)</span> tal que <span class="math notranslate nohighlight">\(\sin^2 \theta = M/N\)</span>. Sea <span class="math notranslate nohighlight">\(r\)</span> un entero positivo aleatorio. Sea <span class="math notranslate nohighlight">\(t\)</span> un entero aleatorio (con distribución uniforme) entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(r-1\)</span>. Si observamos el registro después de <span class="math notranslate nohighlight">\(t\)</span> iteraciones del algoritmo de Grover empezando desde el estado <span class="math notranslate nohighlight">\(|\Psi_0 \rangle = \sum_i \frac{1}{\sqrt{N}} | i \rangle\)</span>, la probabilidad de obtener la solución correcta es exactamente</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-lemma-pm-ec">
+<span class="eqno">(46)<a class="headerlink" href="#equation-ec-fta-grover-lemma-pm-ec" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+P_r = \frac{1}{2} - \frac{\sin (4 r \theta)}{4 r \sin(2 \theta)}.
+\end{equation} \]</div>
+<p class="sd-card-text">En particular, tenemos <span class="math notranslate nohighlight">\(P_r \geq 1/4\)</span> si <span class="math notranslate nohighlight">\(r \geq 1/\sin ( 2 \theta)\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración/Prueba/…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Como ya sabemos, si tenemos <span class="math notranslate nohighlight">\(M\)</span> soluciones la probabilidad de que tras <span class="math notranslate nohighlight">\(t\)</span> iteraciones se mida el resultado correcto es <span class="math notranslate nohighlight">\(M\)</span> veces el valor del coeficiente <span class="math notranslate nohighlight">\(k^2(t)\)</span> (la amplitud al cuadrado del estado <span class="math notranslate nohighlight">\(i \in \omega\)</span> en la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-psi-j-1-j">(37)</a>). Teniendo en cuenta la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-k-l-j-1">(42)</a> sabemos que la probabilidad es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+P(t) = M k^2(t) = \sin^2 ((2t+1)\theta).
+\end{equation*}\]</div>
+<p class="sd-card-text">De esto se sigue que la probabilidad promedio si tomamos un número de iteraciones <span class="math notranslate nohighlight">\(t\)</span> tal que <span class="math notranslate nohighlight">\(0 \leq t &lt; r\)</span> es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+P_r = \frac{1}{r} \sum^{r-1}_{t=0}  P(t) = \frac{1}{r} \sum^{r-1}_{t=0} \sin^2 ((2t+1) \theta) = 
+\frac{1}{2r} \sum^{r-1}_{t=0} \Lp 1-\cos ((2t+1) \theta) \Rp = \frac{1}{2} - \frac{\sin (4 r \theta)}{4 r \, \sin (2 \theta)},
+\end{equation*}\]</div>
+<p class="sd-card-text">donde en la última igualdad se ha usado el Lemma \ref{lemma_suma_cos}. Si estamos en el caso de <span class="math notranslate nohighlight">\(r \geq 1/\sin (2\theta)\)</span> tenemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\frac{\sin (4 r \theta)}{4 r \, \sin (2 \theta)} \leq \frac{1}{4 r \, \sin (2 \theta)} \leq \frac{1}{4} \rqa P_r \geq \frac{1}{2} - \frac{1}{4},
+\end{equation*}\]</div>
+<p class="sd-card-text">donde la primera desigualdad se cumple siempre (independientemente del valor de <span class="math notranslate nohighlight">\(r\)</span>) pues viene de que la función seno está acotada entre <span class="math notranslate nohighlight">\(-1\)</span> y <span class="math notranslate nohighlight">\(1\)</span>.</p>
+</div>
+</details></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p class="sd-card-text">A veces al ver las formulaciones tan formales que se dan en los teoremas o lemmas, perdemos un poco el norte sobre lo que nos quieren transmitir. Veámoslos en palabras más llanas:</p>
+<ul class="simple">
+<li><p class="sd-card-text">El primer Lemma simplemente es una relación trigonométrica un poco exótica y nos sirve para demostrar el segundo Lemma.</p></li>
+<li><p class="sd-card-text">El segundo Lemma nos da la expresión de la probabilidad promedio que tenemos de medir el resultado correcto usando el algoritmo de Grover en un caso particular. En este caso lo que hacemos es, dado un número <span class="math notranslate nohighlight">\(r\)</span>, ejecutar <span class="math notranslate nohighlight">\(t\)</span> iteraciones de Grover donde <span class="math notranslate nohighlight">\(t\)</span> es un número aleatorio  entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(r-1\)</span>. Probando muchas veces con muchos número aleatorio <span class="math notranslate nohighlight">\(t\)</span>, en promedio la probabilidad <span class="math notranslate nohighlight">\(P_r\)</span> de obtener el resultado correcto está dada por la Ec. <a class="reference internal" href="#equation-ec-fta-grover-lemma-pm-ec">(46)</a>. Véase que, para un problema de Grover concreto (<span class="math notranslate nohighlight">\(\theta\)</span> fijo), esta probabilidad depende solo de <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\theta\)</span> un ángulo tal que</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-teorema-no-t-proof-theta">
+<span class="eqno">(47)<a class="headerlink" href="#equation-ec-fta-grover-teorema-no-t-proof-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\sin \theta = \sqrt{N/M},
+\end{equation} \]</div>
+<p class="sd-card-text">(como en la Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-theta">(29)</a>).</p>
+<p class="sd-card-text">Denominemos <span class="math notranslate nohighlight">\(r_s\)</span> al valor de <span class="math notranslate nohighlight">\(r\)</span> en la s-esima iteración del bucle principal, es decir</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-teorema-no-t-proof-r-s">
+<span class="eqno">(48)<a class="headerlink" href="#equation-ec-fta-grover-teorema-no-t-proof-r-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+r_s = \lambda^{s-1}, \qquad \text{con } s = 1,2,\dots \quad \text{ y } \lambda = \frac{4}{3}.
+\end{equation} \]</div>
+<p class="sd-card-text">(No confundir las \textbf{iteraciones del bucle principal} con las \textbf{iteraciones de Grover}: en cada iteración <span class="math notranslate nohighlight">\(s\)</span> del bucle principal hacemos <span class="math notranslate nohighlight">\(t\)</span> iteraciones de Grover.) Sea <span class="math notranslate nohighlight">\(r_0\)</span> tal que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a23962c1-212f-49c3-9b71-b5c95c4046eb">
+<span class="eqno">(49)<a class="headerlink" href="#equation-a23962c1-212f-49c3-9b71-b5c95c4046eb" title="Permalink to this equation">#</a></span>\[\begin{equation}  
+r_0 = \frac{1}{\sin (2 \theta)}.
+\end{equation}\]</div>
+<p class="sd-card-text">(Véase que <span class="math notranslate nohighlight">\(r_0\)</span> no es valor inicial de <span class="math notranslate nohighlight">\(r_s\)</span>).</p>
+<p class="sd-card-text">Aplicando un poco de trigonometria</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\sin^2 \theta =  \frac{1-\cos (2\theta)}{2} 
+\rqa 1 - 2 \sin^2 \theta = \cos (2 \theta) = \sqrt{1 - \sin^2 (2 \theta)} 
+\rqa \sin^2 (2 \theta) = 1 - \Lp 1 - 2 \sin^2 \theta \Rp^2.
+\end{equation*}\]</div>
+<p class="sd-card-text">Desarrollando el cuadrado y teniendo en cuenta la Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-proof-theta">(47)</a> llegamos a</p>
+<div class="math notranslate nohighlight" id="equation-teorema-no-t-proof-alpha">
+<span class="eqno">(50)<a class="headerlink" href="#equation-teorema-no-t-proof-alpha" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+r_0 = \frac{1}{\sin (2 \theta)} = \frac{N}{2 \sqrt{(N-M)M}} &lt; \sqrt{\frac{N}{M}}.
+\end{equation} \]</div>
+<p class="sd-card-text">donde en la desigualdad se ha tenido en cuenta que <span class="math notranslate nohighlight">\(M \leq 3N/4\)</span>. Veámoslo</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{N}{2 \sqrt{(N-M)M}} &lt; \sqrt{\frac{N}{M}} 
+\rqa  \frac{\sqrt{N}}{2 \sqrt{(N-M)}} &lt; 1 
+\rqa \frac{N}{(N-M)} &lt; 4 
+\rqa  1 - \frac{1}{4} &gt; \frac{M}{N}.
+\end{align*}\]</div>
+<p class="sd-card-text">Debemos estimar el número esperado total de iteraciones de Grover que tenemos que hacer (sumando todas las interaciones de Grover en todas las iteraciones del bucle principal). El tiempo total será del orden de este número. Sabemos que \textbf{el número promedio de iteraciones de Grover que se realizan en la iteración s-esima del bucle principal es menor que} <span class="math notranslate nohighlight">\({r_s/2}\)</span>. Escribiéndolo de forma bonita:</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-teorema-no-t-proof-j-hat">
+<span class="eqno">(51)<a class="headerlink" href="#equation-ec-fta-grover-teorema-no-t-proof-j-hat" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\bar{t}_s &lt; \frac{r_s}{2} = \frac{\lambda^{s-1}}{2} \qquad \text{ donde la barra significa promedio}.
+\end{equation} \]</div>
+<p class="sd-card-text">Esto es debido a que en cada iteración del bucle principal hacemos un número aleatorio de iteraciones <span class="math notranslate nohighlight">\(t_s\)</span> de Grover con <span class="math notranslate nohighlight">\(0 \leq t_s &lt; r_s\)</span>.  Denominamos <strong>fase crítica</strong> al momento en el que hemos realizado suficientes iteraciones del bucle principal como para tener <span class="math notranslate nohighlight">\(r_s \geq r_0\)</span>, es decir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c7a569c-c39b-4531-ac62-eddc13b688a9">
+<span class="eqno">(52)<a class="headerlink" href="#equation-4c7a569c-c39b-4531-ac62-eddc13b688a9" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rqa s &gt; \lceil \log_\lambda r_0 \rceil.
+\end{equation}\]</div>
+<p class="sd-card-text">con lo cual, <strong>estamos en la fase crítica cuando el número de iteraciones del bucle principal es mayor que</strong> <span class="math notranslate nohighlight">\({\lceil \log_{\lambda} r_0 \rceil}\)</span> (donde esta notación significa <em>redondear hacia el siguiente entero</em>).  Si nos fijamos en el <a class="reference internal" href="#ref_FTA_grover_lemma_Pm"><span class="xref myst">Lemma anterior</span></a>, esta fase corresponde a aquella donde <span class="math notranslate nohighlight">\(P_r &gt; 1/4\)</span>.</p>
+<p class="sd-card-text">Teniendo en cuenta la Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-proof-j-hat">(51)</a>, vemos que el número promedio total de iteraciones de Grover que se realizan antes de llegar a la fase crítica es</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-teorema-no-t-3r0">
+<span class="eqno">(53)<a class="headerlink" href="#equation-ec-fta-grover-teorema-no-t-3r0" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\begin{split}
+\sum_{s=1}^{\lceil \log_\lambda r_0 \rceil} \bar{t}_s 
+&amp; = \frac{1}{2} \sum_{s=1}^{\lceil \log_\lambda r_0 \rceil} \lambda^{s-1} 
+= \frac{1}{2} \sum_{\tilde{s}=0}^{\lceil \log_\lambda r_0 \rceil-1} \lambda^{\tilde{s}}  = \frac{1}{2} \frac{ \lambda^{\lceil \log_\lambda r_0 \rceil} -1 }{\lambda -1 }  &lt; \\
+&amp; &lt; \frac{1}{2} \frac{\lambda^{1 + \log_\lambda r_0} -1 }{\lambda -1} = \frac{1}{2} \frac{r_0 \lambda -1 }{\lambda  -1 }  &lt; 
+\frac{1}{2} \frac{\lambda}{\lambda - 1} r_0 = \boxed{3 r_0}.
+\end{split}
+\end{equation} \end{split}\]</div>
+<p class="sd-card-text">donde se ha aplicado la formula e la suma de la serie geométrica\footnote{Suma de la serie geométrica:</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-no-t-suma-geometrica">
+<span class="eqno">(54)<a class="headerlink" href="#equation-ec-fta-grover-no-t-suma-geometrica" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\sum_{k=0}^n r^k = \frac{1-r^{n+1}}{1-r} = \frac{r^{n+1} -1 }{r -1}.
+\end{equation} \]</div>
+<p class="sd-card-text">Vemos pues que el algoritmo llega a la fase crítica en un tiempo <span class="math notranslate nohighlight">\(\mathcal{O} (r_0) &lt; \mathcal{O}(\sqrt{N/M})\)</span>.</p>
+<p class="sd-card-text">Como ya comentamos, una vez alcanzado el estado crítico, por el <a class="reference internal" href="#ref_FTA_grover_lemma_Pm"><span class="xref myst">Lemma anterior</span></a>, sabemos que en cada nueva iteración del bucle principal la <strong>probabilidad de éxito</strong> <span class="math notranslate nohighlight">\({P_r \geq 1/4}\)</span> ya que <span class="math notranslate nohighlight">\(r_s &gt; 1/\sin (2 \theta)\)</span>. De ello se deduce que el número esperado de iteraciones de Grover necesarias para tener éxito una vez alcanzada la fase crítica está acotado superiormente por</p>
+<div class="amsmath math notranslate nohighlight" id="equation-920521fc-c93b-41cb-9bab-dd3825a47922">
+<span class="eqno">(55)<a class="headerlink" href="#equation-920521fc-c93b-41cb-9bab-dd3825a47922" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum_{\tilde{u}=1}^\infty (1-P_r)^{\tilde{u}-1} P_r \, \bar{t}_{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil} &lt; \frac{1}{2} \sum_{\tilde{u}=1}^\infty \frac{3^{\tilde{u}-1}}{4^{\tilde{u}-1}} \frac{1}{4} \lambda^{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil},
+\end{equation}\]</div>
+<p class="sd-card-text">donde <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1}\)</span> es la probabilidad de fallar <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span>, con lo que <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1} P_r\)</span> es la probabilidad de haber fallado <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span> veces y acertar en la <span class="math notranslate nohighlight">\(\tilde{u}\)</span>-esima. <span class="math notranslate nohighlight">\(\bar{t}_s\)</span> viene dada por Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-proof-j-hat">(51)</a>. Véase que para acotar las iteraciones nos hemos puesto en el peor caso, en el que la probabilidad de exito es la mínima y no aumenta (<span class="math notranslate nohighlight">\(P_r = 1/4\)</span>). Podemos hacer al cambio de variable <span class="math notranslate nohighlight">\(u = \tilde{u} -1\)</span> para poner la expresión anterior más acorde para realizar la suma de la serie geométrica (ver Ec. <a class="reference internal" href="#equation-ec-fta-grover-no-t-suma-geometrica">(54)</a>)</p>
+<div class="math notranslate nohighlight" id="equation-ec-fta-grover-teorema-no-t-3r0-2">
+<span class="eqno">(56)<a class="headerlink" href="#equation-ec-fta-grover-teorema-no-t-3r0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\frac{1}{2} \sum_{u=0}^\infty \frac{3^{u}}{4^{u}} \frac{1}{4} \lambda^{u+\lceil \log_\lambda r_0 \rceil} 
+&lt; 
+\frac{1}{2}  \frac{1}{4} \lambda^{1+ \log_\lambda r_0}  \sum_{u=0}^\infty \frac{3^{u}}{4^{u}} \lambda^{u} 
+= 
+\frac{r_0 \lambda}{8} \frac{1}{1-3 \lambda/4} 
+= \frac{\lambda}{8-6 \lambda}r_0 = \boxed{ \frac{3}{2} r_0}.
+\end{equation} \]</div>
+<p class="sd-card-text">El número total esperado de iteraciones de Grover, en caso de que se alcance la fase crítica, está, por tanto, limitado por la suma de Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-3r0">(53)</a> más Ec. <a class="reference internal" href="#equation-ec-fta-grover-teorema-no-t-3r0-2">(56)</a>, es decir,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d1157625-cc79-4a11-85ce-d094719a7a1d">
+<span class="eqno">(57)<a class="headerlink" href="#equation-d1157625-cc79-4a11-85ce-d094719a7a1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+T = r_0 + \frac{3}{2} r_0 = \frac{9}{2} r_0 &lt; \frac{9}{2} \sqrt{\frac{M}{N}},
+\end{equation}\]</div>
+<p class="sd-card-text">con lo que el tiempo esperado total es <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> siempre que <span class="math notranslate nohighlight">\(0 &lt; M \leq 3N/4\)</span>. Véase que <span class="math notranslate nohighlight">\(\frac{9}{2} r_0 \approx \frac{9}{2} \sqrt{N/M}\)</span> cuando <span class="math notranslate nohighlight">\(M \ll N\)</span>, que es menos de 4 veces el tiempo esperado en el caso de conocer <span class="math notranslate nohighlight">\(M\)</span> de antemano (ver Ec. <a class="reference internal" href="Section_03_Numero_conocido_sols_myst.html#equation-ec-fta-grover-t-sols-m">(36)</a>). El caso <span class="math notranslate nohighlight">\(M &gt; 3N/4\)</span> puede resolverse en tiempo esperado constante mediante muestreo clásico. El caso <span class="math notranslate nohighlight">\(M = 0\)</span> se maneja mediante un tiempo de espera apropiado en el algoritmo anterior, que permite afirmar en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{N})\)</span> que no hay soluciones cuando este es el caso, con una probabilidad de fallo arbitrariamente pequeña cuando de hecho hay una solución.</p>
+</div>
+</details></section>
+<hr class="docutils" />
+<section id="bibliografia">
+<h2><a class="toc-backref" href="#id98">Bibliografía</a><a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id92"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. <em>Fortschritte der Physik</em>, 46(4-5):493–505, jun 1998. URL: <a class="reference external" href="https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p">https://doi.org/10.1002%2F%28sici%291521-3978%28199806%2946%3A4%2F5%3C493%3A%3Aaid-prop493%3E3.0.co%3B2-p</a>, <a class="reference external" href="https://doi.org/10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p">doi:10.1002/(sici)1521-3978(199806)46:4/5&lt;493::aid-prop493&gt;3.0.co;2-p</a>.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<p>Autores:</p>
+<p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">UMA-SCBI</a>), Raul Fuentes (<a class="reference external" href="https://www.bsc.es/es">BSC-CNS</a>), Daniel Talaván  (<a class="reference external" href="https://www.cenits.es/">COMPUTAEX</a>), Francisco Matanza (<a class="reference external" href="https://web.unican.es/">UNICAN</a>)</p>
+<a class="reference internal image-reference" href="../../../_images/Logo_UMA3.jpeg"><img alt="../../../_images/Logo_UMA3.jpeg" src="../../../_images/Logo_UMA3.jpeg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/BSC-blue-medium3.png"><img alt="../../../_images/BSC-blue-medium3.png" src="../../../_images/BSC-blue-medium3.png" style="width: 195px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/COMPUTAEX3.jpg"><img alt="../../../_images/COMPUTAEX3.jpg" src="../../../_images/COMPUTAEX3.jpg" style="width: 170px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Logo_UNICAM3.jpg"><img alt="../../../_images/Logo_UNICAM3.jpg" src="../../../_images/Logo_UNICAM3.jpg" style="width: 210px;" /></a>
+<hr class="docutils" />
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+</center>
+<p>License: <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.</p>
+<p>This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.</p>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_03_Numero_conocido_sols_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3. Número conocido de soluciones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_05_conteo_de_soluciones_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5. Conteo de soluciones (Quantum counting)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-para-el-caso-de-m-desconocido">Algoritmo para el caso de <span class="math notranslate nohighlight">\(M\)</span> desconocido.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-del-teorema">Demostración del Teorema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://quantumspain-project.es">QuantumSpain</a> & <a href="https://www.talentq.es/es_es/">TalentQ</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -238,6 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -460,7 +464,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fase-con-expansion-binaria-no-exacta">Fase con expansión binaria no exacta</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
             </nav>
         </div>
@@ -505,7 +508,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Para esta implementación se ha seguido la referencia <span id="id1">[<a class="reference internal" href="#id79" title="Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb.">2</a>]</span>. Para más información sobre la QPE, ver <span id="id2">[<a class="reference internal" href="../Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span></p>
+<p>Para esta implementación se ha seguido la referencia <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id77" title="Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb.">11</a>]</span>. Para más información sobre la QPE, ver <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span></p>
 <section id="fase-con-expansion-binaria-exacta">
 <h2>Fase con expansión binaria exacta<a class="headerlink" href="#fase-con-expansion-binaria-exacta" title="Permalink to this heading">#</a></h2>
 <p>Vamos a ver un par de ejemplo donde la fase que queremos calcular podemos expandirla de forma exacta en forma binaria usando la <strong>notación del punto decimal</strong>. Veremos los dos siguientes casos:</p>
@@ -896,8 +899,8 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 54, &#39;01&#39;: 694, &#39;00&#39;: 189, &#39;10&#39;: 63}
-Success probability: 0.694
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 45, &#39;10&#39;: 74, &#39;00&#39;: 192, &#39;01&#39;: 689}
+Success probability: 0.689
 </pre></div>
 </div>
 </div>
@@ -977,7 +980,7 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 268, &#39;1&#39;: 732}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 249, &#39;1&#39;: 751}
 </pre></div>
 </div>
 </div>
@@ -1100,8 +1103,8 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;01&#39;: 940, &#39;11&#39;: 60}
-Success probability: 0.94
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 62, &#39;01&#39;: 938}
+Success probability: 0.938
 </pre></div>
 </div>
 </div>
@@ -1109,20 +1112,6 @@ Success probability: 0.94
 <div class="note admonition">
 <p class="admonition-title">Nota (Precisión)</p>
 <p>Vemos que el resultado sigue sin ser muy bueno, pero es el que esperabamos <span class="math notranslate nohighlight">\(1/4\)</span>. Podemos mejorar la precisión de este valor aumentando el número de qúbit que usamos, de dos a tres, cuatro,…</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id3">
-<dl class="citation">
-<dt class="label" id="id80"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-<dt class="label" id="id79"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
-<dd><p>Qiskit Textbook. Lab 3, qiskit quantum challange spring 2023. URL: <a class="github reference external" href="https://github.com/qiskit-community/ibm-quantum-challenge-spring-2023/blob/main/content/lab_3/lab3-es.ipynb">qiskit-community/ibm-quantum-challenge-spring-2023</a>.</p>
-</dd>
-</dl>
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
@@ -1221,7 +1210,6 @@ Success probability: 0.94
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fase-con-expansion-binaria-no-exacta">Fase con expansión binaria no exacta</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
 </ul>
   </nav></div>
 

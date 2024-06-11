@@ -236,6 +236,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -424,9 +428,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -442,14 +444,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -460,11 +454,11 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jun 04, 2024 | 1 min read</p>
+<div><p>Jun 11, 2024 | 1 min read</p>
 </div></blockquote>
 <section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-estimacion-iterativa-de-fase-ipe">
 <span id="sec-fta-ipe-intro"></span><h1>Algoritmo de Estimación Iterativa de Fase (IPE)<a class="headerlink" href="#algoritmo-de-estimacion-iterativa-de-fase-ipe" title="Permalink to this heading">#</a></h1>
-<p>En este capítulo vamos a estudiar en detalle el Algoritmo de Estimación Iterativa de Fase (IPE). Este algoritmo es una versión refinada de la conocida Estimación de Fase Cuántica (Quantum Phase Estimation, QPE) <span id="id1">[<a class="reference internal" href="Chapter_03_02_Grover/Section_05_conteo_de_soluciones_myst.html#id82" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">3</a>]</span> donde se usan medidas intermedias para reducir el número de qúbits en el registro de control a uno solo.</p>
+<p>En este capítulo vamos a estudiar en detalle el Algoritmo de Estimación Iterativa de Fase (IPE). Este algoritmo es una versión refinada de la conocida Estimación de Fase Cuántica (Quantum Phase Estimation, QPE) <span id="id1">[<a class="reference internal" href="../Chapter_Bibliografia_myst.html#id78" title="J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#.">6</a>]</span> donde se usan medidas intermedias para reducir el número de qúbits en el registro de control a uno solo.</p>
 <p>El algoritmo de QPE es uno de los algoritmos cuánticos más importantes y famosos. Es una subrutina clave del algoritmo de factorización de Shor, así como algoritmos para simulación cuántica. La versión de libro de texto del algoritmo utiliza una cantidad de qubits auxiliares que se escalan con la precisión deseada, lo que lleva a circuitos que son difíciles de ejecutar en los dispositivos ruidosos de hoy en día con un número de qubits y una conectividad limitados.</p>
 <p>La estimación de fase iterativa (iterative phase estimation, IPE) es una variante de QPE que requiere solo un qubit auxiliar. En IPE, el qubit auxiliar se mide repetidamente y los resultados de la medición se utilizan para guiar futuras operaciones cuánticas.</p>
 <div class="toctree-wrapper compound">
@@ -472,16 +466,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="Chapter_01_02_IPE/Section_01_Teoria_myst.html">1. Teoría</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter_01_02_IPE/Section_02_Implementacion_y_ejemplo_myst.html">2. Implementación y ejemplos</a></li>
 </ul>
-</div>
-<hr class="docutils" />
-<section id="bibliografia">
-<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id2">
-<dl class="citation">
-<dt class="label" id="id79"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>J. Mas Solé and D. Castaño Bandín. Curso básico de computación cuántica, sección &quot;estimación de fase y aplicaciones&quot;. URL: <a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#">https://talentq-es.github.io/TalentQ-CICC/docs/Part_03_Algoritmos/Chapter_043_QPE_myst.html#</a>.</p>
-</dd>
-</dl>
 </div>
 <hr class="docutils" />
 <p>Autores:</p>
@@ -503,7 +487,6 @@ document.write(`
 <center>
 <img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
 </center></section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -560,20 +543,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografía</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

@@ -19,4 +19,3 @@
         - **[6. Consideraciones sobre la implementación](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_06_consideraciones_implementacion.ipynb)**
         - **[7. Distribución de probababilidad inicial aleatoria](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria.ipynb)**
         - **[8. Implementación](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_08_Implementacion.ipynb)**
-- **[Bibliografía](.\/Notebooks/Chapter_Bibliografia_myst.ipynb)**

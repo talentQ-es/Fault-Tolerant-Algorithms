@@ -107,7 +107,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Bibliografía" href="../../Chapter_Bibliografia_myst.html" />
-    <link rel="prev" title="7. Distribución de probababilidad inicial aleatoria" href="Section_07_distribucion_prob_aleatoria_myst.html" />
+    <link rel="prev" title="7. Distribución de probabilidad inicial aleatoria" href="Section_07_distribucion_prob_aleatoria_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -233,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_07_distribucion_prob_aleatoria_myst.html">7. Distribución de probabilidad inicial aleatoria</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">8. Implementación</a></li>
 </ul>
 </li>
@@ -725,8 +725,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <span id="sec-fta-grover-imple-trivial-oracle"></span><h2><a class="toc-backref" href="#id4">Oráculo “trivial”.</a><a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
 <p>Vamos a presentar en esta sección un código de para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está hecho “ad hoc” para marcar ciertos estado. Precisamente elegimos llamarle a este caso “trivial” porque no entraña ningún misterio, sino que como comentamos, es un caso académico.</p>
 <p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <code class="docutils literal notranslate"><span class="pre">M_list_bin_qiskit</span></code>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e365d638-4f4d-42bd-bb6b-04a14a47ba4f">
-<span class="eqno">(75)<a class="headerlink" href="#equation-e365d638-4f4d-42bd-bb6b-04a14a47ba4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d97ec46f-bca2-43b4-9258-17595dde5de6">
+<span class="eqno">(75)<a class="headerlink" href="#equation-d97ec46f-bca2-43b4-9258-17595dde5de6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{M_list_bin_qiskit} = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
 \end{equation}\]</div>
 <div class="note admonition">
@@ -879,8 +879,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="el-sudoku">
 <h4>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h4>
 <p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f785735f-564e-467f-bb2d-1967446d37e1">
-<span class="eqno">(76)<a class="headerlink" href="#equation-f785735f-564e-467f-bb2d-1967446d37e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-45259f5b-dd63-4028-b6d8-7e6c56ed27d5">
+<span class="eqno">(76)<a class="headerlink" href="#equation-45259f5b-dd63-4028-b6d8-7e6c56ed27d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\lc
 	\begin{matrix}
 	V_0 &amp; V_1 \\
@@ -892,8 +892,8 @@ Qibo</label><div class="sd-tab-content docutils">
 <section id="condiciones-y-puerta-xor">
 <h4>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h4>
 <p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77ad6c69-506b-43e4-b223-7391f1223932">
-<span class="eqno">(77)<a class="headerlink" href="#equation-77ad6c69-506b-43e4-b223-7391f1223932" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9e517c0-fa85-41a1-855f-cb569c5515fe">
+<span class="eqno">(77)<a class="headerlink" href="#equation-a9e517c0-fa85-41a1-855f-cb569c5515fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_0 \neq V_1, \qquad 
 V_0 \neq V_2, \qquad
 V_2 \neq V_3, \qquad
@@ -1321,7 +1321,7 @@ Qibo</label><div class="sd-tab-content docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">7. Distribución de probababilidad inicial aleatoria</p>
+        <p class="prev-next-title">7. Distribución de probabilidad inicial aleatoria</p>
       </div>
     </a>
     <a class="right-next"

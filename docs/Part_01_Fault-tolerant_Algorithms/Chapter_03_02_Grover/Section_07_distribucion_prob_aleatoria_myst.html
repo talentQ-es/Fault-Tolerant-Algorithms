@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>7. Distribución de probababilidad inicial aleatoria &#8212; Algoritmos &#34;Fault-Tolerant&#34;</title>
+    <title>7. Distribución de probabilidad inicial aleatoria &#8212; Algoritmos &#34;Fault-Tolerant&#34;</title>
   
   
   
@@ -233,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Section_04_Numero_desconocido_sols_myst.html">4. Número desconocido de soluciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Section_05_conteo_de_soluciones_myst.html">5. Conteo de soluciones (Quantum counting)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Section_06_consideraciones_implementacion_myst.html">6. Consideraciones sobre la implementación</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Distribución de probabilidad inicial aleatoria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Section_08_Implementacion_myst.html">8. Implementación</a></li>
 </ul>
 </li>
@@ -443,7 +443,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>7. Distribución de probababilidad inicial aleatoria</h1>
+    <h1>7. Distribución de probabilidad inicial aleatoria</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -487,8 +487,8 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span></p>
-<section class="tex2jax_ignore mathjax_ignore" id="distribucion-de-probababilidad-inicial-aleatoria">
-<span id="sec-fta-grover-arbitrary-distribition"></span><h1>7. Distribución de probababilidad inicial aleatoria<a class="headerlink" href="#distribucion-de-probababilidad-inicial-aleatoria" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="distribucion-de-probabilidad-inicial-aleatoria">
+<span id="sec-fta-grover-arbitrary-distribition"></span><h1>7. Distribución de probabilidad inicial aleatoria<a class="headerlink" href="#distribucion-de-probabilidad-inicial-aleatoria" title="Permalink to this heading">#</a></h1>
 <p>En esta sección vamos a ver una generalización del algoritmo de Grover para el caso en el que partimos de una distribución de probabilidad aleatoria (no uniforme). Veremos como este algoritmo generalizado sigue requiriendo un número de iteraciones <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span>, aunque veremos también que hay ciertos casos particularmente desfavorables donde no podemos encontrar ninguna solución.</p>
 <p>Este caso es de especial interés si tenemos en cuenta que muchas veces hay errores al aplicar las puertas. De esta forma, podemos tener errores en el paso de inicialización de la distribución uniforme y acabar con una distribución que se distancia un poco de esta. Como veremos a continuación, el algoritmo de Grover sigue funcionando en presencia de estos errores modestos.</p>
 <p>En la siguientes subsecciones presentaremos el algoritmo y derivaremos las ecuaciones diferenciales que rigen la evolución de las amplitudes. Usaremos la solución (exacta) de las mismas para calcular la probabilidad de éxito y analizaremos la diferente casuística. Como el cálculo, aunque simple, puede hacerse pesado, se incluye al final un resumen de con las conclusiones importantes (sección <span class="xref std std-ref">sec_FTA_grover_prop-no-uni_resumen</span>).</p>

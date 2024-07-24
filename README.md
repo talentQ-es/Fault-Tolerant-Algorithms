@@ -17,5 +17,5 @@
         - **[4. Número desconocido de soluciones](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_04_Numero_desconocido_sols.ipynb)**
         - **[5. Conteo de soluciones (Quantum counting)](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_05_conteo_de_soluciones.ipynb)**
         - **[6. Consideraciones sobre la implementación](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_06_consideraciones_implementacion.ipynb)**
-        - **[7. Distribución de probababilidad inicial aleatoria](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria.ipynb)**
+        - **[7. Distribución de probabilidad inicial aleatoria](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_07_distribucion_prob_aleatoria.ipynb)**
         - **[8. Implementación](./Notebooks/Part_01_Fault-tolerant_Algorithms/Chapter_03_02_Grover/Section_08_Implementacion.ipynb)**
